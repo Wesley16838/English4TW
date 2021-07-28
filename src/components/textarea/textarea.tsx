@@ -13,7 +13,7 @@ import theme from "./../../utilities/theme.style";
 export type Props = {
   OnClick: any;
   customStyle: any;
-  source: any;
+  source?: any;
   placeHolder: string;
   placeHolderTextColor: string;
   limit: number;
@@ -66,7 +66,7 @@ const TextArea: React.FC<Props> = ({
         <Text style={styles.textAreaText}>
           {textNumber}/{limit}
         </Text>
-        <Image source={source} style={styles.textAreaBottomImage} />
+        {source && <Image source={source} style={styles.textAreaBottomImage} />}
       </View>
     </View>
   );

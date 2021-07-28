@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import theme from "./../../utilities/theme.style";
 export type Props = {
-  title: string;
+  title: any;
   onPress: any;
   customStyle: any;
   type: string;

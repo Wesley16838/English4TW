@@ -185,7 +185,7 @@ const loginPage = ({
                                     }}
                                     title={'保持登入'}
                                 />
-                                <TouchableWithoutFeedback>
+                                <TouchableWithoutFeedback onPress={() => navigation.push('resetpasswordPage')}>
                                     <Text style={{ color: theme.FONT_COLOR_GRAY, fontSize: theme.FONT_SIZE_MEDIUM }}>重設密碼</Text>
                                 </TouchableWithoutFeedback>
                             </View>
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     sectionRow: {
         flexDirection: "row",
         justifyContent: "flex-end",
-        paddingHorizontal: 25,
+        paddingHorizontal: 20,
         paddingBottom: 20,
     },
     sectionContainer: {

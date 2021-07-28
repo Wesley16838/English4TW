@@ -47,6 +47,10 @@ const images = {
     launch_icon: require("./icons/launchIcon.png"),
     facebook_icon: require("./icons/facebookIcon.png"),
     checkbox_icon: require("./icons/checkIcon.png"),
+    progressbar_1_icon: require("./icons/progressbar1Icon.png"),
+    progressbar_2_icon: require("./icons/progressbar2Icon.png"),
+    progressbar_3_icon: require("./icons/progressbar3Icon.png"),
+    success_icon: require("./icons/successIcon.png"),
   },
 };
 

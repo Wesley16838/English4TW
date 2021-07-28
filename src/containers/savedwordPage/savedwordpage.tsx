@@ -91,10 +91,11 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
             style={{
               flexDirection: "row",
               alignItems: "center",
+              paddingHorizontal: 20
             }}
           >
             <View
-              style={{ flex: 1, alignItems: "flex-start", paddingLeft: 20 }}
+              style={{ flex: 1, alignItems: "flex-start" }}
             >
               <Button
                 title=""
@@ -117,7 +118,7 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
             >
               儲存字彙
             </Text>
-            <View style={{ flex: 1, alignItems: "flex-end", paddingRight: 20 }}>
+            <View style={{ flex: 1, alignItems: "flex-end" }}>
               <TouchableOpacity
                 onPress={() => {
                   // setIsOpenModal(true);

@@ -9,13 +9,15 @@ import {
     Modal,
     Alert,
 } from "react-native";
+import * as ImagePicker from 'expo-image-picker';
 import Button from "./../../components/button/button";
 import InputBox from "./../../components/inputbox/inputbox";
 import CheckBox from "./../../components/checkbox/checkbox";
 import ProfileImage from "./../../components/profileimage/profileimage";
+import Actionsheet from "./../../components/actionsheet/actionsheet";
 import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
-import { DEVICE_WIDTH } from "../splashpage";
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 const createaccountPage = ({
     navigation,
@@ -25,6 +27,7 @@ const createaccountPage = ({
     route: any;
 }) => {
     const [animation, setAnimation] = React.useState(new Animated.Value(0));
+    const { title } = route.params;
     const [account, setAccount] = React.useState({
         fullname: "",
         email: "",
@@ -32,14 +35,18 @@ const createaccountPage = ({
         secondpassword: "",
     })
     const [checked, onCheck] = React.useState(false);
+    const [step, setStep] = React.useState(1);
+    const [actionsheet, openActionsheet] = React.useState(false);
+    const [pickedImagePath, setPickedImagePath] = React.useState('');
     const screenHeight = Dimensions.get("window").height;
     const screenWidth = Dimensions.get("window").width;
+    const options = ["移除目前的相片", "相機", "從相簿"]
     const handleOnFacebookLogin = () => { }
     const handleOnLogin = () => {
 
     }
     const onCreateAccountNext = () => {
-        navigation.push('')
+        setStep(2)
     }
     const backdrop = {
         transform: [
@@ -70,8 +77,16 @@ const createaccountPage = ({
             duration: 300,
             useNativeDriver: true,
         }).start();
-        navigation.goBack();
+        navigation.navigate('loginPage');
     };
+    const handleBack = () => {
+        Animated.timing(animation, {
+            toValue: 0,
+            duration: 300,
+            useNativeDriver: true,
+        }).start();
+        navigation.goBack();
+    }
     const handleRemove = () => {
         Animated.timing(animation, {
             toValue: 0,
@@ -92,9 +107,81 @@ const createaccountPage = ({
             },
         ],
     };
+    // This function is triggered when the "Select an image" button pressed
+    const showImagePicker = async () => {
+        // Ask the user for the permission to access the media library 
+        const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
+        if (permissionResult.granted === false) {
+            alert("You've refused to allow this appp to access your photos!");
+            return;
+        }
+        openActionsheet(false)
+        const result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 4],
+            quality: 1,
+        });
+
+        // Explore the result
+        console.log(result);
+
+        if (!result.cancelled) {
+
+            setPickedImagePath(result.uri);
+            console.log(result.uri);
+        }
+
+    }
+    // This function is triggered when the "Open camera" button pressed
+    const openCamera = async () => {
+        // Ask the user for the permission to access the camera
+        const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+        if (permissionResult.granted === false) {
+            alert("You've refused to allow this appp to access your camera!");
+            return;
+        }
+        openActionsheet(false)
+        const result = await ImagePicker.launchCameraAsync();
+
+        // Explore the result
+        console.log(result);
+
+        if (!result.cancelled) {
+
+            setPickedImagePath(result.uri);
+            console.log(result.uri);
+        }
+
+    }
+    const handleOnAction = (str: string) => {
+        switch (str) {
+            case "移除目前的相片":
+                setPickedImagePath('')
+                break;
+            case "相機":
+                openCamera()
+                break;
+            case "從相簿":
+                showImagePicker()
+                break;
+        }
+    }
     return (
         <>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={actionsheet}
+                onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                }}
+            >
+                <Actionsheet OnCancel={() => openActionsheet(false)} OnClick={(action: string) => handleOnAction(action)} options={options} />
+
+            </Modal>
             <View style={styles.container}>
                 <Animated.View
                     style={[StyleSheet.absoluteFill, styles.cover, backdrop]}
@@ -102,18 +189,46 @@ const createaccountPage = ({
                 <View style={[styles.sheet]}>
                     <Animated.View style={[styles.popup, slideUp]}>
                         <View style={styles.sectionRow}>
-                            <Button
-                                title=""
-                                image={images.icons.close_icon}
-                                customStyle={{}}
-                                imageSize={{ height: 30, width: 30, marginRight: 0 }}
-                                type=""
-                                onPress={() => handleClose()}
-                            />
+                            <View style={{ flex: 1, alignItems: "flex-start" }}>
+                                {step === 1 && <Button
+                                    title=""
+                                    image={images.icons.leftarrow_icon}
+                                    customStyle={{}}
+                                    imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                                    type=""
+                                    onPress={() => handleBack()}
+                                />}
+
+                            </View>
+                            <Text
+                                style={{
+                                    flex: 1,
+                                    textAlign: "center",
+                                    fontSize: theme.FONT_SIZE_MEDIUM,
+                                    lineHeight: 22,
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                {title}
+                            </Text>
+                            <View style={{ flex: 1, alignItems: "flex-end" }}>
+                                <Button
+                                    title=""
+                                    image={images.icons.close_icon}
+                                    customStyle={{}}
+                                    imageSize={{ height: 30, width: 30, marginRight: 0 }}
+                                    type=""
+                                    onPress={() => handleClose()}
+                                />
+                            </View>
                         </View>
                         <View style={styles.sectionContainer}>
-                            <ProfileImage
-                                name={images.icons.default_profileimage}
+                            {step === 2 && <View style={{ flex: 1, alignItems: "center", justifyContent: "center", paddingBottom: 66 }}>
+                                <Image source={images.icons.success_icon} style={{ width: 205, height: 205, resizeMode: 'contain' }} />
+                                <Text style={{ color: theme.SECONDARY_COLOR_DEFAULT, fontSize: theme.FONT_SIZE_MEDIUM }}>請至電子郵件收發帳戶認證信件, 方能完成註冊程序.</Text>
+                            </View>}
+                            {step === 1 && <View style={{ alignItems: "center" }}><ProfileImage
+                                name={pickedImagePath !== '' ? pickedImagePath : images.icons.default_profileimage}
                                 size={130}
                                 customStyle={{
                                     height: 130,
@@ -123,107 +238,111 @@ const createaccountPage = ({
                                     borderRadius: 65,
                                 }}
                             />
-                            <TouchableWithoutFeedback>
-                                <Text>變更頭像</Text>
-                            </TouchableWithoutFeedback>
-                            <InputBox
-                                OnChangeText={(str: string) =>
-                                    setAccount({
-                                        ...account,
-                                        email: str
-                                    })
-                                }
-                                customStyle={{
-                                    width: DEVICE_WIDTH - 40,
-                                    height: 40,
-                                    marginTop: 6,
-                                    marginBottom: 20,
-                                }}
-                                placeHolder={"例如：王小明"}
-                                placeHolderTextColor={"#96CACA"}
-                                value={account.email}
-                                title={"姓名"}
-                            />
-                            <InputBox
-                                OnChangeText={(str: string) =>
-                                    setAccount({
-                                        ...account,
-                                        email: str
-                                    })
-                                }
-                                customStyle={{
-                                    width: DEVICE_WIDTH - 40,
-                                    height: 40,
-                                    marginTop: 6,
-                                    marginBottom: 20,
-                                }}
-                                placeHolder={"例如：XXXXXX@gmail.com"}
-                                placeHolderTextColor={"#96CACA"}
-                                value={account.email}
-                                title={"電子信箱"}
-                            />
-                            <InputBox
-                                OnChangeText={(str: string) =>
-                                    setAccount({
-                                        ...account,
-                                        password: str
-                                    })
-                                }
-                                customStyle={{
-                                    width: DEVICE_WIDTH - 40,
-                                    height: 40,
-                                    marginTop: 6,
-                                    marginBottom: 20,
-                                }}
-                                placeHolder={"需有大小寫字母加數字"}
-                                placeHolderTextColor={"#96CACA"}
-                                value={account.email}
-                                title={"密碼"}
-                            />
-                            <InputBox
-                                OnChangeText={(str: string) =>
-                                    setAccount({
-                                        ...account,
-                                        secondpassword: str
-                                    })
-                                }
-                                customStyle={{
-                                    width: DEVICE_WIDTH - 40,
-                                    height: 40,
-                                    marginTop: 6,
-                                    marginBottom: 20,
-                                }}
-                                placeHolder={"再一次輸入密碼"}
-                                placeHolderTextColor={"#96CACA"}
-                                value={account.email}
-                                title={"確認密碼"}
-                            />
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: DEVICE_WIDTH - 40 }}>
-                                <CheckBox
-                                    checked={checked}
-                                    OnClick={(boo: boolean) => onCheck(boo)}
+                                <TouchableWithoutFeedback onPress={() => openActionsheet(!actionsheet)}>
+                                    <Text style={{ color: theme.SECONDARY_COLOR_DEFAULT, fontSize: theme.FONT_SIZE_MEDIUM, marginBottom: 34 }}>變更頭像</Text>
+                                </TouchableWithoutFeedback>
+                                <InputBox
+                                    OnChangeText={(str: string) =>
+                                        setAccount({
+                                            ...account,
+                                            email: str
+                                        })
+                                    }
                                     customStyle={{
-                                        width: 20,
-                                        height: 20,
+                                        width: DEVICE_WIDTH - 40,
+                                        height: 40,
+                                        marginTop: 6,
+                                        marginBottom: 20,
                                     }}
-                                    title={'我已閱讀並同意English4Tw的隱私政策'}
+                                    placeHolder={"例如：王小明"}
+                                    placeHolderTextColor={"#96CACA"}
+                                    value={account.email}
+                                    title={"姓名"}
                                 />
-                            </View>
-                            <Button
-                                title="下一步"
-                                onPress={() => onCreateAccountNext()}
-                                customStyle={{
-                                    width: DEVICE_WIDTH - 40,
-                                    height: 50,
-                                    borderRadius: 25,
-                                    marginVertical: 20
-                                }}
-                                imageSize={{}}
-                                type="2"
-                                image={""}
-                                fontStyle={{}}
-                            />
+                                <InputBox
+                                    OnChangeText={(str: string) =>
+                                        setAccount({
+                                            ...account,
+                                            email: str
+                                        })
+                                    }
+                                    customStyle={{
+                                        width: DEVICE_WIDTH - 40,
+                                        height: 40,
+                                        marginTop: 6,
+                                        marginBottom: 20,
+                                    }}
+                                    placeHolder={"例如：XXXXXX@gmail.com"}
+                                    placeHolderTextColor={"#96CACA"}
+                                    value={account.email}
+                                    title={"電子信箱"}
+                                />
+                                <InputBox
+                                    OnChangeText={(str: string) =>
+                                        setAccount({
+                                            ...account,
+                                            password: str
+                                        })
+                                    }
+                                    customStyle={{
+                                        width: DEVICE_WIDTH - 40,
+                                        height: 40,
+                                        marginTop: 6,
+                                        marginBottom: 20,
+                                    }}
+                                    placeHolder={"需有大小寫字母加數字"}
+                                    placeHolderTextColor={"#96CACA"}
+                                    value={account.email}
+                                    title={"密碼"}
+                                />
+                                <InputBox
+                                    OnChangeText={(str: string) =>
+                                        setAccount({
+                                            ...account,
+                                            secondpassword: str
+                                        })
+                                    }
+                                    customStyle={{
+                                        width: DEVICE_WIDTH - 40,
+                                        height: 40,
+                                        marginTop: 6,
+                                        marginBottom: 20,
+                                    }}
+                                    placeHolder={"再一次輸入密碼"}
+                                    placeHolderTextColor={"#96CACA"}
+                                    value={account.email}
+                                    title={"確認密碼"}
+                                />
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: DEVICE_WIDTH - 40 }}>
+                                    <CheckBox
+                                        checked={checked}
+                                        OnClick={(boo: boolean) => onCheck(boo)}
+                                        customStyle={{
+                                            width: 20,
+                                            height: 20,
+                                        }}
+                                        title={'我已閱讀並同意English4Tw的隱私政策'}
+                                    />
+                                </View></View>}
                         </View>
+                        <Button
+                            title={step === 1 ? "下一步" : "完成"}
+                            onPress={step === 1 ? onCreateAccountNext : () => {
+                                navigation.navigate('loginPage')
+                            }}
+                            customStyle={{
+                                width: DEVICE_WIDTH - 40,
+                                height: 50,
+                                borderRadius: 25,
+                                position: "absolute",
+                                bottom: 34,
+                                left: 20
+                            }}
+                            imageSize={{}}
+                            type="2"
+                            image={""}
+                            fontStyle={{}}
+                        />
                     </Animated.View>
                 </View>
             </View>
@@ -257,7 +376,8 @@ const styles = StyleSheet.create({
     sectionRow: {
         flexDirection: "row",
         justifyContent: "flex-end",
-        paddingHorizontal: 25,
+        alignItems: "center",
+        paddingHorizontal: 20,
         paddingBottom: 20,
         borderBottomWidth: 0.5,
         borderBottomColor: theme.FONT_COLOR_GRAY4,
@@ -265,8 +385,8 @@ const styles = StyleSheet.create({
     sectionContainer: {
         flexDirection: "column",
         alignItems: "center",
-        paddingHorizontal: 20
-
+        paddingHorizontal: 20,
+        height: DEVICE_HEIGHT - 54 - 77
     },
     actionsheet: {
         flexDirection: "row",

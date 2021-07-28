@@ -20,7 +20,7 @@ export default function App() {
   const getTabBarVisibility = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route);
     console.log("routeName,", routeName);
-    const hideOnScreens = ['newnotepage', 'notecontentpage', 'splashPage', 'wordanalysisPage', 'wordcomparePage', 'sentenceanalysisPage', 'wordrecommandPage', 'loginPage'];
+    const hideOnScreens = ['newnotepage', 'notecontentpage', 'splashPage', 'wordanalysisPage', 'wordcomparePage', 'sentenceanalysisPage', 'wordrecommandPage', 'loginPage', 'createaccountPage', 'resetpasswordPage', 'reviewPage'];
     if (routeName && hideOnScreens.indexOf(routeName) > -1) return false;
     return true;
   };

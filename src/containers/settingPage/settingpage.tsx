@@ -68,8 +68,7 @@ const settingPage = ({
             accessible={true}
             accessibilityLabel={"特色介紹"}
             accessibilityHint={"特色介紹"}
-            onPressIn={() => { }}
-            onPressOut={() => { }}
+            onPress={() => navigation.push('reviewPage')}
           >
             <View style={styles.sectionRow}>
               <Text style={styles.sectionText}>{"特色介紹"}</Text>

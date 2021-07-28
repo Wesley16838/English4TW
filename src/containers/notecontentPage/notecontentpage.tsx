@@ -72,9 +72,10 @@ const noteContentPage = ({
           style={{
             flexDirection: "row",
             alignItems: "center",
+            paddingHorizontal: 20,
           }}
         >
-          <View style={{ flex: 1, alignItems: "flex-start", paddingLeft: 20 }}>
+          <View style={{ flex: 1, alignItems: "flex-start" }}>
             <Button
               title=""
               image={images.icons.leftarrow_icon}
@@ -96,7 +97,7 @@ const noteContentPage = ({
           >
             {title}
           </Text>
-          <View style={{ flex: 1, alignItems: "flex-end", paddingRight: 20 }}>
+          <View style={{ flex: 1, alignItems: "flex-end" }}>
             <TouchableOpacity
               onPress={() => {
                 // setIsOpenModal(true);

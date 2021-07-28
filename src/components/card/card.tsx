@@ -6,8 +6,6 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import Icon from "./../icon/icon";
-import Images from "./../../assets/images";
 import theme from "./../../utilities/theme.style";
 
 export type Props = {

@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, Dimensions } from "react-native";
 import theme from "./../utilities/theme.style";
 import Images from "./../assets/images";
 export const DEVICE_WIDTH = Dimensions.get("window").width;
+export const DEVICE_HEIGHT = Dimensions.get("window").height;
 const splashPage = ({ navigation }: { navigation: any }) => {
   React.useEffect(() => {
     setTimeout(() => {

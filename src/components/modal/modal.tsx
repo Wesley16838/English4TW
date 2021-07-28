@@ -40,6 +40,7 @@ const Modal: React.FC<Props> = ({
               paddingHorizontal: 16,
               flexDirection: "row",
               justifyContent: "space-between",
+              width: 270,
             }}
             key={index}
           >

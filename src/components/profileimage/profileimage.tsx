@@ -22,9 +22,9 @@ const ProfileImage: React.FC<Props> = ({
       style={[
         customStyle,
         styles.profileimage,
-        { resizeMode: Platform.OS === "ios" ? "contain" : "cover" },
+        // { resizeMode: Platform.OS === "ios" ? "contain" : "cover" },
       ]}
-      source={name}
+      source={typeof name === 'string' ? { uri: name } : name}
     />
   );
 };
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   profileimage: {
     borderWidth: 2,
     borderColor: "transparent",
+    resizeMode: 'cover'
   },
 });
 export default ProfileImage;
