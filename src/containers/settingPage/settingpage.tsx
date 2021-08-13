@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import ProfileImage from "./../../components/profileimage/profileimage";
 import Button from "./../../components/button/button";
 import theme from "./../../utilities/theme.style";
@@ -12,6 +13,7 @@ import {
   View,
   TouchableWithoutFeedback,
   Image,
+  Switch,
 } from "react-native";
 import { DEVICE_WIDTH } from "../splashpage";
 const settingPage = ({
@@ -22,6 +24,12 @@ const settingPage = ({
   route: any;
 }) => {
   const handleOnClick = () => { };
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const isLoggedIn: any = useSelector(
+    (state: any) => state.user.isLoggedIn,
+    shallowEqual
+  );
   return (
     <LinearGradient
       colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
@@ -64,11 +72,25 @@ const settingPage = ({
           image={""}
         />
         <View>
+          {true && <TouchableWithoutFeedback
+            accessible={true}
+            accessibilityLabel={"個人資訊"}
+            accessibilityHint={"個人資訊"}
+            onPress={() => navigation.push('personalprofilePage')}
+          >
+            <View style={styles.sectionRow}>
+              <Text style={styles.sectionText}>{"個人資訊"}</Text>
+              <Image
+                style={styles.sectionArrow}
+                source={images.icons.rightarrow_icon}
+              />
+            </View>
+          </TouchableWithoutFeedback>}
           <TouchableWithoutFeedback
             accessible={true}
             accessibilityLabel={"特色介紹"}
             accessibilityHint={"特色介紹"}
-            onPress={() => navigation.push('reviewPage')}
+            onPress={() => console.log('coming soon')}
           >
             <View style={styles.sectionRow}>
               <Text style={styles.sectionText}>{"特色介紹"}</Text>
@@ -82,8 +104,7 @@ const settingPage = ({
             accessible={true}
             accessibilityLabel={"意見回饋"}
             accessibilityHint={"意見回饋"}
-            onPressIn={() => { }}
-            onPressOut={() => { }}
+            onPress={() => navigation.push('reviewPage')}
           >
             <View style={styles.sectionRow}>
               <Text style={styles.sectionText}>{"意見回饋"}</Text>
@@ -102,14 +123,55 @@ const settingPage = ({
           >
             <View
               style={[
-                styles.sectionRow,
-                { borderBottomColor: "#96CACA", borderBottomWidth: 1 },
+                styles.sectionRow
               ]}
             >
               <Text style={styles.sectionText}>{"開發版號"}</Text>
               <Text style={styles.version}>{"0.2.1"}</Text>
             </View>
           </TouchableWithoutFeedback>
+          {true && <TouchableWithoutFeedback
+            accessible={true}
+            accessibilityLabel={"離線模式"}
+            accessibilityHint={"離線模式"}
+            onPressIn={() => { }}
+            onPressOut={() => { }}
+          >
+            <View
+              style={[
+                styles.sectionRow
+              ]}
+            >
+              <Text style={styles.sectionText}>{"離線模式"}</Text>
+              <Switch
+                trackColor={{ false: 'rgba(120, 120, 128, 0.16)', true: theme.PRIMARY_COLOR_DEFAULT }}
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+          }
+          {true && <TouchableWithoutFeedback
+            accessible={true}
+            accessibilityLabel={"播放速度"}
+            accessibilityHint={"播放速度"}
+            onPressIn={() => { }}
+            onPressOut={() => { }}
+          >
+            <View
+              style={[
+                styles.sectionRow,
+                { borderBottomColor: "#96CACA", borderBottomWidth: 1 },
+              ]}
+            >
+              <Text style={styles.sectionText}>{"播放速度"}</Text>
+              <Image
+                style={styles.sectionArrow}
+                source={images.icons.rightarrow_icon}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+          }
         </View>
       </SafeAreaView>
     </LinearGradient>
@@ -131,6 +193,7 @@ const styles = StyleSheet.create({
     width: DEVICE_WIDTH,
     borderTopColor: "#96CACA",
     borderTopWidth: 1,
+    backgroundColor: theme.COLOR_WHITE
   },
   sectionText: {},
   version: {

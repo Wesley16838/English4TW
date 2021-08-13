@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/slider": "3.0.3",
     "@react-navigation/bottom-tabs": "^5.11.10",
@@ -16,10 +17,12 @@
     "@types/react-redux": "^7.1.16",
     "axios": "^0.21.1",
     "expo": "~41.0.1",
+    "expo-app-loading": "^1.1.2",
     "expo-av": "^9.1.2",
     "expo-blur": "~9.0.3",
     "expo-image-picker": "~10.1.4",
     "expo-linear-gradient": "~9.1.0",
+    "expo-splash-screen": "~0.10.2",
     "expo-status-bar": "~1.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

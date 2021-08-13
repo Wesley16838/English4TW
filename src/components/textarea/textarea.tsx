@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Icon from "./../icon/icon";
 import theme from "./../../utilities/theme.style";
+import Button from "../button/button";
 
 export type Props = {
   OnClick: any;
@@ -17,6 +18,8 @@ export type Props = {
   placeHolder: string;
   placeHolderTextColor: string;
   limit: number;
+  button?: string;
+  buttonStyle?: any;
 };
 const TextArea: React.FC<Props> = ({
   OnClick,
@@ -25,12 +28,16 @@ const TextArea: React.FC<Props> = ({
   placeHolder,
   placeHolderTextColor,
   limit,
+  button,
+  buttonStyle
 }) => {
   const [textNumber, setTextNumber] = React.useState(0);
   const [string, setString] = React.useState("");
   const onSubmitEditing = () => {
-    setString("");
-    if (OnClick) OnClick(string);
+    if (!button && OnClick) {
+      setString("");
+      OnClick(string)
+    }
   };
   const heightTop = customStyle.height - 46;
   return (
@@ -67,6 +74,19 @@ const TextArea: React.FC<Props> = ({
           {textNumber}/{limit}
         </Text>
         {source && <Image source={source} style={styles.textAreaBottomImage} />}
+        {button && <Button
+          title={button}
+          onPress={() => {
+            if (OnClick) OnClick(string)
+          }}
+          customStyle={
+            buttonStyle
+          }
+          imageSize={{}}
+          type="2"
+          image={""}
+          fontStyle={{}}
+        />}
       </View>
     </View>
   );

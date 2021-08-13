@@ -13,6 +13,8 @@ import {
   Alert,
 } from "react-native";
 import { CommonActions } from "@react-navigation/native";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { Dispatch } from "redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -25,7 +27,9 @@ import Images from "./../../assets/images";
 import Card from "./../../components/card/card";
 import ModalContainer from "./../../components/modal/modal";
 import theme from "./../../utilities/theme.style";
+
 const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
+  const dispatch: Dispatch<any> = useDispatch();
   const [dailyWords, setDailyWords] = React.useState<any>([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -36,9 +40,13 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
   const [analysis, setAnalysis] = React.useState("");
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const insets = useSafeAreaInsets();
+  const isLoggedIn: any = useSelector(
+    (state: any) => state.user.isLoggedIn,
+    shallowEqual
+  );
   React.useEffect(() => {
     const fetchDailyWords = async () => {
-      setIsLoading(true);
+
       try {
         let result = await apiConfig.get("/", {
           params: {
@@ -50,12 +58,11 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
       } catch (err) {
         console.log("err,", err);
       }
-      setIsLoading(false);
     };
     fetchDailyWords();
   }, []);
 
-  const handleOnSearch = () => {};
+  const handleOnSearch = () => { };
   const handleOnCompare = () => {
     navigation.push("wordcomparePage", {
       first: compareWords.first,
@@ -72,6 +79,7 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
   const handleOnWordRecommand = (str: string) => {
     navigation.push("wordrecommandPage");
   };
+
   return (
     <>
       <Modal

@@ -54,6 +54,8 @@ export const getButtonStyle = (type: string, status: any) => {
           borderColor: theme.FACEBOOK_COLOR,
         };
       }
+    case "text":
+      return null
     default:
       return {
         backgroundColor: "transparent",

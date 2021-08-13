@@ -51,6 +51,7 @@ const images = {
     progressbar_2_icon: require("./icons/progressbar2Icon.png"),
     progressbar_3_icon: require("./icons/progressbar3Icon.png"),
     success_icon: require("./icons/successIcon.png"),
+    comment_icon: require("./icons/commentIcon.png")
   },
 };
 

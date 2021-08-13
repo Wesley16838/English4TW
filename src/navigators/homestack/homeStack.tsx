@@ -19,15 +19,15 @@ const homeStackNavigator = () => {
         headerShown: false,
         gesturesEnabled: false,
       }}
-      initialRouteParams="homePage"
+      initialRouteParams="splashPage"
     >
-      {/* <homeStack.Screen
+      <homeStack.Screen
         name={"splashPage"}
         component={splashPage}
         options={{
           gestureEnabled: false,
         }}
-      /> */}
+      />
       <homeStack.Screen
         name={"homePage"}
         component={homePage}
