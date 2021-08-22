@@ -8,16 +8,18 @@ import {
   Image,
   Modal,
   Alert,
+  TouchableOpacity,
 } from "react-native";
 import Button from "./../../components/button/button";
+import ModalContainer from "./../../components/modal/modal";
 import theme from "../../utilities/theme.style";
 import Images from "../../assets/images";
 import apiConfig from "./../../config/api";
-import ModalContainer from "./../../components/modal/modal";
 import {
   TouchableWithoutFeedback,
-  TouchableOpacity,
+
 } from "react-native-gesture-handler";
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
 
 const sentenceAnalysisPage = ({
   route,
@@ -168,10 +170,7 @@ const sentenceAnalysisPage = ({
     ],
   };
   return (
-    <View style={styles.container}>
-      <Animated.View
-        style={[StyleSheet.absoluteFill, styles.cover, backdrop]}
-      />
+    <>
       <Modal
         animationType="fade"
         transparent={true}
@@ -187,51 +186,56 @@ const sentenceAnalysisPage = ({
         />
       </Modal>
 
-      <View style={[styles.sheet]}>
-        <Animated.View style={[styles.popup, slideUp]}>
-          <View style={styles.sectionRow}>
-            <View style={styles.actionsheet}>
+      <View style={styles.container}>
+        <Animated.View
+          style={[StyleSheet.absoluteFill, styles.cover, backdrop]}
+        />
+        <View style={[styles.sheet]}>
+          <Animated.View style={[styles.popup, slideUp]}>
+            <View style={styles.sectionRow}>
+              <View style={styles.actionsheet}>
+                <Button
+                  title=""
+                  image={Images.icons.leftarrow_icon}
+                  customStyle={{}}
+                  imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                  type=""
+                  onPress={() => handleBack()}
+                />
+                <Button
+                  title=""
+                  image={Images.icons.rightarrow_disable_icon}
+                  customStyle={{}}
+                  imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                  type=""
+                  onPress={() => handleNext()}
+                />
+              </View>
               <Button
                 title=""
-                image={Images.icons.leftarrow_icon}
+                image={Images.icons.close_icon}
                 customStyle={{}}
-                imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                imageSize={{ height: 30, width: 30, marginRight: 0 }}
                 type=""
-                onPress={() => handleBack()}
-              />
-              <Button
-                title=""
-                image={Images.icons.rightarrow_disable_icon}
-                customStyle={{}}
-                imageSize={{ height: 20, width: 12, marginRight: 0 }}
-                type=""
-                onPress={() => handleNext()}
+                onPress={() => handleClose()}
               />
             </View>
-            <Button
-              title=""
-              image={Images.icons.close_icon}
-              customStyle={{}}
-              imageSize={{ height: 30, width: 30, marginRight: 0 }}
-              type=""
-              onPress={() => handleClose()}
-            />
-          </View>
-          <View style={styles.topic}>
-            <Image style={styles.topicIcon} source={Images.icons.arrow_icon} />
-            <Text style={styles.topicTitle}> 例句 -</Text>
-            <TouchableOpacity onPress={() => setModalVisible(true)}>
-              <Image
-                style={styles.speedIcon}
-                source={Images.icons.speed_icon}
-              />
-            </TouchableOpacity>
-          </View>
-          <Text style={styles.title}>(人) put a spin on (事)</Text>
-          <View>{renderSentencesSection()}</View>
-        </Animated.View>
+            <View style={styles.topic}>
+              <Image style={styles.topicIcon} source={Images.icons.arrow_icon} />
+              <Text style={styles.topicTitle}> 例句 -</Text>
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Image
+                  style={styles.speedIcon}
+                  source={Images.icons.speed_icon}
+                />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.title}>(人) put a spin on (事)</Text>
+            <View>{renderSentencesSection()}</View>
+          </Animated.View>
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 

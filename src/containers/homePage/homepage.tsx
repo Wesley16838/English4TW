@@ -13,6 +13,7 @@ import {
   Alert,
 } from "react-native";
 import { CommonActions } from "@react-navigation/native";
+import ModalContainer from "./../../components/modal/modal";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Dispatch } from "redux";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -25,8 +26,8 @@ import InputBox from "./../../components/inputbox/inputbox";
 import Button from "./../../components/button/button";
 import Images from "./../../assets/images";
 import Card from "./../../components/card/card";
-import ModalContainer from "./../../components/modal/modal";
 import theme from "./../../utilities/theme.style";
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
 
 const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -95,6 +96,7 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
           title={"字彙難度"}
           onCancel={() => setModalVisible(!modalVisible)}
         />
+
       </Modal>
 
       <LinearGradient
@@ -339,10 +341,6 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center",
-  },
-  modalText: {
-    marginBottom: 15,
     textAlign: "center",
   },
 });

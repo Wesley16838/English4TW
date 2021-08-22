@@ -23,8 +23,27 @@ export default function App() {
   const getTabBarVisibility = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route);
     console.log("routeName,", routeName);
-    const hideOnScreens = ['newnotepage', 'notecontentpage', 'wordanalysisPage', 'wordcomparePage', 'sentenceanalysisPage', 'wordrecommandPage', 'loginPage', 'createaccountPage', 'resetpasswordPage', 'reviewPage'];
-    if ((route.name === '首頁' && routeName === undefined) || routeName && hideOnScreens.indexOf(routeName) > -1) return false;
+    const hideOnScreens = [
+      "orderhistoryPage",
+      "subscriptPage",
+      "personalprofilePage",
+      "subscriptPage",
+      "newnotepage",
+      "notecontentpage",
+      "wordanalysisPage",
+      "wordcomparePage",
+      "sentenceanalysisPage",
+      "wordrecommandPage",
+      "loginPage",
+      "createaccountPage",
+      "resetpasswordPage",
+      "reviewPage",
+    ];
+    if (
+      (route.name === "首頁" && routeName === undefined) ||
+      (routeName && hideOnScreens.indexOf(routeName) > -1)
+    )
+      return false;
     return true;
   };
 
@@ -136,5 +155,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  }
+  },
 });

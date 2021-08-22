@@ -43,7 +43,7 @@ const dictoinaryPage = ({ navigation }: { navigation: any }) => {
   const [history, setHistory] = React.useState([]);
   const handleOnSearch = () => {};
   const handleOnNavToFav = () => {
-    navigation.push("savedword");
+    navigation.push("savedwordPage");
   };
   return (
     <LinearGradient

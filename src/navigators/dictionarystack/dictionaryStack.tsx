@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import dictionaryPage from "./../../containers/dictionaryPage/dictionarypage";
 import savedwordPage from "./../../containers/savedwordPage/savedwordpage";
 import wordRecommandPage from "./../../containers/wordrecommandPage/wordrecommand";
-import wordComparePage from "./../../containers/wordcomparePage/wordcompare"
+import wordComparePage from "./../../containers/wordcomparePage/wordcompare";
 const dictionaryStack = createStackNavigator();
 
 const dictionaryStackNavigator = () => {
@@ -20,7 +20,7 @@ const dictionaryStackNavigator = () => {
         options={{ animationEnabled: false, gestureEnabled: false }}
       />
       <dictionaryStack.Screen
-        name={"savedword"}
+        name={"savedwordPage"}
         component={savedwordPage}
         options={{ animationEnabled: false, gestureEnabled: false }}
       />

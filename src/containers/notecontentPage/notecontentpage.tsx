@@ -17,7 +17,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Slider from "@react-native-community/slider";
 import { useNavigation } from "@react-navigation/native";
 import Button from "./../../components/button/button";
-import ModalContainer from "./../../components/modal/modal";
 import images from "../../assets/images";
 import theme from "./../../utilities/theme.style";
 import Tag from "./../../components/tag/tag";

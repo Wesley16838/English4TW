@@ -21,7 +21,7 @@ import images from "../../assets/images";
 import theme from "./../../utilities/theme.style";
 import Tag from "./../../components/tag/tag";
 import Card from "./../../components/card/card";
-import { DEVICE_WIDTH } from "../splashpage";
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
 import { SItem } from "./../../types/note";
 
 const SavedItem: React.FC<SItem> = ({ title, detail, kk, buttons }) => {
@@ -44,6 +44,11 @@ const SavedItem: React.FC<SItem> = ({ title, detail, kk, buttons }) => {
   );
 };
 const savedwordPage = ({ navigation }: { navigation: any }) => {
+  const choices = ["最近", "最早", "A - Z", "Z - A", "詞性"]
+  const [selected, setSelected] = React.useState((choices && choices[0]) || "");
+  const onCheck = (option: string) => {
+    setSelected(option);
+  };
   const [animation, setAnimation] = React.useState(new Animated.Value(0));
   const [modalVisible, setModalVisible] = React.useState(false);
   const [savedword, setSavedWord] = React.useState([]);

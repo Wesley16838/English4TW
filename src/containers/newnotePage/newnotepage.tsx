@@ -7,6 +7,7 @@ import {
   Text,
   Modal,
   Alert,
+  TouchableOpacity,
 } from "react-native";
 import Button from "./../../components/button/button";
 import InputBox from "./../../components/inputbox/inputbox";
@@ -120,8 +121,10 @@ const newNotePage = ({
           }
           title={"新增標籤"}
           onCancel={() => setModalVisible(!modalVisible)}
+          onConfirm={() => setModalVisible(!modalVisible)}
         />
       </Modal>
+
       <View style={styles.container}>
         <Animated.View
           style={[StyleSheet.absoluteFill, styles.cover, backdrop]}
@@ -425,6 +428,17 @@ const styles = StyleSheet.create({
     width: 30,
     resizeMode: "contain",
     marginRight: 10,
+  },
+  nonBlurredContent: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  modalContainer: {
+    borderRadius: 14,
+    paddingTop: 19,
+    backgroundColor: theme.COLOR_WHITE,
+    width: 270,
+    alignItems: "center",
   },
 });
 

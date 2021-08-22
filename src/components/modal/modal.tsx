@@ -1,5 +1,12 @@
-import { View, StyleSheet, TextInput, Text, Image } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 import React from "react";
 import Images from "../../assets/images";
 import { BlurView } from "expo-blur";
@@ -11,7 +18,7 @@ export type Props = {
   onCancel?: any;
   onConfirm?: any;
   content?: any;
-  // stringContent?: string;
+  confirmString?: string;
   children?: any;
 };
 const Modal: React.FC<Props> = ({
@@ -20,7 +27,7 @@ const Modal: React.FC<Props> = ({
   onCancel,
   onConfirm,
   content,
-  // stringContent,
+  confirmString,
   children,
 }) => {
   const [selected, setSelected] = React.useState((content && content[0]) || "");
@@ -54,63 +61,65 @@ const Modal: React.FC<Props> = ({
     );
   };
   const handleOnCancel = () => {
+    console.log("handleOnCancel");
     if (onCancel) onCancel();
   };
   const handleOnConfirm = () => {
+    console.log("handleOnCancel");
     if (onConfirm) onConfirm(selected);
     if (onCancel) onCancel();
   };
   return (
-    <View style={styles.modalWrapper}>
-      <BlurView
-        tint="dark"
-        intensity={100}
-        style={[StyleSheet.absoluteFill, styles.nonBlurredContent]}
-      >
-        <View style={styles.modalContainer}>
-          <Text
+    <BlurView
+      tint="dark"
+      intensity={100}
+      style={[StyleSheet.absoluteFill, styles.nonBlurredContent]}
+    >
+      <View style={styles.modalContainer}>
+        <Text
+          style={{
+            textAlign: "center",
+            marginBottom: 19,
+            color: theme.SECONDARY_COLOR_DEFAULT,
+          }}
+        >
+          {title}
+        </Text>
+        {children ? <View>{children}</View> : <View>{renderOption()}</View>}
+        <View style={{ width: "100%", flexDirection: "row" }}>
+          <TouchableOpacity
+            onPress={() => handleOnCancel()}
             style={{
-              textAlign: "center",
-              marginBottom: 19,
-              color: theme.SECONDARY_COLOR_DEFAULT,
+              width: 135,
+              alignItems: "center",
+              justifyContent: "center",
+              paddingVertical: 11,
+              borderTopWidth: 0.5,
+              borderTopColor: theme.LINE_COLOR,
+              borderRightWidth: 0.5,
+              borderRightColor: theme.LINE_COLOR,
             }}
           >
-            {title}
-          </Text>
-          {children ? <View>{children}</View> : <View>{renderOption()}</View>}
-          <View style={{ width: "100%", flexDirection: "row" }}>
-            <TouchableOpacity
-              onPress={handleOnCancel}
-              style={{
-                width: 135,
-                alignItems: "center",
-                justifyContent: "center",
-                paddingVertical: 11,
-                borderTopWidth: 0.5,
-                borderTopColor: theme.LINE_COLOR,
-                borderRightWidth: 0.5,
-                borderRightColor: theme.LINE_COLOR,
-              }}
-            >
-              <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>取消</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleOnConfirm}
-              style={{
-                width: 135,
-                alignItems: "center",
-                justifyContent: "center",
-                paddingVertical: 11,
-                borderTopWidth: 0.5,
-                borderTopColor: theme.LINE_COLOR,
-              }}
-            >
-              <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>完成</Text>
-            </TouchableOpacity>
-          </View>
+            <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>取消</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleOnCancel()}
+            style={{
+              width: 135,
+              alignItems: "center",
+              justifyContent: "center",
+              paddingVertical: 11,
+              borderTopWidth: 0.5,
+              borderTopColor: theme.LINE_COLOR,
+            }}
+          >
+            <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>
+              {confirmString ? confirmString : "完成"}
+            </Text>
+          </TouchableOpacity>
         </View>
-      </BlurView>
-    </View>
+      </View>
+    </BlurView>
   );
 };
 const styles = StyleSheet.create({

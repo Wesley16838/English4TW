@@ -195,18 +195,41 @@ const wordAnalysisPage = ({ navigation }: { navigation: any }) => {
                 />
                 <Text style={styles.topicTitle}> 原文 -</Text>
               </View>
-
-              <Text
+              <View
                 style={{
-                  fontSize: theme.FONT_SIZE_MEDIUM,
-                  fontWeight: "400",
+                  width: DEVICE_WIDTH - 40,
+                  paddingHorizontal: 15,
+                  paddingVertical: 10,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  borderColor: theme.PRIMARY_COLOR_DEFAULT,
+                  backgroundColor: theme.COLOR_WHITE,
                   marginBottom: 30,
-                  lineHeight: 25,
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
                 }}
               >
-                In this tutorial, you'll learn how to create a bottom sheet in
-                react native app.
-              </Text>
+                <TouchableWithoutFeedback>
+                  <Image
+                    source={Images.icons.volume_icon}
+                    style={{ width: 30, height: 30 }}
+                  />
+                </TouchableWithoutFeedback>
+
+                <View style={{ width: DEVICE_WIDTH - 30 - 30 - 10 - 40 }}>
+                  <Text
+                    style={{
+                      fontSize: theme.FONT_SIZE_MEDIUM,
+                      fontWeight: "400",
+                      lineHeight: 25,
+                    }}
+                  >
+                    In this tutorial, you'll learn how to create a bottom sheet
+                    in react native app.
+                  </Text>
+                </View>
+              </View>
             </View>
             <View style={styles.content_analysis}>
               <View style={styles.topic}>
