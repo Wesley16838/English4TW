@@ -1,5 +1,5 @@
-export interface IItem {
+export interface IWord {
   word: string;
-  detail: string;
-  number: number;
+  def: any[];
+  example: string[];
 }

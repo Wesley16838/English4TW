@@ -19,7 +19,7 @@ import { Dispatch } from "redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import apiConfig from "./../../config/api";
+import { apiPokeMonConfig } from "./../../config/api";
 import SearchBox from "./../../components/searchbox/searchbox";
 import TextArea from "./../../components/textarea/textarea";
 import InputBox from "./../../components/inputbox/inputbox";
@@ -47,9 +47,8 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
   );
   React.useEffect(() => {
     const fetchDailyWords = async () => {
-
       try {
-        let result = await apiConfig.get("/", {
+        let result = await apiPokeMonConfig.get("/", {
           params: {
             results: 1,
             inc: "name,email,picture",
@@ -63,7 +62,7 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
     fetchDailyWords();
   }, []);
 
-  const handleOnSearch = () => { };
+  const handleOnSearch = () => {};
   const handleOnCompare = () => {
     navigation.push("wordcomparePage", {
       first: compareWords.first,
@@ -96,7 +95,6 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
           title={"字彙難度"}
           onCancel={() => setModalVisible(!modalVisible)}
         />
-
       </Modal>
 
       <LinearGradient
