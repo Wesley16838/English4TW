@@ -30,14 +30,12 @@ const Card: React.FC<Props> = ({
     return array.map((images: any, index: any) => {
       if (manualCompare && index === 2) {
         return (
-          <TouchableWithoutFeedback onPress={() => OnClick()} key={index}>
-            <Image
-              key={index}
-              source={images}
-              style={{ width: 30, height: 30, marginLeft: 10 }}
-            />
-          </TouchableWithoutFeedback>
-        )
+          <Image
+            key={index}
+            source={images}
+            style={{ width: 30, height: 30, marginLeft: 10 }}
+          />
+        );
       }
       return (
         <Image
@@ -49,17 +47,22 @@ const Card: React.FC<Props> = ({
     });
   };
   return (
-
-    <View style={[styles.cardContainer, customStyle]}>
-      <View style={styles.cardRow}>
-        <Text style={styles.title}>{title}</Text>
-        <View style={styles.cardInnerRow}>{printImage(buttons)}</View>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        OnClick();
+      }}
+    >
+      <View style={[styles.cardContainer, customStyle]}>
+        <View style={styles.cardRow}>
+          <Text style={styles.title}>{title}</Text>
+          <View style={styles.cardInnerRow}>{printImage(buttons)}</View>
+        </View>
+        <View style={styles.cardColumn}>
+          <Text style={styles.kk}>{kk}</Text>
+          <Text style={styles.detail}>{detail}</Text>
+        </View>
       </View>
-      <View style={styles.cardColumn}>
-        <Text style={styles.kk}>{kk}</Text>
-        <Text style={styles.detail}>{detail}</Text>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 const styles = StyleSheet.create({

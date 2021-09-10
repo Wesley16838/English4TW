@@ -1,11 +1,15 @@
 import React from "react";
+import axios from "axios";
+
 import { StyleSheet, View, Image, Dimensions, Text } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import theme from "./../utilities/theme.style";
 import Images from "./../assets/images";
 import { setUserLogin } from "./../actions/user";
+import { setDailyWord } from "./../actions/word";
+import words from "./../assets/words/words.json";
 
 export const DEVICE_WIDTH = Dimensions.get("window").width;
 export const DEVICE_HEIGHT = Dimensions.get("window").height;
@@ -14,7 +18,8 @@ const splashPage = ({ navigation }: { navigation: any }) => {
   React.useEffect(() => {
     const authentication = async () => {
       try {
-        const isLoggedIn = await AsyncStorage.getItem('isLoggedIn')
+        const isLoggedIn = await AsyncStorage.getItem("isLoggedIn");
+        dispatch(setDailyWord(words[Math.floor(Math.random() * words.length)]));
         dispatch(setUserLogin(!!isLoggedIn));
         setTimeout(() => {
           navigation.navigate("homePage", {
@@ -23,21 +28,23 @@ const splashPage = ({ navigation }: { navigation: any }) => {
         }, 3000);
       } catch (e) {
         // error reading value
-        console.log('e', e)
+        console.log("e", e);
       }
-    }
-    authentication()
+    };
+    authentication();
   }, []);
   return (
     <View style={styles.splashContainer}>
       <Image style={styles.splashImage} source={Images.icons.logo_icon} />
-      <Text style={{ fontSize: theme.FONT_SIZE_SMALL, marginTop: 220 }}>版本資訊：5.8.7</Text>
+      <Text style={{ fontSize: theme.FONT_SIZE_SMALL, marginTop: 220 }}>
+        版本資訊：5.8.7
+      </Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
   splashContainer: {
-    backgroundColor: '#E4CAB3',
+    backgroundColor: "#E4CAB3",
     width: "100%",
     height: "100%",
     position: "absolute",

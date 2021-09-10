@@ -10,6 +10,7 @@ export const apiConfig = axios.create({
   baseURL: "https://www.english4tw.com",
   headers: {
     Accept: "multipart/form-data",
+    withCredentials: true,
   },
-  timeout: 3000,
+  // timeout: 3000,
 });

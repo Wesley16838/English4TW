@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   StyleSheet,
   View,
@@ -10,13 +11,14 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import Button from "./../../components/button/button";
-import Images from "./../../assets/images";
-import Label from "./../../components/label/label";
-import TabView from "./../../components/tabview/tabview";
+import Button from "../../components/button/button";
+import Images from "../../assets/images";
+import Label from "../../components/label/label";
+import TabView from "../../components/tabview/tabview";
 import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
 import { DEVICE_WIDTH } from "../splashpage";
+import { apiConfig } from "../../config/api";
 const wordRecommandPage = ({
   navigation,
   route,
@@ -27,6 +29,28 @@ const wordRecommandPage = ({
   const [animation, setAnimation] = React.useState(new Animated.Value(0));
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const { word } = route.params;
+  React.useEffect(() => {
+    const fetchDailyWords = async () => {
+      try {
+        let formData = new FormData();
+        console.log("1");
+        formData.append("type", "babylon");
+        console.log("2");
+        formData.append("text", word);
+        const result = await axios({
+          method: "post",
+          url: "https://www.english4tw.com/blog/post/translate",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        // let result = await apiConfig.post("/blog/post/translate", formData);
+        console.log(result);
+      } catch (err) {
+        console.log("err,", err.message);
+      }
+    };
+    fetchDailyWords();
+  }, []);
   const screenHeight = Dimensions.get("window").height;
   const screenWidth = Dimensions.get("window").width;
 

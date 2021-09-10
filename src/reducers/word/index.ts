@@ -1,17 +1,17 @@
 import * as actionTypes from "./../../actions/actionTypes";
 const initialState: any = {
-  isLoggedIn: false,
+  dailyword: "",
 };
 
-const user = (state: any = initialState, action: any): any => {
+const word = (state: any = initialState, action: any): any => {
   switch (action.type) {
-    case actionTypes.SET_USER_LOGIN:
+    case actionTypes.SET_DAILY_WORD:
       return {
         ...state,
-        isLoggedIn: action.isLoggedIn,
+        dailyword: action.word,
       };
   }
   return state;
 };
 
-export default user;
+export default word;

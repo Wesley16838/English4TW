@@ -13,20 +13,20 @@ import {
   Alert,
 } from "react-native";
 import { CommonActions } from "@react-navigation/native";
-import ModalContainer from "./../../components/modal/modal";
+import ModalContainer from "../../components/modal/modal";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Dispatch } from "redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import { apiPokeMonConfig } from "./../../config/api";
-import SearchBox from "./../../components/searchbox/searchbox";
-import TextArea from "./../../components/textarea/textarea";
-import InputBox from "./../../components/inputbox/inputbox";
-import Button from "./../../components/button/button";
-import Images from "./../../assets/images";
-import Card from "./../../components/card/card";
-import theme from "./../../utilities/theme.style";
+import { apiConfig } from "../../config/api";
+import SearchBox from "../../components/searchbox/searchbox";
+import TextArea from "../../components/textarea/textarea";
+import InputBox from "../../components/inputbox/inputbox";
+import Button from "../../components/button/button";
+import Images from "../../assets/images";
+import Card from "../../components/card/card";
+import theme from "../../utilities/theme.style";
 import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
 
 const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
@@ -45,18 +45,23 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
     (state: any) => state.user.isLoggedIn,
     shallowEqual
   );
+  const dailyword: string = useSelector(
+    (state: any) => state.word.dailyword,
+    shallowEqual
+  );
   React.useEffect(() => {
     const fetchDailyWords = async () => {
       try {
-        let result = await apiPokeMonConfig.get("/", {
-          params: {
-            results: 1,
-            inc: "name,email,picture",
-          },
-        });
-        setDailyWords(result.data.results);
+        let formData = new FormData();
+        console.log("1");
+        formData.append("type", "babylon");
+        console.log("2");
+        formData.append("text", "universal");
+        let result = await apiConfig.post("/blog/post/translate", formData);
+        console.log(result);
+        setDailyWords("no problem");
       } catch (err) {
-        console.log("err,", err);
+        console.log("err,", err.message);
       }
     };
     fetchDailyWords();
@@ -77,7 +82,10 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
     navigation.push("wordanalysisPage");
   };
   const handleOnWordRecommand = (str: string) => {
-    navigation.push("wordrecommandPage");
+    console.log("handleOnWordRecommand");
+    navigation.push("wordrecommandPage", {
+      word: str,
+    });
   };
 
   return (
@@ -172,10 +180,10 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
               <View style={styles.daily}>
                 {dailyWords.length > 0 ? (
                   <Card
-                    title={dailyWords[0].name}
-                    OnClick={(str: string) => handleOnWordRecommand(str)}
+                    title={dailyword}
+                    OnClick={() => handleOnWordRecommand(dailyword)}
                     customStyle={{ width: DEVICE_WIDTH - 40 }}
-                    kk={dailyWords[0].name}
+                    kk={"KK Content"}
                     detail={dailyWords[0].url}
                     buttons={[
                       Images.icons.volume_icon,

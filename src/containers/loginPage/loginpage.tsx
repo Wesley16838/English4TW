@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import axios from "axios";
 import {
   StyleSheet,
   View,
@@ -9,12 +10,13 @@ import {
   Modal,
   Alert,
 } from "react-native";
-import Button from "./../../components/button/button";
-import InputBox from "./../../components/inputbox/inputbox";
-import CheckBox from "./../../components/checkbox/checkbox";
+import Button from "../../components/button/button";
+import InputBox from "../../components/inputbox/inputbox";
+import CheckBox from "../../components/checkbox/checkbox";
 import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
-import { apiConfig } from "./../../config/api";
+import { apiConfig } from "../../config/api";
+import { get_set_cookies } from "../../config/helper";
 import { DEVICE_WIDTH } from "../splashpage";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
@@ -26,16 +28,40 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
   const [checked, onCheck] = React.useState(false);
   const screenHeight = Dimensions.get("window").height;
   const screenWidth = Dimensions.get("window").width;
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     let formData = new FormData();
+  //     console.log("1");
+  //     formData.append("type", "babylon");
+  //     console.log("2");
+  //     formData.append("text", "universal");
+  //     const result = await axios.post(
+  //       "https://www.english4tw.com/blog/post/translate",
+  //       formData
+  //     );
+  //     console.log("resultrrrr", result);
+  //   };
+  //   fetchData();
+  // }, []);
   const handleOnFacebookLogin = () => {};
   const handleOnLogin = async () => {
     try {
       let formData = new FormData();
-      formData.append("user[email]", account.email);
-      formData.append("user[password]", account.password);
-      await apiConfig.post("/login", {
-        formData,
+      console.log("1");
+      formData.append("email", account.email);
+      console.log("2");
+      formData.append("password", account.password);
+      console.log("3");
+      const result = await axios({
+        method: "post",
+        url: "https://www.english4tw.com/login_ajax",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
       });
-      navigation.push("settingPage");
+      // const result = await axios.post("https://www.english4tw.com/login_ajax", {
+      //   data: formData,
+      // });
+      console.log("ajax,", result);
     } catch (err) {
       console.error(err);
     }
@@ -200,7 +226,7 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                 }}
                 placeHolder={"需有大小寫字母加數字"}
                 placeHolderTextColor={"#96CACA"}
-                value={account.email}
+                value={account.password}
                 title={"密碼"}
               />
               <View
