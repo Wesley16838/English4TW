@@ -9,6 +9,7 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { useSelector, shallowEqual } from "react-redux";
 import store from "./src/store";
 import Icon from "./src/components/icon/icon";
 import Navigator from "./src/navigators";
@@ -22,7 +23,10 @@ export default function App() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const getTabBarVisibility = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    console.log("routeName,", routeName);
+    console.log(
+      "redux",
+      useSelector((state) => state)
+    );
     const hideOnScreens = [
       "orderhistoryPage",
       "subscriptPage",

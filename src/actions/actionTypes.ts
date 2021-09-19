@@ -1,5 +1,6 @@
-export const GET_USER = "GET_USER";
 export const SET_USER_LOGIN = "SET_USER_LOGIN";
+export const SET_USER_LOGIN_SUCCESS = "SET_USER_LOGIN_SUCCESS";
+export const SET_USER_LOGIN_FAIL = "SET_USER_LOGIN_FAIL";
 
 export const GET_DAY_WORD = "GET_DAY_WORD";
 export const SET_DAILY_WORD = "SET_DAILY_WORD";

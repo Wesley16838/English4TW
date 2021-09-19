@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   StyleSheet,
   Text,
@@ -50,21 +51,17 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
     shallowEqual
   );
   React.useEffect(() => {
-    const fetchDailyWords = async () => {
-      try {
-        let formData = new FormData();
-        console.log("1");
-        formData.append("type", "babylon");
-        console.log("2");
-        formData.append("text", "universal");
-        let result = await apiConfig.post("/blog/post/translate", formData);
-        console.log(result);
-        setDailyWords("no problem");
-      } catch (err) {
-        console.log("err,", err.message);
-      }
-    };
-    fetchDailyWords();
+    let formData = new FormData();
+    formData.append("type", "babylon");
+    formData.append("text", "universal");
+    fetch("https://www.english4tw.com/blog/post/translate", {
+      method: "post",
+      body: formData,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((res) => res.json())
+      .then((response) => console.log("response", response))
+      .catch((err) => console.log("err", err));
   }, []);
 
   const handleOnSearch = () => {};

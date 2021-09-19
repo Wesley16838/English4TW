@@ -15,11 +15,14 @@ import InputBox from "../../components/inputbox/inputbox";
 import CheckBox from "../../components/checkbox/checkbox";
 import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
-import { apiConfig } from "../../config/api";
-import { get_set_cookies } from "../../config/helper";
+import { setUserLogin } from "../../actions/user";
 import { DEVICE_WIDTH } from "../splashpage";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { Dispatch } from "redux";
+
 const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
+  const dispatch: Dispatch<any> = useDispatch();
   const [animation, setAnimation] = React.useState(new Animated.Value(0));
   const [account, setAccount] = React.useState({
     email: "",
@@ -27,43 +30,22 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
   });
   const [checked, onCheck] = React.useState(false);
   const screenHeight = Dimensions.get("window").height;
-  const screenWidth = Dimensions.get("window").width;
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     let formData = new FormData();
-  //     console.log("1");
-  //     formData.append("type", "babylon");
-  //     console.log("2");
-  //     formData.append("text", "universal");
-  //     const result = await axios.post(
-  //       "https://www.english4tw.com/blog/post/translate",
-  //       formData
-  //     );
-  //     console.log("resultrrrr", result);
-  //   };
-  //   fetchData();
-  // }, []);
   const handleOnFacebookLogin = () => {};
   const handleOnLogin = async () => {
     try {
       let formData = new FormData();
-      console.log("1");
       formData.append("email", account.email);
-      console.log("2");
       formData.append("password", account.password);
-      console.log("3");
-      const result = await axios({
-        method: "post",
-        url: "https://www.english4tw.com/login_ajax",
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      // const result = await axios.post("https://www.english4tw.com/login_ajax", {
+      // const result = await axios({
+      //   method: "post",
+      //   url: "https://www.english4tw.com/login_ajax",
       //   data: formData,
+      //   headers: { "Content-Type": "multipart/form-data" },
       // });
-      console.log("ajax,", result);
+      console.log("handleOnLogin,", formData);
+      dispatch(setUserLogin(formData));
     } catch (err) {
-      console.error(err);
+      console.error("err", err);
     }
   };
   const onCreateAccount = () => {

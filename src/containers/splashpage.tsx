@@ -18,9 +18,9 @@ const splashPage = ({ navigation }: { navigation: any }) => {
   React.useEffect(() => {
     const authentication = async () => {
       try {
-        const isLoggedIn = await AsyncStorage.getItem("isLoggedIn");
+        // const isLoggedIn = await AsyncStorage.getItem("isLoggedIn");
         dispatch(setDailyWord(words[Math.floor(Math.random() * words.length)]));
-        dispatch(setUserLogin(!!isLoggedIn));
+        // dispatch(setUserLogin(!!isLoggedIn));
         setTimeout(() => {
           navigation.navigate("homePage", {
             withAnimation: true,

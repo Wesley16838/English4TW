@@ -1,12 +1,17 @@
 import * as actionTypes from "../actionTypes";
 import * as types from "../../types/user";
 
-export const getUser = (user: types.IUser) => ({
-  type: actionTypes.GET_USER,
-  user,
+export const setUserLogin = (formData: any) => ({
+  type: actionTypes.SET_USER_LOGIN,
+  formData,
 });
 
-export const setUserLogin = (isLoggedIn: boolean) => ({
-  type: actionTypes.SET_USER_LOGIN,
-  isLoggedIn,
+export const setUserLoginSuccess = (users: any) => ({
+  type: actionTypes.SET_USER_LOGIN_SUCCESS,
+  users,
+});
+
+export const setUserLoginFail = (err: any) => ({
+  type: actionTypes.SET_USER_LOGIN_FAIL,
+  message: err,
 });
