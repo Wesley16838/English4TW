@@ -57,7 +57,6 @@ const wordComparePage = ({
     }).start();
   }, []);
   const handleClose = () => {
-    console.log('close')
     Animated.timing(animation, {
       toValue: 0,
       duration: 200,
@@ -69,7 +68,6 @@ const wordComparePage = ({
     // }, 200);
   };
   const handleBack = () => {
-    console.log('close')
     Animated.timing(animation, {
       toValue: 0,
       duration: 200,
@@ -81,7 +79,6 @@ const wordComparePage = ({
     // }, 200);
   };
   const handleNext = () => {
-    console.log('close')
     Animated.timing(animation, {
       toValue: 0,
       duration: 200,
@@ -174,23 +171,20 @@ const wordComparePage = ({
                   marginTop: 20,
                 }}
               >
-                {first.length !== 0 && second.length === 0 ?
+                {first.length !== 0 && second.length === 0 ? (
                   <>
                     <InputBox
-                      OnChangeText={(str: string) =>
-                        setCompareWord(str)
-                      }
+                      OnChangeText={(str: string) => setCompareWord(str)}
                       customStyle={{
                         width: DEVICE_WIDTH - 40,
                         height: 40,
-                        marginTop: 20
+                        marginTop: 20,
                       }}
                       placeHolder={"輸入內容"}
                       placeHolderTextColor={"#96CACA"}
                       value={compareWord}
                     />
-                    {
-                      false &&
+                    {false && (
                       <>
                         <Text style={styles.compareWordKK}>{second}</Text>
                         <View style={styles.labelContainer}>
@@ -198,9 +192,9 @@ const wordComparePage = ({
                         </View>
                         <Text style={styles.compareWordDes}>{second}</Text>
                       </>
-                    }
+                    )}
                   </>
-                  :
+                ) : (
                   <>
                     <Text style={styles.compareWord}>{second}</Text>
                     <Text style={styles.compareWordKK}>{second}</Text>
@@ -209,8 +203,7 @@ const wordComparePage = ({
                     </View>
                     <Text style={styles.compareWordDes}>{second}</Text>
                   </>
-                }
-
+                )}
               </View>
             </View>
           </Animated.View>

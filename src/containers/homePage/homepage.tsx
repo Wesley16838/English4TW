@@ -79,7 +79,6 @@ const homePage = ({ navigation, route }: { navigation: any; route: any }) => {
     navigation.push("wordanalysisPage");
   };
   const handleOnWordRecommand = (str: string) => {
-    console.log("handleOnWordRecommand");
     navigation.push("wordrecommandPage", {
       word: str,
     });

@@ -33,9 +33,7 @@ const wordRecommandPage = ({
     const fetchDailyWords = async () => {
       try {
         let formData = new FormData();
-        console.log("1");
         formData.append("type", "babylon");
-        console.log("2");
         formData.append("text", word);
         const result = await axios({
           method: "post",
@@ -43,8 +41,14 @@ const wordRecommandPage = ({
           data: formData,
           headers: { "Content-Type": "multipart/form-data" },
         });
-        // let result = await apiConfig.post("/blog/post/translate", formData);
-        console.log(result);
+        fetch("https://www.english4tw.com/blog/post/translate", {
+          method: "post",
+          body: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+          .then((res) => res.json())
+          .then((response) => console.log("fetch response", response))
+          .catch((err) => console.log("err", err));
       } catch (err) {
         console.log("err,", err.message);
       }

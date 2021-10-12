@@ -31,6 +31,7 @@ const newNotePage = ({
   const [modalVisible, setModalVisible] = useState(false);
   const screenHeight = Dimensions.get("window").height;
   const screenWidth = Dimensions.get("window").width;
+  const { title } = route.params;
   const [tags, setTags] = React.useState([
     "經典生活引語",
     "科技",
@@ -40,7 +41,7 @@ const newNotePage = ({
     "建築",
   ]);
   const [note, setNote] = useState({
-    title: "",
+    title: title,
     content: "",
   });
   const backdrop = {
@@ -108,7 +109,7 @@ const newNotePage = ({
         <ModalContainer
           children={
             <InputBox
-              OnChangeText={(str: string) => console.log(str)}
+              OnChangeText={(str: string) => {}}
               customStyle={{
                 width: 240,
                 height: 40,
@@ -196,7 +197,7 @@ const newNotePage = ({
                       <Tag
                         key={index}
                         title={tag}
-                        OnClick={() => console.log("add")}
+                        OnClick={() => {}}
                         customStyle={{
                           paddingHorizontal: 15,
                           paddingVertical: 3,

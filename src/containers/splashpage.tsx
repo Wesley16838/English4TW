@@ -26,9 +26,9 @@ const splashPage = ({ navigation }: { navigation: any }) => {
             withAnimation: true,
           });
         }, 3000);
-      } catch (e) {
+      } catch (err) {
         // error reading value
-        console.log("e", e);
+        console.log("err", err);
       }
     };
     authentication();

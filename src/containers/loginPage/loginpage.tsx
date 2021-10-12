@@ -9,6 +9,7 @@ import {
   Text,
   Modal,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import Button from "../../components/button/button";
 import InputBox from "../../components/inputbox/inputbox";
@@ -36,13 +37,6 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
       let formData = new FormData();
       formData.append("email", account.email);
       formData.append("password", account.password);
-      // const result = await axios({
-      //   method: "post",
-      //   url: "https://www.english4tw.com/login_ajax",
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
-      console.log("handleOnLogin,", formData);
       dispatch(setUserLogin(formData));
     } catch (err) {
       console.error("err", err);

@@ -15,7 +15,6 @@ export type Props = {
   customStyle?: any;
 };
 const TabView: React.FC<Props> = ({ titles, customStyle, children }) => {
-  console.log(titles);
   const [index, setIndex] = React.useState(0);
   const renderTab = () => {
     return (

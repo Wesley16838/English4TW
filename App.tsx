@@ -23,10 +23,6 @@ export default function App() {
   const DEVICE_WIDTH = Dimensions.get("window").width;
   const getTabBarVisibility = (route: any) => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    console.log(
-      "redux",
-      useSelector((state) => state)
-    );
     const hideOnScreens = [
       "orderhistoryPage",
       "subscriptPage",

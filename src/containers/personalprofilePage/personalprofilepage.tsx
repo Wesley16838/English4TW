@@ -54,12 +54,8 @@ const personalprofilePage = ({
       quality: 1,
     });
 
-    // Explore the result
-    console.log(result);
-
     if (!result.cancelled) {
       setPickedImagePath(result.uri);
-      console.log(result.uri);
     }
   };
   // This function is triggered when the "Open camera" button pressed
@@ -74,12 +70,8 @@ const personalprofilePage = ({
     openActionsheet(false);
     const result = await ImagePicker.launchCameraAsync();
 
-    // Explore the result
-    console.log(result);
-
     if (!result.cancelled) {
       setPickedImagePath(result.uri);
-      console.log(result.uri);
     }
   };
   const handleOnAction = (str: string) => {
@@ -122,7 +114,7 @@ const personalprofilePage = ({
         <ModalContainer
           children={
             <InputBox
-              OnChangeText={(str: string) => console.log(str)}
+              OnChangeText={(str: string) => {}}
               customStyle={{
                 width: 240,
                 height: 40,

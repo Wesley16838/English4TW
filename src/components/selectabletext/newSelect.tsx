@@ -50,7 +50,6 @@ const SelectableText: React.FC<Props> = ({
     <View
       style={{ position: "relative" }}
       onResponderGrant={(e) => {
-        console.log("onResponder");
         // const n = Math.floor(menuPosition.locationY / 27.5);
         // onPressOutside();
         // setMenuPosition({

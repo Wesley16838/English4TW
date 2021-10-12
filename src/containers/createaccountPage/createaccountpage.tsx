@@ -134,12 +134,8 @@ const createaccountPage = ({
       quality: 1,
     });
 
-    // Explore the result
-    console.log(result);
-
     if (!result.cancelled) {
       setPickedImagePath(result.uri);
-      console.log(result.uri);
     }
   };
   // This function is triggered when the "Open camera" button pressed
@@ -154,12 +150,8 @@ const createaccountPage = ({
     openActionsheet(false);
     const result = await ImagePicker.launchCameraAsync();
 
-    // Explore the result
-    console.log(result);
-
     if (!result.cancelled) {
       setPickedImagePath(result.uri);
-      console.log(result.uri);
     }
   };
   const handleOnAction = (str: string) => {

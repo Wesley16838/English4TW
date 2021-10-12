@@ -29,7 +29,7 @@ const InputBox: React.FC<Props> = ({
 }) => {
   // const [text, onChangeText] = React.useState('')
   return (
-    <View style={{ flexDirection: 'column' }}>
+    <View style={{ flexDirection: "column" }}>
       {title && <Text>{title}</Text>}
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View>
@@ -44,6 +44,7 @@ const InputBox: React.FC<Props> = ({
             underlineColorAndroid="transparent"
             placeholderTextColor={placeHolderTextColor}
             value={value}
+            autoCapitalize="none"
           />
         </View>
       </TouchableWithoutFeedback>

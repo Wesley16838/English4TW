@@ -35,7 +35,6 @@ const Modal: React.FC<Props> = ({
     setSelected(option);
   };
   const renderOption = () => {
-    console.log("renderOption");
     return (
       Array.isArray(content) &&
       content.map((option, index) => {
@@ -61,11 +60,9 @@ const Modal: React.FC<Props> = ({
     );
   };
   const handleOnCancel = () => {
-    console.log("handleOnCancel");
     if (onCancel) onCancel();
   };
   const handleOnConfirm = () => {
-    console.log("handleOnCancel");
     if (onConfirm) onConfirm(selected);
     if (onCancel) onCancel();
   };

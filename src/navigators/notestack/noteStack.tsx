@@ -22,6 +22,7 @@ const noteStackNavigator = () => {
         name={"newnotepage"}
         component={newNotePage}
         options={{ animationEnabled: false, gestureEnabled: false }}
+        initialParams={{ title: "" }}
       />
       <noteStack.Screen
         name={"notecontentpage"}

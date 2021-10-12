@@ -10,6 +10,7 @@ const images = {
     setting_focus: require("./tabBarItem/setting_focus.png"),
   },
   icons: {
+    pause_icon: require("./icons/pauseIcon.png"),
     micro_icon: require("./icons/microIcon.png"),
     search_icon: require("./icons/searchIcon.png"),
     arrow_icon: require("./icons/arrowIcon.png"),
