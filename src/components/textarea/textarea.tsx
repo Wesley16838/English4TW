@@ -7,9 +7,9 @@ import {
   Image,
   Platform,
 } from "react-native";
-import Icon from "./../icon/icon";
-import theme from "./../../utilities/theme.style";
-import Button from "../button/button";
+import Icon from "../Icon/Icon";
+import theme from "../../utilities/theme.style";
+import Button from "../Button/Button";
 
 export type Props = {
   OnClick: any;
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     borderColor: theme.PRIMARY_COLOR_DEFAULT,
     borderWidth: 1,
     justifyContent: "space-between",
+    backgroundColor: theme.COLOR_WHITE,
   },
   input: {
     width: "100%",

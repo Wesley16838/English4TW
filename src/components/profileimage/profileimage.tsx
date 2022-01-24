@@ -31,7 +31,7 @@ const ProfileImage: React.FC<Props> = ({
 const styles = StyleSheet.create({
   profileimage: {
     borderWidth: 2,
-    borderColor: "transparent",
+    borderColor: "#CCCCCC",
     resizeMode: 'cover'
   },
 });

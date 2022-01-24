@@ -23,6 +23,7 @@ const images = {
     add_icon: require("./icons/addIcon.png"),
     default_profileimage: require("./icons/defaultProfileImage.png"),
     rightarrow_icon: require("./icons/rightArrowIcon.png"),
+    rightarrow_icon_b: require("./icons/rightArrowIcon_b.png"),
     close_icon: require("./icons/closeIcon.png"),
     leftarrow_icon: require("./icons/leftArrowIcon.png"),
     rightarrow_disable_icon: require("./icons/rightArrowIcon_disable.png"),

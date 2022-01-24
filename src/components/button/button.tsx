@@ -6,7 +6,7 @@ import {
   Image,
   View,
 } from "react-native";
-import theme from "./../../utilities/theme.style";
+import theme from "../../utilities/theme.style";
 export type Props = {
   title: any;
   onPress: any;

@@ -1,9 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import dictionaryPage from "./../../containers/dictionaryPage/dictionarypage";
-import savedwordPage from "./../../containers/savedwordPage/savedwordpage";
-import wordRecommandPage from "./../../containers/wordrecommandPage/wordrecommand";
-import wordComparePage from "./../../containers/wordcomparePage/wordcompare";
+import dictionaryPage from "./../../pages/dictionaryPage/dictionarypage";
+import savedwordPage from "./../../pages/savedwordPage/savedwordpage";
+import wordDetailPage from "./../../pages/wordDetailPage/wordDetailPage";
+import wordComparePage from "./../../pages/wordcomparePage/wordcompare";
 const dictionaryStack = createStackNavigator();
 
 const dictionaryStackNavigator = () => {
@@ -25,8 +25,8 @@ const dictionaryStackNavigator = () => {
         options={{ animationEnabled: false, gestureEnabled: false }}
       />
       <dictionaryStack.Screen
-        name={"wordrecommandPage"}
-        component={wordRecommandPage}
+        name={"wordDetailPage"}
+        component={wordDetailPage}
         options={{ animationEnabled: false, gestureEnabled: false }}
         initialParams={{ word: "" }}
       />

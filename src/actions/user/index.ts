@@ -15,3 +15,7 @@ export const setUserLoginFail = (err: any) => ({
   type: actionTypes.SET_USER_LOGIN_FAIL,
   message: err,
 });
+
+export const setUserLogout = () => ({
+  type: actionTypes.SET_USER_LOGOUT,
+});

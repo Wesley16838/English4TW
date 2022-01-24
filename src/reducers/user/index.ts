@@ -27,6 +27,14 @@ const user = (state: any = initialState, action: any): any => {
         isLoggedIn: false,
         error: action.message,
       };
+    case actionTypes.SET_USER_LOGOUT:
+      return {
+        ...state,
+        users: [],
+        loading: false,
+        isLoggedIn: false,
+        error: action.message,
+      };
   }
   return state;
 };

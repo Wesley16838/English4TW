@@ -7,9 +7,9 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
-import Icon from "./../icon/icon";
-import Images from "./../../assets/images";
-import theme from "./../../utilities/theme.style";
+import Icon from "../Icon/Icon";
+import Images from "../../assets/images";
+import theme from "../../utilities/theme.style";
 
 export type Props = {
   checked: boolean;
@@ -17,7 +17,7 @@ export type Props = {
   customStyle: any;
   title: string;
 };
-const CheckBox: React.FC<Props> = ({
+const Checkbox: React.FC<Props> = ({
   checked,
   OnClick,
   customStyle,
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-export default CheckBox;
+export default Checkbox;

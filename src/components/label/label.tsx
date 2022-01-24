@@ -8,10 +8,10 @@ import {
   View,
   TouchableWithoutFeedback,
 } from "react-native";
-import theme from "./../../utilities/theme.style";
+import theme from "../../utilities/theme.style";
 export type Props = {
   title: string;
-  customStyle: any;
+  customStyle?: any;
 };
 const Label: React.FC<Props> = ({ title, customStyle }) => {
   const [press, setPress] = React.useState(false);
@@ -29,6 +29,7 @@ const Label: React.FC<Props> = ({ title, customStyle }) => {
 };
 const styles = StyleSheet.create({
   container: {
+    alignSelf: 'flex-start',
     paddingHorizontal: 14,
     paddingVertical: 3,
     color: theme.PRIMARY_COLOR_DEFAULT,

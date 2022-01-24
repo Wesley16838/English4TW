@@ -8,7 +8,7 @@ import {
   View,
   TouchableWithoutFeedback,
 } from "react-native";
-import theme from "./../../utilities/theme.style";
+import theme from "../../utilities/theme.style";
 export type Props = {
   titles: string[];
   children?: any[];
@@ -22,13 +22,19 @@ const TabView: React.FC<Props> = ({ titles, customStyle, children }) => {
       titles.map((item, idx) => {
         return (
           <View
+            key={item+idx}
             style={{
               width: "50%",
-              borderBottomColor:
-                index === idx
-                  ? theme.PRIMARY_COLOR_DEFAULT
-                  : theme.FONT_COLOR_GRAY4,
-              borderBottomWidth: index === idx ? 4 : 0.5,
+              borderColor: index === idx ? theme.PRIMARY_COLOR_DEFAULT : theme.COLOR_TRANSPARENT,
+              borderWidth: index === idx ? 0.5 : 0,
+              borderBottomColor: theme.PRIMARY_COLOR_DEFAULT,
+              borderBottomWidth: 0.5,
+              paddingBottom: 10,
+              paddingTop: 10,
+              paddingLeft: 13,
+              paddingRight: 13,
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
             }}
             onTouchEnd={() => setIndex(idx)}
           >
@@ -40,7 +46,7 @@ const TabView: React.FC<Props> = ({ titles, customStyle, children }) => {
                 color:
                   index === idx
                     ? theme.PRIMARY_COLOR_DEFAULT
-                    : theme.FONT_COLOR_GRAY4,
+                    : theme.PRIMARY_COLOR_UNSELECT,
               }}
             >
               {item}

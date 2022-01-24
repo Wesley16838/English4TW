@@ -5,14 +5,14 @@ import {
     Text,
     TouchableOpacity,
 } from "react-native";
-import theme from "./../../utilities/theme.style";
-import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../../containers/splashpage";
+import theme from "../../utilities/theme.style";
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../../pages/splashpage";
 export type Props = {
     OnClick: any;
     options: string[];
     OnCancel: any;
 };
-const Actionsheet: React.FC<Props> = ({
+const ActionSheet: React.FC<Props> = ({
     OnClick,
     OnCancel,
     options
@@ -38,4 +38,4 @@ const Actionsheet: React.FC<Props> = ({
     )
 }
 
-export default Actionsheet;
+export default ActionSheet;

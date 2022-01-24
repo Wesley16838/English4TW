@@ -8,7 +8,7 @@ import {
   View,
   TouchableWithoutFeedback,
 } from "react-native";
-import theme from "./../../utilities/theme.style";
+import theme from "../../utilities/theme.style";
 export type Props = {
   title: string;
   OnClick: any;

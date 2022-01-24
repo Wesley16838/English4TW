@@ -11,7 +11,7 @@ import {
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { useSelector, shallowEqual } from "react-redux";
 import store from "./src/store";
-import Icon from "./src/components/icon/icon";
+import Icon from "./src/components/Icon/Icon";
 import Navigator from "./src/navigators";
 import Images from "./src/assets/images";
 import theme from "./src/utilities/theme.style";
@@ -30,10 +30,10 @@ export default function App() {
       "subscriptPage",
       "newnotepage",
       "notecontentpage",
-      "wordanalysisPage",
+      "sentenceAnalysisPage",
       "wordcomparePage",
-      "sentenceanalysisPage",
-      "wordrecommandPage",
+      "sentenceExamplesPage",
+      "wordDetailPage",
       "loginPage",
       "createaccountPage",
       "resetpasswordPage",
@@ -91,7 +91,6 @@ export default function App() {
             tabBarOptions={{
               activeTintColor: theme.PRIMARY_COLOR_DEFAULT,
               inactiveTintColor: "gray",
-              showIcon: true,
               labelPosition: "below-icon",
               style: {
                 backgroundColor: "#FFFDF5",

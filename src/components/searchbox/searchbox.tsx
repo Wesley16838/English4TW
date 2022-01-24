@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet, TextInput } from "react-native";
-import Icon from "./../icon/icon";
-import Images from "./../../assets/images";
-import theme from "./../../utilities/theme.style";
+import Icon from "../Icon/Icon";
+import Images from "../../assets/images";
+import theme from "../../utilities/theme.style";
 
 export type Props = {
   OnClick: any;
@@ -50,12 +50,14 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderColor: theme.SECONDARY_COLOR_DEFAULT,
     borderWidth: 1,
+    backgroundColor: theme.COLOR_WHITE,
   },
   input: {
     height: 36,
     paddingHorizontal: 9,
     paddingTop: 0,
     textAlignVertical: "center",
+    
   },
 });
 export default SearchBox;

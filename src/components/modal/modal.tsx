@@ -100,7 +100,7 @@ const Modal: React.FC<Props> = ({
             <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>取消</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => handleOnCancel()}
+            onPress={() => handleOnConfirm()}
             style={{
               width: 135,
               alignItems: "center",

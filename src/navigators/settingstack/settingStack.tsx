@@ -1,13 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import settingPage from "./../../containers/settingPage/settingpage";
-import loginPage from "./../../containers/loginPage/loginpage";
-import createaccountPage from "./../../containers/createaccountPage/createaccountpage";
-import resetpasswordPage from "./../../containers/resetpasswordPage/resetpasswordPage";
-import ReviewPage from "./../../containers/reviewPage/reviewpage";
-import subscriptPage from "./../../containers/subscriptPage/subscriptpage";
-import orderhistoryPage from "./../../containers/orderhistoryPage/orderhistorypage";
-import personalprofilePage from "./../../containers/personalprofilePage/personalprofilepage";
+import settingPage from "./../../pages/settingPage/settingpage";
+import loginPage from "./../../pages/loginPage/loginpage";
+import createaccountPage from "./../../pages/createaccountPage/createaccountpage";
+import resetpasswordPage from "./../../pages/resetpasswordPage/resetpasswordPage";
+import ReviewPage from "./../../pages/reviewPage/reviewpage";
+import subscriptPage from "./../../pages/subscriptPage/subscriptpage";
+import orderhistoryPage from "./../../pages/orderhistoryPage/orderhistorypage";
+import personalprofilePage from "./../../pages/personalprofilePage/personalprofilepage";
+import PrivacyPolicyPage from "../../pages/privacypolicyPage/privacypolicyPage";
 const settingStack = createStackNavigator();
 
 const settingStackNavigator = () => {
@@ -63,6 +64,12 @@ const settingStackNavigator = () => {
         component={personalprofilePage}
         options={{ animationEnabled: false, gestureEnabled: false }}
         initialParams={{ title: "個人資訊" }}
+      />
+      <settingStack.Screen
+        name={"PrivacyPolicyPage"}
+        component={PrivacyPolicyPage}
+        options={{ animationEnabled: false, gestureEnabled: false }}
+        initialParams={{ title: "隱私權與使用條款" }}
       />
     </settingStack.Navigator>
   );

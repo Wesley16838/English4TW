@@ -8,8 +8,8 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
-import Icon from "./../icon/icon";
-import theme from "./../../utilities/theme.style";
+import Icon from "../Icon/Icon";
+import theme from "../../utilities/theme.style";
 
 export type Props = {
   OnChangeText: any;
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     borderColor: theme.PRIMARY_COLOR_DEFAULT,
     borderWidth: 1,
     paddingHorizontal: 15,
+    backgroundColor: theme.COLOR_WHITE,
   },
 });
 export default InputBox;

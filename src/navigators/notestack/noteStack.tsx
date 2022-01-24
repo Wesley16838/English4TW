@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import notePage from "./../../containers/notePage/notepage";
-import newNotePage from "./../../containers/newnotePage/newnotepage";
-import noteContentPage from "./../../containers/notecontentPage/notecontentpage";
+import notePage from "./../../pages/notePage/notepage";
+import newNotePage from "./../../pages/newnotePage/newnotepage";
+import noteContentPage from "./../../pages/notecontentPage/notecontentpage";
 const noteStack = createStackNavigator();
 
 const noteStackNavigator = () => {
