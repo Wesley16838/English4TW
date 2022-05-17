@@ -7,39 +7,32 @@ import {
   Text,
   Modal,
   Alert,
-  TouchableOpacity,
 } from "react-native";
 import Button from "../../components/Button/Button";
 import InputBox from "../../components/InputBox/InputBox";
 import TextArea from "../../components/TextArea/TextArea";
 import ModalContainer from "../../components/Modal/Modal";
 import Images from "./../../assets/images";
-import Label from "../../components/Label/Label";
-import TabView from "../../components/TabView/TabView";
 import Tag from "../../components/Tag/Tag";
-import theme from "../../utilities/theme.style";
+import { Colors, Spacing, Typography } from "../../styles";
 import images from "../../assets/images";
-import { DEVICE_WIDTH } from "../splashpage";
-const newNotePage = ({
-  navigation,
-  route,
-}: {
-  navigation: any;
-  route: any;
-}) => {
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { RouteProp, NavigationProp, ParamListBase } from '@react-navigation/native';
+const newNotePage = () => {
   const [animation, setAnimation] = React.useState(new Animated.Value(0));
   const [modalVisible, setModalVisible] = useState(false);
-  const screenHeight = Dimensions.get("window").height;
-  const screenWidth = Dimensions.get("window").width;
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const route: RouteProp<{ params: { title: string } }, 'params'> = useRoute();
   const { title } = route.params;
-  const [tags, setTags] = React.useState([
+  const tags = [
     "經典生活引語",
     "科技",
     "文法基礎",
     "心理",
     "運動",
     "建築",
-  ]);
+  ];
   const [note, setNote] = useState({
     title: title,
     content: "",
@@ -49,7 +42,7 @@ const newNotePage = ({
       {
         translateY: animation.interpolate({
           inputRange: [0, 0.01],
-          outputRange: [screenHeight, 0],
+          outputRange: [DEVICE_HEIGHT, 0],
           extrapolate: "clamp",
         }),
       },
@@ -89,7 +82,7 @@ const newNotePage = ({
       {
         translateY: animation.interpolate({
           inputRange: [0.01, 1],
-          outputRange: [0, -1 * screenHeight],
+          outputRange: [0, -1 * DEVICE_HEIGHT],
           extrapolate: "clamp",
         }),
       },
@@ -116,7 +109,7 @@ const newNotePage = ({
                 marginBottom: 35,
               }}
               placeHolder={"輸入標籤"}
-              placeHolderTextColor={"#96CACA"}
+              placeHolderTextColor={Colors.primary_light}
               value={""}
             />
           }
@@ -137,7 +130,6 @@ const newNotePage = ({
                 <Button
                   title=""
                   image={images.icons.delete_icon}
-                  customStyle={{}}
                   imageSize={{ height: 30, width: 30 }}
                   type=""
                   onPress={() => handleRemove()}
@@ -158,11 +150,11 @@ const newNotePage = ({
                 customStyle={{
                   width: DEVICE_WIDTH - 40,
                   height: 40,
-                  marginTop: 20,
-                  marginBottom: 20,
+                  marginTop: Spacing.space_l,
+                  marginBottom: Spacing.space_l,
                 }}
                 placeHolder={"輸入標題"}
-                placeHolderTextColor={"#96CACA"}
+                placeHolderTextColor={Colors.primary_light}
                 value={note.title}
               />
               <TextArea
@@ -172,22 +164,20 @@ const newNotePage = ({
                 customStyle={{
                   width: DEVICE_WIDTH - 40,
                   height: 270,
-                  marginBottom: 20,
+                  marginBottom: Spacing.space_l,
                 }}
-                placeHolderTextColor={"#96CACA"}
+                placeHolderTextColor={Colors.primary_light}
                 limit={1000}
               />
               <View style={styles.sectionContainer}>
                 <Button
                   title="+"
-                  image={""}
                   customStyle={{
                     width: 38,
                     height: 24,
                     borderRadius: 25,
                     marginRight: 5,
                   }}
-                  imageSize={{}}
                   type="2"
                   onPress={() => setModalVisible(true)}
                 />
@@ -210,18 +200,14 @@ const newNotePage = ({
                     );
                   })}
               </View>
-              <View style={{ paddingHorizontal: 20 }}>
+              <View style={{ paddingHorizontal: Spacing.space_l }}>
                 <View style={styles.row}>
                   <View style={styles.bullet}>
                     <Text>{"\u2022" + " "}</Text>
                   </View>
                   <View style={styles.bulletText}>
                     <Text
-                      style={{
-                        color: theme.FONT_COLOR_GRAY,
-                        fontSize: theme.FONT_SIZE_SUPER_SMALL,
-                        lineHeight: 12,
-                      }}
+                      style={styles.info}
                     >
                       你可以新增英文和中文到筆記裡,
                       英文可以使用發音和單字查詢功能, 中文則無.
@@ -234,11 +220,7 @@ const newNotePage = ({
                   </View>
                   <View style={styles.bulletText}>
                     <Text
-                      style={{
-                        color: theme.FONT_COLOR_GRAY,
-                        fontSize: theme.FONT_SIZE_SUPER_SMALL,
-                        lineHeight: 12,
-                      }}
+                      style={styles.info}
                     >
                       為避免影響音擋播放功能,
                       點擊播放鍵後開始20秒內將無法操作其他功能.
@@ -251,11 +233,7 @@ const newNotePage = ({
                   </View>
                   <View style={styles.bulletText}>
                     <Text
-                      style={{
-                        color: theme.FONT_COLOR_GRAY,
-                        fontSize: theme.FONT_SIZE_SUPER_SMALL,
-                        lineHeight: 12,
-                      }}
+                      style={styles.info}
                     >
                       若要改變音擋的播放段落, 將文章依需求段行即可
                     </Text>
@@ -267,11 +245,7 @@ const newNotePage = ({
                   </View>
                   <View style={styles.bulletText}>
                     <Text
-                      style={{
-                        color: theme.FONT_COLOR_GRAY,
-                        fontSize: theme.FONT_SIZE_SUPER_SMALL,
-                        lineHeight: 12,
-                      }}
+                      style={styles.info}
                     >
                       長按標籤即可進行編輯/刪除
                     </Text>
@@ -280,7 +254,6 @@ const newNotePage = ({
               </View>
               <Button
                 title="完成"
-                image={""}
                 customStyle={{
                   width: 335,
                   height: 50,
@@ -288,10 +261,8 @@ const newNotePage = ({
                   marginTop: 25,
                 }}
                 fontStyle={{
-                  fontWeight: "bold",
-                  fontSize: theme.FONT_SIZE_MEDIUM,
+                  ...Typography.base_bold
                 }}
-                imageSize={{}}
                 type="2"
                 onPress={() => handleClose()}
               />
@@ -317,7 +288,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.page_modal_background,
   },
   sheet: {
     position: "absolute",
@@ -330,8 +301,7 @@ const styles = StyleSheet.create({
   topic: {
     flexDirection: "row",
     alignItems: "center",
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    fontWeight: "700",
+    ...Typography.base_bold,
     marginBottom: 10,
   },
   topicTitle: {
@@ -344,7 +314,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
     minHeight: Dimensions.get("window").height - 54,
@@ -354,7 +324,7 @@ const styles = StyleSheet.create({
   sectionRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    borderBottomColor: "#BDBDBD",
+    borderBottomColor: Colors.gray_4,
     paddingHorizontal: 20,
     borderBottomWidth: 0.5,
     paddingBottom: 20,
@@ -364,7 +334,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     paddingTop: 5,
     paddingHorizontal: 20,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     shadowColor: "#000000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
@@ -376,71 +346,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  content: {
-    paddingTop: 20,
-    width: DEVICE_WIDTH - 40,
-    flexDirection: "column",
-    marginHorizontal: 20,
-  },
-  content_analysis: {
-    marginTop: 30,
-    width: DEVICE_WIDTH - 40,
-    marginHorizontal: 20,
-    flexDirection: "column",
-  },
-  sentence_analysis: {
-    fontSize: 17,
-    lineHeight: 25.5,
-    marginBottom: 6,
-  },
-  recommandWord: {
-    fontSize: theme.FONT_SIZE_EXTREME_LARGE,
-    fontWeight: "700",
-  },
-  recommandWordKK: {
-    fontSize: theme.FONT_SIZE_SMALL,
-    fontWeight: "500",
-    color: theme.FONT_COLOR_GRAY,
-    marginTop: 5,
-    marginBottom: 20,
-  },
-  recommandWordDes: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    fontWeight: "500",
-    lineHeight: 25,
-    marginTop: 8,
-  },
-  labelContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  labelTabContainer: {
-    flexDirection: "column",
-    flexWrap: "wrap",
-  },
-  speedIcon: {
-    height: 30,
-    width: 30,
-    resizeMode: "contain",
-    marginLeft: 5,
-  },
-  volumeIcon: {
-    height: 30,
-    width: 30,
-    resizeMode: "contain",
-    marginRight: 10,
-  },
-  nonBlurredContent: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  modalContainer: {
-    borderRadius: 14,
-    paddingTop: 19,
-    backgroundColor: theme.COLOR_WHITE,
-    width: 270,
-    alignItems: "center",
-  },
+  info: {
+    ...Typography.sm,
+      color: Colors.gray_3,
+      lineHeight: 12,
+  }
 });
 
 export default newNotePage;

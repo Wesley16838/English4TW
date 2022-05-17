@@ -1,62 +1,144 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  TouchableHighlight,
   Image,
   FlatList,
-  Dimensions,
+  ActivityIndicator,
+  StatusBar,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
-import theme from "./../../utilities/theme.style";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Colors, Typography, Spacing } from "../../styles";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Images from "./../../assets/images";
-import { IItem } from "./../../types/word";
+import { IItem } from "../../types/pages/word";
+import { DEVICE_WIDTH } from "../splashpage";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import words from "../../assets/words/words.json";
+import WordList from "../../components/WordList";
 
-const HistoryItem: React.FC<IItem> = ({ word, detail, number }) => {
+const HistoryItem: React.FC<IItem> = ({ word, detail, number, handleOnPress, handleOnRemove }) => {
   return (
-    <View
-      style={[
-        styles.historyItem,
-        {
-          borderTopWidth: number === 0 ? 1 : 0,
-          borderTopColor: theme.PRIMARY_COLOR_DEFAULT,
-        },
-      ]}
+    <TouchableWithoutFeedback
+      onPress={() => handleOnPress()}
     >
-      <Image
-        style={styles.historyIcon}
-        source={Images.icons.history_disalbe_icon}
-      />
-      <View style={styles.historySection}>
-        <Text style={styles.historyWord}>{word}</Text>
-        <Text style={styles.historyDetail}>{detail}</Text>
+      <View
+        style={[
+          styles.historyItem,
+          {
+            borderTopWidth: number === 0 ? 1 : 0,
+            borderTopColor: Colors.primary,
+          },
+        ]}
+      >
+        <Image
+          style={styles.historyIcon}
+          source={Images.icons.history_disalbe_icon}
+        />
+        <View style={styles.historySection}>
+          <Text style={styles.historyWord}>{word}</Text>
+          <Text style={styles.historyDetail}>{detail}</Text>
+        </View>
+        <TouchableWithoutFeedback onPress={()=> handleOnRemove()}>
+          <Image
+             source={Images.icons.remove_icon}
+             style={styles.icon}
+          />
+        </TouchableWithoutFeedback>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
-const dictoinaryPage = ({ navigation }: { navigation: any }) => {
-  const DEVICE_WIDTH = Dimensions.get("window").width;
-  const [history, setHistory] = React.useState([]);
-  const handleOnSearch = () => {};
+const dictoinaryPage = () => {
+  const navigation = useNavigation<StackNavigationProp<any>>();
+  const [searchWord, setSearchWord] = useState('')
+  const [history, setHistory] = useState<IItem[] | []>([]);
+  const [loading, setLoading] = useState<boolean>(true)
+  const filterData = words.filter(word=> searchWord && word.indexOf(searchWord.toUpperCase()) === 0)
+  useFocusEffect(
+    useCallback(() => {
+      const getLocalData = async () => {
+        try{
+          const result = await AsyncStorage.getItem('@word_history')
+          setHistory(result ? JSON.parse(result) : [])
+          setLoading(false);
+        }catch(err) {
+          console.log('err,', err)
+        }
+      }
+      getLocalData()
+      return () => {
+        // Useful for cleanup functions
+      };
+    }, [])
+  );
+
+  const handleOnSearch = async () => {
+    try{
+      const jsonValue = JSON.stringify(history)
+      navigation.push("wordDetailPage", {
+        word: searchWord,
+        history: jsonValue
+      });
+    }catch(err){
+      console.log('err,', err)
+    }
+  };
+
   const handleOnNavToFav = () => {
     navigation.push("savedwordPage");
   };
+
+  const handleOnChange = (str: string) => {
+    setSearchWord(str)
+  };
+
+  const onItemPress = (word: string) => {
+    const jsonValue = JSON.stringify(history)
+    navigation.push("wordDetailPage", {
+      word,
+      history: jsonValue
+    });
+  }
+  const handleOnRemoveSingle = async(word:string) => {
+    try{
+      const index = history.map((e: IItem) => e.word)?.indexOf(word)
+      const newHistory = [...history]
+      newHistory.splice(index, 1)
+      await AsyncStorage.setItem('@word_history', JSON.stringify(newHistory));
+      setHistory(newHistory)
+    }catch(err){
+
+    }
+  }
+  const handleOnRemoveAll = async () => {
+    try {
+      await AsyncStorage.removeItem('@word_history')
+      setHistory([])
+    } catch(e) {
+      // remove error
+    }
+  }
+
   return (
-    <LinearGradient
-      colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-      style={styles.container}
-    >
-      <SafeAreaView style={{ marginTop: 10, height: "100%" }}>
+    <LinearGradientLayout>
+      <SafeAreaView>
         <View style={styles.sectionRow}>
           <SearchBox
             customStyle={{ width: DEVICE_WIDTH - 80 }}
             OnClick={() => handleOnSearch()}
+            OnChange={(str: string) => handleOnChange(str)}
             placeHolder={"點擊收尋字會或片語"}
             placeHolderTextColor={"rgba(196, 129, 72, 0.5)"}
+            value={searchWord}
           />
           <TouchableOpacity onPress={() => handleOnNavToFav()}>
             <Image
@@ -65,7 +147,14 @@ const dictoinaryPage = ({ navigation }: { navigation: any }) => {
             />
           </TouchableOpacity>
         </View>
-        {history.length === 0 ? (
+        {
+        loading ? 
+        <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+          <ActivityIndicator size="large" />
+        </View> :
+        searchWord.length !==0 ? 
+        <WordList data={filterData}/>
+        : history.length === 0 ? (
           <View
             style={{
               flex: 1,
@@ -79,53 +168,54 @@ const dictoinaryPage = ({ navigation }: { navigation: any }) => {
               style={styles.imagehistorystyle}
               source={Images.icons.search_history_icon}
             />
-            <Text style={{ color: theme.FONT_COLOR_GRAY4 }}>沒有收尋歷史</Text>
+            <Text style={{ color: Colors.gray_4}}>沒有收尋歷史</Text>
           </View>
         ) : (
-          <FlatList
-            contentContainerStyle={{
-              flexGrow: 1,
-            }}
-            showsVerticalScrollIndicator={false}
-            data={[
-              { word: "test1", detail: "A test1" },
-              { word: "test2", detail: "A test2" },
-            ]}
-            renderItem={({ item, index }) => (
-              <HistoryItem
-                key={index}
-                word={item.word}
-                detail={item.detail}
-                number={index}
-              />
-            )}
-            keyExtractor={(item, index) => index.toString()}
-          />
+          <>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: Spacing.space_l,marginBottom: 10}}>
+              <Text style={{color: Colors.gray_4}}>最近收尋</Text>
+              < TouchableHighlight onPress={()=>handleOnRemoveAll()}>
+                <Text style={{color: Colors.primary}}>清除全部</Text>
+              </ TouchableHighlight>
+            </View>
+            <FlatList
+              contentContainerStyle={{
+                flexGrow: 1,
+              }}
+              showsVerticalScrollIndicator={false}
+              data={history}
+              keyboardShouldPersistTaps='handled'
+              renderItem={({ item, index }) => (
+                <HistoryItem
+                  key={index}
+                  word={item.word}
+                  detail={item.detail}
+                  number={index}
+                  handleOnPress={() => onItemPress(item.word)}
+                  handleOnRemove={() => handleOnRemoveSingle(item.word)}
+                />
+              )}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          </>
         )}
       </SafeAreaView>
-    </LinearGradient>
+    </LinearGradientLayout>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: "#fff",
-    // paddingHorizontal: 20,
-  },
   sectionRow: {
-    paddingHorizontal: 20,
+    paddingHorizontal: Spacing.space_l,
     paddingBottom: 25,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    // borderBottomWidth: 1,
-    // borderBottomColor: theme.PRIMARY_COLOR_DEFAULT,
   },
   imagestyle: {
     resizeMode: "contain",
-    width: 30,
-    height: 30,
+    width: 36,
+    height: 36,
+    marginLeft: 10
   },
   imagehistorystyle: {
     resizeMode: "contain",
@@ -135,27 +225,32 @@ const styles = StyleSheet.create({
   historyItem: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: Spacing.space_l,
     paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: theme.PRIMARY_COLOR_DEFAULT,
-    backgroundColor: theme.COLOR_WHITE,
+    borderBottomColor: Colors.primary,
+    backgroundColor: Colors.white,
   },
   historyIcon: {
     width: 30,
     height: 30,
   },
   historyWord: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
+    ...Typography.base,
   },
   historyDetail: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    color: "#828282",
+    ...Typography.base,
+    color: Colors.gray_3,
   },
   historySection: {
     flexDirection: "column",
-    marginLeft: 15,
+    marginLeft: Spacing.space_s,
+    flex:1
   },
+  icon: {
+    width: 30,
+    height: 30
+  }
 });
 
 export default dictoinaryPage;

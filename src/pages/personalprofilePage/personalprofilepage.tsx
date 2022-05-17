@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
+
 import * as ImagePicker from "expo-image-picker";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import Actionsheet from "../../components/ActionSheet/ActionSheet";
 import Button from "../../components/Button/Button";
-import theme from "./../../utilities/theme.style";
 import images from "../../assets/images";
 import ModalContainer from "../../components/Modal/Modal";
 import InputBox from "../../components/InputBox/InputBox";
@@ -18,13 +17,13 @@ import {
   Image,
   Modal,
   Alert,
-  TouchableOpacity,
+  TextStyle,
 } from "react-native";
 import { DEVICE_WIDTH } from "../splashpage";
 import { setUserLogout } from "../../actions/user";
 import { Dispatch } from "redux";
-import { CommonActions } from "@react-navigation/native";
-
+import { Colors, Spacing, Typography } from "../../styles";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
 
 const personalprofilePage = ({
   navigation,
@@ -34,8 +33,8 @@ const personalprofilePage = ({
   route: any;
 }) => {
   const dispatch: Dispatch<any> = useDispatch();
-  const isLoggedIn: any = useSelector(
-    (state: any) => state.user.isLoggedIn,
+  const {isLoggedIn}: any = useSelector(
+    (state: any) => state.user,
     shallowEqual
   );
   const [actionsheet, openActionsheet] = React.useState(false);
@@ -47,13 +46,8 @@ const personalprofilePage = ({
   useEffect(() => {
     if(!isLoggedIn){
       navigation.push('settingPage')
-      // navigation.dispatch(
-      //   CommonActions.navigate({
-      //     name: 'settingPage',
-      //   })
-      // );
     }
-  })
+  }, [isLoggedIn])
 
   const handleBack = () => {
     navigation.goBack();
@@ -142,7 +136,7 @@ const personalprofilePage = ({
                 marginBottom: 35,
               }}
               placeHolder={"輸入姓名"}
-              placeHolderTextColor={"#96CACA"}
+              placeHolderTextColor={Colors.primary_light}
               value={""}
             />
           }
@@ -170,10 +164,7 @@ const personalprofilePage = ({
           confirmString={"確定"}
         />
       </Modal>
-      <LinearGradient
-        colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-        style={styles.container}
-      >
+      <LinearGradientLayout>
         <SafeAreaView
           style={{
             height: "100%",
@@ -200,13 +191,7 @@ const personalprofilePage = ({
             </View>
 
             <Text
-              style={{
-                flex: 1,
-                textAlign: "center",
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 22,
-                fontWeight: "bold",
-              }}
+              style={ Typography.pageTitle as TextStyle }
             >
               個人資訊
             </Text>
@@ -240,9 +225,8 @@ const personalprofilePage = ({
               marginRight: 7,
             }}
             type="text"
-            image={""}
             fontStyle={{
-              color: theme.SECONDARY_COLOR_DEFAULT,
+              ...Typography.base_secondary
             }}
           />
           <View>
@@ -265,11 +249,7 @@ const personalprofilePage = ({
                     <Text
                       style={[
                         styles.sectionText,
-                        {
-                          marginRight: 11,
-                          fontSize: theme.FONT_SIZE_MEDIUM,
-                          color: "rgba(60, 60, 67, 0.6)",
-                        },
+                        styles.info
                       ]}
                     >
                       {"Samalia Juda"}
@@ -290,18 +270,14 @@ const personalprofilePage = ({
                 <View
                   style={[
                     styles.sectionRow,
-                    { borderBottomColor: "#96CACA", borderBottomWidth: 1 },
+                    { borderBottomColor: Colors.primary_light, borderBottomWidth: 1 },
                   ]}
                 >
                   <Text style={styles.sectionText}>{"電子信箱"}</Text>
                   <Text
                     style={[
                       styles.sectionText,
-                      {
-                        marginRight: 11,
-                        fontSize: theme.FONT_SIZE_MEDIUM,
-                        color: "rgba(60, 60, 67, 0.6)",
-                      },
+                      styles.info
                     ]}
                   >
                     {"mercucu@gmail.com"}
@@ -328,11 +304,7 @@ const personalprofilePage = ({
                     <Text
                       style={[
                         styles.sectionText,
-                        {
-                          marginRight: 11,
-                          fontSize: theme.FONT_SIZE_MEDIUM,
-                          color: "rgba(60, 60, 67, 0.6)",
-                        },
+                        styles.info
                       ]}
                     >
                       {"30天方案"}
@@ -353,7 +325,7 @@ const personalprofilePage = ({
                 <View
                   style={[
                     styles.sectionRow,
-                    { borderBottomColor: "#96CACA", borderBottomWidth: 1 },
+                    { borderBottomColor: Colors.primary_light, borderBottomWidth: 1 },
                   ]}
                 >
                   <Text style={styles.sectionText}>{"訂單記錄"}</Text>
@@ -370,9 +342,8 @@ const personalprofilePage = ({
                 <Text
                   style={{
                     textAlign: "center",
-                    color: "#FF3B30",
-                    fontSize: theme.FONT_SIZE_MEDIUM,
-                    fontWeight: "bold",
+                    color: Colors.light_red,
+                    ...Typography.base_bold
                   }}
                 >
                   登出
@@ -381,32 +352,23 @@ const personalprofilePage = ({
             </TouchableWithoutFeedback>
           </View>
         </SafeAreaView>
-      </LinearGradient>
+      </LinearGradientLayout>
     </>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   sectionRow: {
     flexDirection: "row",
     height: 60,
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: Spacing.space_l,
     width: DEVICE_WIDTH,
-    borderTopColor: "#96CACA",
+    borderTopColor: Colors.primary_light,
     borderTopWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
   sectionText: {},
-  version: {
-    color: "rgba(60, 60, 67, 0.6)",
-  },
   sectionArrow: {
     width: 7,
     height: 12,
@@ -418,12 +380,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     width: DEVICE_WIDTH,
-    borderTopColor: "#96CACA",
+    borderTopColor: Colors.primary_light,
     borderTopWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
-    borderBottomColor: "#96CACA",
+    backgroundColor: Colors.white,
+    borderBottomColor: Colors.primary_light,
     borderBottomWidth: 1,
   },
+  info: {
+    ...Typography.base,
+    color: Colors.info,
+    marginRight: 11,
+  }
 });
 
 export default personalprofilePage;

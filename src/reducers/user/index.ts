@@ -1,13 +1,20 @@
 import * as actionTypes from "./../../actions/actionTypes";
+
 const initialState: any = {
   isLoggedIn: false,
-  users: [],
+  users: null,
   loading: false,
   error: null,
 };
 
 const user = (state: any = initialState, action: any): any => {
   switch (action.type) {
+    case actionTypes.IS_USER_AUTHENTICATED:
+      return {
+        ...state,
+        isLoggedIn: action.data.isLoggedIn,
+        users: action.data.users,
+      };
     case actionTypes.SET_USER_LOGIN:
       return {
         ...state,
@@ -30,7 +37,7 @@ const user = (state: any = initialState, action: any): any => {
     case actionTypes.SET_USER_LOGOUT:
       return {
         ...state,
-        users: [],
+        users: null,
         loading: false,
         isLoggedIn: false,
         error: action.message,

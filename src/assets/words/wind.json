@@ -1,0 +1,742 @@
+{
+    "word": "wind",
+    "tabs": [
+        {
+            "title": "(1)i發音近似ㄧ",
+            "content": {
+                "名詞": {
+                    "simple": [
+                        {
+                            "definitions": [
+                                "風, 風聲",
+                                "風向, 氣流"
+                            ],
+                            "pattern": "wind",
+                            "name": "可為可數與不可數名詞|複數為\"winds\""
+                        },
+                        {
+                            "definitions": [
+                                "呼吸, 呼吸能力",
+                                "氣味",
+                                "腸胃脹氣",
+                                "腸氣, 胃氣",
+                                "屁",
+                                "小訊息(尤指秘密)",
+                                "風聞, 傳說",
+                                "空談, 廢話",
+                                "趨勢",
+                                "破壞力"
+                            ],
+                            "pattern": "wind",
+                            "name": "限定不可數名詞:"
+                        },
+                        {
+                            "definitions": [
+                                "管樂器演奏員",
+                                "木管樂器組",
+                                "管樂器"
+                            ],
+                            "pattern": "winds",
+                            "name": "限定複數\"winds\":"
+                        }
+                    ],
+                    "synonyms": [
+                        "angle",
+                        "arc",
+                        "arch",
+                        "bend",
+                        "bow",
+                        "crook",
+                        "curvature",
+                        "curve",
+                        "inflection",
+                        "turn",
+                        "current",
+                        "draft",
+                        "current",
+                        "direction",
+                        "drift",
+                        "leaning",
+                        "run",
+                        "tendency",
+                        "tide",
+                        "trend",
+                        "bombast",
+                        "fustian",
+                        "gas",
+                        "grandiloquence",
+                        "hot air",
+                        "oratory",
+                        "rhetoric",
+                        "verbiage"
+                    ],
+                    "phrases": [
+                        {
+                            "pattern": "a wind farm|wind farms:",
+                            "definitions": [
+                                "風力發電廠",
+                                "風電場"
+                            ],
+                            "name": "a wind farm|wind farms:"
+                        },
+                        {
+                            "pattern": "a wind turbine|wind turbines:",
+                            "definitions": [
+                                "風力發電機",
+                                "風力渦輪機",
+                                "風輪機"
+                            ],
+                            "name": "a wind turbine|wind turbines:"
+                        },
+                        {
+                            "pattern": "a wind machine|wind machines:",
+                            "definitions": [
+                                "風力機"
+                            ],
+                            "name": "a wind machine|wind machines:"
+                        },
+                        {
+                            "pattern": "a wind instrument|wind instruments:",
+                            "definitions": [
+                                "管樂器",
+                                "吹奏樂器"
+                            ],
+                            "name": "a wind instrument|wind instruments:"
+                        },
+                        {
+                            "pattern": "a wind gauge|wind gauges:",
+                            "definitions": [
+                                "風力計",
+                                "風速計",
+                                "(風琴的)風壓計",
+                                "(槍砲的)風力調節表"
+                            ],
+                            "name": "a wind gauge|wind gauges:"
+                        },
+                        {
+                            "pattern": "a stellar wind|stellar winds:",
+                            "definitions": [
+                                "恒星風"
+                            ],
+                            "name": "a stellar wind|stellar winds:"
+                        },
+                        {
+                            "pattern": "a motor wind|motor winds:",
+                            "definitions": [
+                                "電機繞線圈"
+                            ],
+                            "name": "a motor wind|motor winds:"
+                        },
+                        {
+                            "pattern": "a wind tunnel|wind tunnels:",
+                            "definitions": [
+                                "(用於測量飛機、交通工具風阻的)風洞"
+                            ],
+                            "name": "a wind tunnel|wind tunnels:"
+                        },
+                        {
+                            "pattern": "a side wind|side winds:",
+                            "definitions": [
+                                "側風",
+                                "間接的手段",
+                                "間接的影響方法"
+                            ],
+                            "name": "a side wind|side winds:"
+                        },
+                        {
+                            "condition": "限定不可數名詞:",
+                            "examples": [
+                                {
+                                    "pattern": "wind chill:",
+                                    "definitions": [
+                                        "風寒",
+                                        "風寒指數"
+                                    ],
+                                    "name": "wind chill:"
+                                }
+                            ]
+                        },
+                        {
+                            "definitions": [
+                                "風鈴"
+                            ],
+                            "pattern": "wind chimes",
+                            "name": "限定複數wind chimes:"
+                        },
+                        {
+                            "condition": "限定單數可數名詞:",
+                            "examples": [
+                                {
+                                    "pattern": "a second wind:",
+                                    "definitions": [
+                                        "恢復的元氣",
+                                        "恢復的力量",
+                                        "恢復的精力"
+                                    ],
+                                    "name": "a second wind:"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "動詞": {
+                    "tags": [
+                        "過去式與過去分詞為\"winded\"",
+                        "現在分詞皆為\"winding\"",
+                        "第三者單數現在式皆為\"winds\""
+                    ],
+                    "simple": [
+                        {
+                            "definitions": [
+                                "使...(人)喘氣",
+                                "聞到...(氣味等)",
+                                "嗅出...(氣味等)",
+                                "使...(物)被風吹",
+                                "讓...(動物)鬆口氣休息",
+                                "調節...(風琴管)的風量"
+                            ],
+                            "pattern": "wind ...(物)",
+                            "name": "及物"
+                        }
+                    ],
+                    "synonyms": [
+                        "coil",
+                        "corkscrew",
+                        "curl",
+                        "entwine",
+                        "spiral",
+                        "twine",
+                        "twist",
+                        "infiltrate",
+                        "insinuate",
+                        "slip",
+                        "sneak",
+                        "work in",
+                        "worm",
+                        "wriggle"
+                    ]
+                },
+                "形容詞": {
+                    "phrases": [
+                        {
+                            "pattern": "in the wind:",
+                            "definitions": [
+                                "(事)在醞釀中的|在熱論中的",
+                                "(人)消失的|逃跑後失蹤的"
+                            ],
+                            "name": "in the wind:"
+                        },
+                        {
+                            "pattern": "wind-blown:",
+                            "definitions": [
+                                "御風而行的",
+                                "風吹成的",
+                                "(樹等)終年當風的",
+                                "(頭髮)風飄式的"
+                            ],
+                            "name": "wind-blown:"
+                        },
+                        {
+                            "pattern": "before the wind:",
+                            "definitions": [
+                                "順風的"
+                            ],
+                            "name": "before the wind:"
+                        },
+                        {
+                            "pattern": "on the wind:",
+                            "definitions": [
+                                "迎向來風的",
+                                "頂風的"
+                            ],
+                            "name": "on the wind:"
+                        },
+                        {
+                            "pattern": "near the wind|close to the wind:",
+                            "definitions": [
+                                "幾乎迎向來風的",
+                                "幾乎頂風的"
+                            ],
+                            "name": "near the wind|close to the wind:"
+                        },
+                        {
+                            "pattern": "near the wind:",
+                            "definitions": [
+                                "瀕臨險境的",
+                                "冒風險的"
+                            ],
+                            "name": "near the wind:"
+                        },
+                        {
+                            "pattern": "off the wind:",
+                            "definitions": [
+                                "背著風的"
+                            ],
+                            "name": "off the wind:"
+                        },
+                        {
+                            "pattern": "side-wind:",
+                            "definitions": [
+                                "間接的",
+                                "不正當的"
+                            ],
+                            "name": "side-wind:"
+                        }
+                    ],
+                    "synonyms": []
+                },
+                "副詞": {
+                    "phrases": [
+                        {
+                            "pattern": "before the wind:",
+                            "definitions": [
+                                "順風地"
+                            ],
+                            "name": "before the wind:"
+                        },
+                        {
+                            "pattern": "on the wind:",
+                            "definitions": [
+                                "迎向來風地",
+                                "頂風地"
+                            ],
+                            "name": "on the wind:"
+                        },
+                        {
+                            "pattern": "near the wind|close to the wind:",
+                            "definitions": [
+                                "幾乎迎向來風地",
+                                "幾乎頂風地"
+                            ],
+                            "name": "near the wind|close to the wind:"
+                        },
+                        {
+                            "pattern": "off the wind:",
+                            "definitions": [
+                                "背著風地"
+                            ],
+                            "name": "off the wind:"
+                        },
+                        {
+                            "pattern": "under the wind:",
+                            "definitions": [
+                                "在背風處",
+                                "在下風"
+                            ],
+                            "name": "under the wind:"
+                        },
+                        {
+                            "pattern": "to the wind|to the winds:",
+                            "definitions": [
+                                "在旁",
+                                "到旁邊",
+                                "向旁邊"
+                            ],
+                            "name": "to the wind|to the winds:"
+                        }
+                    ],
+                    "synonyms": []
+                },
+                "成語": {
+                    "phrases": [
+                        {
+                            "pattern": "tall trees catch much wind:",
+                            "definitions": [
+                                "樹大招風"
+                            ],
+                            "name": "tall trees catch much wind:"
+                        },
+                        {
+                            "pattern": "a straw shows which way the wind blows:",
+                            "definitions": [
+                                "一葉知秋",
+                                "草動知風向"
+                            ],
+                            "name": "a straw shows which way the wind blows:"
+                        },
+                        {
+                            "pattern": "it is as well to know which way the wind blows|it's as well to know which way the wind blows:",
+                            "definitions": [
+                                "識時務者為俊傑"
+                            ],
+                            "name": "it is as well to know which way the wind blows|it's as well to know which way the wind blows:"
+                        },
+                        {
+                            "pattern": "it's an ill wind|it's an ill wind that blows nobody any good:",
+                            "definitions": [
+                                "天下無絕對的壞事",
+                                "失此得彼",
+                                "害於此而利於彼",
+                                "損於此者利於彼"
+                            ],
+                            "name": "it's an ill wind|it's an ill wind that blows nobody any good:"
+                        }
+                    ],
+                    "synonyms": []
+                }
+            }
+        },
+        {
+            "title": "(2)i發音近似ㄞ",
+            "content": {
+                "名詞": {
+                    "simple": [
+                        {
+                            "definitions": [
+                                "繞捲, 轉繞",
+                                "彎曲",
+                                "上發條"
+                            ],
+                            "pattern": "winds",
+                            "name": "可數名詞|複數為\"winds\":"
+                        }
+                    ],
+                    "synonyms": [
+                        "angle",
+                        "arc",
+                        "arch",
+                        "bend",
+                        "bow",
+                        "crook",
+                        "curvature",
+                        "curve",
+                        "inflection",
+                        "turn",
+                        "current",
+                        "draft",
+                        "current",
+                        "direction",
+                        "drift",
+                        "leaning",
+                        "run",
+                        "tendency",
+                        "tide",
+                        "trend",
+                        "bombast",
+                        "fustian",
+                        "gas",
+                        "grandiloquence",
+                        "hot air",
+                        "oratory",
+                        "rhetoric",
+                        "verbiage"
+                    ],
+                    "phrases": [
+                        {
+                            "condition": "限定單數可數名詞:",
+                            "examples": [
+                                {
+                                    "pattern": "a wind-down:",
+                                    "definitions": [
+                                        "逐漸減少至終止"
+                                    ],
+                                    "name": "a wind-down:"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "動詞": {
+                    "tags": [
+                        "過去式與過去分詞為\"wound\"",
+                        "現在分詞皆為\"winding\"",
+                        "第三者單數現在式皆為\"winds\""
+                    ],
+                    "simple": [
+                        {
+                            "definitions": [
+                                "可上發條",
+                                "可上鍊",
+                                "河流、道路等: 曲折前進, 蜿蜒",
+                                "轉繞, 繞",
+                                "(錄影帶等)轉",
+                                "吹出喇叭聲音"
+                            ],
+                            "pattern": "wind",
+                            "name": "不及物"
+                        },
+                        {
+                            "definitions": [
+                                "給...(機械錶等)上發條",
+                                "給...(機械錶等)上鍊",
+                                "給...(機械錶等)上弦",
+                                "繞捲...(物)",
+                                "纏繞...(物)",
+                                "使...(物)纏繞成團",
+                                "轉動...(把手)",
+                                "包...(物)",
+                                "裹...(物)",
+                                "用繩索吊起...(物)",
+                                "用鏈條吊起...(物)",
+                                "用起錨機吊起...(物)",
+                                "使...(船等)改變方向",
+                                "使...(船)首尾相連",
+                                "使...(喇叭等)吹出聲音",
+                                "吹喇叭發出...(叫聲、音符等)"
+                            ],
+                            "pattern": "wind ...(物)",
+                            "name": "及物"
+                        }
+                    ],
+                    "phrases": [
+                        {
+                            "pattern": "(河流等)wind to ...(地方等)|(河流等)wind down to ...(地方等):",
+                            "definitions": [
+                                "流向...",
+                                "流到..."
+                            ],
+                            "name": "(河流等)wind to ...(地方等)|(河流等)wind down to ...(地方等):"
+                        },
+                        {
+                            "pattern": "(道路等)wind to ...(地方等):",
+                            "definitions": [
+                                "通向..."
+                            ],
+                            "name": "(道路等)wind to ...(地方等):"
+                        },
+                        {
+                            "pattern": "(河流等)wind its way through ...(地方等):",
+                            "definitions": [
+                                "蜿蜒流過..."
+                            ],
+                            "name": "(河流等)wind its way through ...(地方等):"
+                        },
+                        {
+                            "pattern": "(道路等)wind its way through ...(地方等):",
+                            "definitions": [
+                                "蜿蜒穿過..."
+                            ],
+                            "name": "(道路等)wind its way through ...(地方等):"
+                        },
+                        {
+                            "pattern": "wind ...(a: 紗線、毛線等) into ...(b: 球狀物等):",
+                            "definitions": [
+                                "把(a)繞捲成(b)",
+                                "把(a)纏繞成(b)"
+                            ],
+                            "name": "wind ...(a: 紗線、毛線等) into ...(b: 球狀物等):"
+                        },
+                        {
+                            "pattern": "wind ...(a: 物) around ...(b: 物):",
+                            "definitions": [
+                                "把(a)繞捲在(b)上",
+                                "把(a)纏繞在(b)上"
+                            ],
+                            "name": "wind ...(a: 物) around ...(b: 物):"
+                        },
+                        {
+                            "pattern": "wind up|wind:",
+                            "definitions": [
+                                "(機械錶等)可上發條",
+                                "(機械錶等)可上鍊"
+                            ],
+                            "name": "wind up|wind:"
+                        },
+                        {
+                            "pattern": "wind up:",
+                            "definitions": [
+                                "(演講、會議等)結束",
+                                "(運動時)扭曲身體以準備做動作"
+                            ],
+                            "name": "wind up:"
+                        },
+                        {
+                            "pattern": "wind up in/at ...(地方等):",
+                            "definitions": [
+                                "最後來到...",
+                                "最終來到..."
+                            ],
+                            "name": "wind up in/at ...(地方等):"
+                        },
+                        {
+                            "pattern": "wind up ...(形容詞):",
+                            "definitions": [
+                                "最終處於...的狀態",
+                                "落得..."
+                            ],
+                            "name": "wind up ...(形容詞):"
+                        },
+                        {
+                            "pattern": "wind up ...(動詞ing ...):",
+                            "definitions": [
+                                "最終做..."
+                            ],
+                            "name": "wind up ...(動詞ing ...):"
+                        },
+                        {
+                            "pattern": "wind up as ...(特定類型的人事物):",
+                            "definitions": [
+                                "最終成為..."
+                            ],
+                            "name": "wind up as ...(特定類型的人事物):"
+                        },
+                        {
+                            "pattern": "wind up ...(機械錶等)|wind ...(機械錶等) up|wind ...(機械錶等):",
+                            "definitions": [
+                                "給...上發條",
+                                "給...上鍊",
+                                "給...上弦"
+                            ],
+                            "name": "wind up ...(機械錶等)|wind ...(機械錶等) up|wind ...(機械錶等):"
+                        },
+                        {
+                            "pattern": "wind up ...(演講、會議等)|wind ...(演講、會議等) up:",
+                            "definitions": [
+                                "結束..."
+                            ],
+                            "name": "wind up ...(演講、會議等)|wind ...(演講、會議等) up:"
+                        },
+                        {
+                            "pattern": "wind up ...(事):",
+                            "definitions": [
+                                "解決..."
+                            ],
+                            "name": "wind up ...(事):"
+                        },
+                        {
+                            "pattern": "wind up ...(人)|wind ...(人) up:",
+                            "definitions": [
+                                "使...變得焦慮",
+                                "讓...熱情大談"
+                            ],
+                            "name": "wind up ...(人)|wind ...(人) up:"
+                        },
+                        {
+                            "pattern": "wind up ...(人事物)|wind ...(人事物) up:",
+                            "definitions": [
+                                "使...變得更加生動"
+                            ],
+                            "name": "wind up ...(人事物)|wind ...(人事物) up:"
+                        },
+                        {
+                            "pattern": "wind ...(生意等、公司等) up|wind up ...(生意等、公司等):",
+                            "definitions": [
+                                "收掉..."
+                            ],
+                            "name": "wind ...(生意等、公司等) up|wind up ...(生意等、公司等):"
+                        },
+                        {
+                            "pattern": "wind ...(車窗等) up|wind up ...(車窗等):",
+                            "definitions": [
+                                "把...轉上去"
+                            ],
+                            "name": "wind ...(車窗等) up|wind up ...(車窗等):"
+                        },
+                        {
+                            "pattern": "wind forward:",
+                            "definitions": [
+                                "(把錄影帶等)往前轉"
+                            ],
+                            "name": "wind forward:"
+                        },
+                        {
+                            "pattern": "(已拍攝的影片鏡頭、場景等)wind up on the cutting room floor|(已拍攝的影片鏡頭、場景等)wind up on the cutting-room floor:",
+                            "definitions": [
+                                "被剪掉"
+                            ],
+                            "name": "(已拍攝的影片鏡頭、場景等)wind up on the cutting room floor|(已拍攝的影片鏡頭、場景等)wind up on the cutting-room floor:"
+                        },
+                        {
+                            "pattern": "(想法、措施、提案等)wind up on the cutting room floor|(想法、措施、提案等)wind up on the cutting-room floor:",
+                            "definitions": [
+                                "沒有被包括在最後的計畫中",
+                                "沒有被包括在最後的名單中"
+                            ],
+                            "name": "(想法、措施、提案等)wind up on the cutting room floor|(想法、措施、提案等)wind up on the cutting-room floor:"
+                        },
+                        {
+                            "pattern": "wind ...(錄影帶等) forward:",
+                            "definitions": [
+                                "把...往前轉"
+                            ],
+                            "name": "wind ...(錄影帶等) forward:"
+                        },
+                        {
+                            "pattern": "wind back:",
+                            "definitions": [
+                                "(把錄影帶等)倒回轉"
+                            ],
+                            "name": "wind back:"
+                        },
+                        {
+                            "pattern": "wind ...(錄影帶等) back:",
+                            "definitions": [
+                                "把...倒回轉"
+                            ],
+                            "name": "wind ...(錄影帶等) back:"
+                        },
+                        {
+                            "pattern": "wind down:",
+                            "definitions": [
+                                "(人)放鬆",
+                                "(人)放鬆心情",
+                                "(事)接近尾聲",
+                                "(事)速度慢下來",
+                                "(機械物)逐漸停止轉動"
+                            ],
+                            "name": "wind down:"
+                        },
+                        {
+                            "pattern": "wind ...(事) down|wind down ...(事):",
+                            "definitions": [
+                                "使...慢下来"
+                            ],
+                            "name": "wind ...(事) down|wind down ...(事):"
+                        },
+                        {
+                            "pattern": "wind ...(生意、工程等) down|wind down ...(生意、工程等):",
+                            "definitions": [
+                                "漸漸把...收起來"
+                            ],
+                            "name": "wind ...(生意、工程等) down|wind down ...(生意、工程等):"
+                        },
+                        {
+                            "pattern": "wind ...(車窗等) down|wind down ...(車窗等):",
+                            "definitions": [
+                                "把...轉下來"
+                            ],
+                            "name": "wind ...(車窗等) down|wind down ...(車窗等):"
+                        },
+                        {
+                            "pattern": "wind ...(a: 願意付出者) around ...(主詞: 人)'s little finger:",
+                            "definitions": [
+                                "任意擺布(a)",
+                                "任意左右(a)"
+                            ],
+                            "name": "wind ...(a: 願意付出者) around ...(主詞: 人)'s little finger:"
+                        }
+                    ],
+                    "synonyms": [
+                        "coil",
+                        "corkscrew",
+                        "curl",
+                        "entwine",
+                        "spiral",
+                        "twine",
+                        "twist",
+                        "infiltrate",
+                        "insinuate",
+                        "slip",
+                        "sneak",
+                        "work in",
+                        "worm",
+                        "wriggle"
+                    ]
+                },
+                "形容詞": {
+                    "phrases": [
+                        {
+                            "pattern": "wind-up(必接名詞):",
+                            "definitions": [
+                                "機械錶等: 上發條的|上鍊的",
+                                "意欲結束的"
+                            ],
+                            "name": "wind-up(必接名詞):"
+                        }
+                    ],
+                    "synonyms": []
+                }
+            }
+        }
+    ]
+}

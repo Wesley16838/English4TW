@@ -1,41 +1,33 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  Dimensions,
   Animated,
   Image,
   Text,
-  Modal,
-  Alert,
+  TextStyle,
 } from "react-native";
+import { NavigationProp, ParamListBase, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import Button from "../../components/Button/Button";
 import InputBox from "../../components/InputBox/InputBox";
-import CheckBox from "../../components/Checkbox/Checkbox";
-import ProfileImage from "../../components/ProfileImage/ProfileImage";
-import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
 import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-const resetPasswordPage = ({
-  navigation,
-  route,
-}: {
-  navigation: any;
-  route: any;
-}) => {
-  const [animation, setAnimation] = React.useState(new Animated.Value(0));
+import { Colors, Typography } from "../../styles";
+
+// TodoList: input onchange function
+const resetPasswordPage = () => {
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const route: RouteProp<{ params: { title: string } }, 'params'> = useRoute();
   const { title } = route.params;
-  const [step, setStep] = React.useState(1);
-  const screenHeight = Dimensions.get("window").height;
-  const screenWidth = Dimensions.get("window").width;
+  const [step, setStep] = useState(1);
 
   const backdrop = {
     transform: [
       {
         translateY: animation.interpolate({
           inputRange: [0, 0.01],
-          outputRange: [screenHeight, 0],
+          outputRange: [DEVICE_HEIGHT, 0],
           extrapolate: "clamp",
         }),
       },
@@ -46,6 +38,7 @@ const resetPasswordPage = ({
       extrapolate: "clamp",
     }),
   };
+
   React.useEffect(() => {
     Animated.timing(animation, {
       toValue: 1,
@@ -53,15 +46,8 @@ const resetPasswordPage = ({
       useNativeDriver: true,
     }).start();
   }, []);
+
   const handleClose = () => {
-    Animated.timing(animation, {
-      toValue: 0,
-      duration: 300,
-      useNativeDriver: true,
-    }).start();
-    navigation.goBack();
-  };
-  const handleRemove = () => {
     Animated.timing(animation, {
       toValue: 0,
       duration: 300,
@@ -75,7 +61,7 @@ const resetPasswordPage = ({
       {
         translateY: animation.interpolate({
           inputRange: [0.01, 1],
-          outputRange: [0, -1 * screenHeight],
+          outputRange: [0, -1 * DEVICE_HEIGHT],
           extrapolate: "clamp",
         }),
       },
@@ -141,12 +127,7 @@ const resetPasswordPage = ({
       case 1:
         return (
           <Text
-            style={{
-              fontSize: theme.FONT_SIZE_SMALL,
-              color: theme.FONT_COLOR_GRAY,
-              textAlign: "center",
-              marginBottom: 30,
-            }}
+            style={styles.content}
           >
             如需變更密碼, 請輸入之前設定的電子郵件帳號.
             系統將寄送認證碼至該郵件帳號內.
@@ -155,12 +136,7 @@ const resetPasswordPage = ({
       case 2:
         return (
           <Text
-            style={{
-              fontSize: theme.FONT_SIZE_SMALL,
-              color: theme.FONT_COLOR_GRAY,
-              textAlign: "center",
-              marginBottom: 30,
-            }}
+            style={styles.content}
           >
             請貼上郵件內含的認證碼, 或直接開啟郵件內連結進行操作.
           </Text>
@@ -179,13 +155,9 @@ const resetPasswordPage = ({
         return (
           <InputBox
             OnChangeText={(str: string) => {}}
-            customStyle={{
-              width: DEVICE_WIDTH - 40,
-              height: 40,
-              marginBottom: 10,
-            }}
+            customStyle={{...styles.input, marginBottom: 10}}
             placeHolder={"輸入電子郵件帳號"}
-            placeHolderTextColor={"#96CACA"}
+            placeHolderTextColor={Colors.primary_light}
             value={""}
           />
         );
@@ -193,13 +165,9 @@ const resetPasswordPage = ({
         return (
           <InputBox
             OnChangeText={(str: string) => {}}
-            customStyle={{
-              width: DEVICE_WIDTH - 40,
-              height: 40,
-              marginBottom: 10,
-            }}
+            customStyle={{...styles.input, marginBottom: 10}}
             placeHolder={"請輸入驗證碼"}
-            placeHolderTextColor={"#96CACA"}
+            placeHolderTextColor={Colors.primary_light}
             value={""}
           />
         );
@@ -209,26 +177,24 @@ const resetPasswordPage = ({
             <InputBox
               OnChangeText={(str: string) => {}}
               customStyle={{
-                width: DEVICE_WIDTH - 40,
-                height: 40,
+                ...styles.input,
                 marginBottom: 20,
                 marginTop: 5,
               }}
               placeHolder={"密碼需有大小寫字母加數字"}
-              placeHolderTextColor={"#96CACA"}
+              placeHolderTextColor={Colors.primary_light}
               value={""}
               title={"輸入新密碼"}
             />
             <InputBox
               OnChangeText={(str: string) => {}}
               customStyle={{
-                width: DEVICE_WIDTH - 40,
-                height: 40,
+                ...styles.input,
                 marginBottom: 10,
                 marginTop: 5,
               }}
               placeHolder={"再一次輸入新密碼"}
-              placeHolderTextColor={"#96CACA"}
+              placeHolderTextColor={Colors.primary_light}
               value={""}
               title={"確認新密碼"}
             />
@@ -273,13 +239,7 @@ const resetPasswordPage = ({
                 )}
               </View>
               <Text
-                style={{
-                  flex: 1,
-                  textAlign: "center",
-                  fontSize: theme.FONT_SIZE_MEDIUM,
-                  lineHeight: 22,
-                  fontWeight: "bold",
-                }}
+                style={ Typography.pageTitle as TextStyle }
               >
                 {title}
               </Text>
@@ -310,10 +270,7 @@ const resetPasswordPage = ({
                       style={{ width: 205, height: 205, resizeMode: "contain" }}
                     />
                     <Text
-                      style={{
-                        color: theme.SECONDARY_COLOR_DEFAULT,
-                        fontSize: theme.FONT_SIZE_MEDIUM,
-                      }}
+                      style={Typography.base_secondary}
                     >
                       密碼設定成功
                     </Text>
@@ -342,10 +299,7 @@ const resetPasswordPage = ({
                         height: 30,
                         borderRadius: 16,
                       }}
-                      imageSize={{}}
                       type="2"
-                      image={""}
-                      fontStyle={{}}
                     />
                   </View>
                 )}
@@ -372,10 +326,7 @@ const resetPasswordPage = ({
                 bottom: 34,
                 left: 20,
               }}
-              imageSize={{}}
               type="2"
-              image={""}
-              fontStyle={{}}
             />
           </Animated.View>
         </View>
@@ -390,21 +341,21 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.page_modal_background,
   },
   sheet: {
     position: "absolute",
-    top: Dimensions.get("window").height,
+    top: DEVICE_HEIGHT,
     left: 0,
     right: 0,
     height: "100%",
     justifyContent: "flex-end",
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
-    minHeight: Dimensions.get("window").height - 54,
+    minHeight: DEVICE_HEIGHT - 54,
 
     paddingTop: 26,
   },
@@ -415,7 +366,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 20,
     borderBottomWidth: 0.5,
-    borderBottomColor: theme.FONT_COLOR_GRAY4,
+    borderBottomColor: Colors.gray_4,
   },
   sectionContainer: {
     flexDirection: "column",
@@ -427,6 +378,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  content: {
+    ...Typography.sm,
+    color: Colors.gray_3,
+    textAlign: "center",
+    marginBottom: 30,
+  },
+  input: {
+    width: DEVICE_WIDTH - 40,
+    height: 40,
+  }
 });
 
 export default resetPasswordPage;

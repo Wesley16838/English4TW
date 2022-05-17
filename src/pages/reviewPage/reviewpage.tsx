@@ -1,20 +1,19 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
   Text,
   Animated,
   Image,
-  TouchableOpacity,
-  Modal,
   FlatList,
+  TextStyle,
 } from "react-native";
 import TextArea from "../../components/TextArea/TextArea";
 import Button from "../../components/Button/Button";
 import images from "./../../assets/images";
-import theme from "./../../utilities/theme.style";
-import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
-import { IComment } from "./../../types/comments";
+import { Colors, Typography } from "../../styles";
+import { DEVICE_WIDTH } from "../splashpage";
+import { IComment } from "../../types/pages/comments";
 const CommentItem: React.FC<IComment> = ({ name, date, content, index }) => {
   return (
     <View style={[styles.cardContainer, { marginTop: index === 1 ? 26 : 20 }]}>
@@ -29,9 +28,8 @@ const CommentItem: React.FC<IComment> = ({ name, date, content, index }) => {
   );
 };
 const ReviewPage = ({ navigation }: { navigation: any }) => {
-  const [animation, setAnimation] = React.useState(new Animated.Value(0));
-  const [reviews, setReviews] = React.useState(["1"]);
-  React.useEffect(() => {}, []);
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const [reviews, setReviews] = useState(["1"]);
   const handleBack = () => {
     Animated.timing(animation, {
       toValue: 0,
@@ -64,23 +62,17 @@ const ReviewPage = ({ navigation }: { navigation: any }) => {
         </View>
 
         <Text
-          style={{
-            flex: 1,
-            textAlign: "center",
-            fontSize: theme.FONT_SIZE_MEDIUM,
-            lineHeight: 22,
-            fontWeight: "bold",
-          }}
+          style={ Typography.pageTitle as TextStyle }
         >
           意見回饋
         </Text>
         <View style={{ flex: 1 }} />
       </View>
       <TextArea
-        OnClick={() => console.log("")}
+        OnClick={() => {}}
         placeHolder={"輸入內容"}
         customStyle={{ width: DEVICE_WIDTH - 40, height: 150 }}
-        placeHolderTextColor={"#96CACA"}
+        placeHolderTextColor={Colors.primary_light}
         limit={100}
         button={"送出"}
         buttonStyle={{
@@ -103,8 +95,7 @@ const ReviewPage = ({ navigation }: { navigation: any }) => {
           />
           <Text
             style={{
-              fontSize: theme.FONT_SIZE_MEDIUM,
-              color: theme.SECONDARY_COLOR_DEFAULT,
+              ...Typography.base_secondary,
               textAlign: "center",
             }}
           >
@@ -114,7 +105,7 @@ const ReviewPage = ({ navigation }: { navigation: any }) => {
       )}
       {reviews.length !== 0 && (
         <View>
-          <Text style={{ marginTop: 30, fontSize: theme.FONT_SIZE_MEDIUM }}>
+          <Text style={{ marginTop: 30, ...Typography.base }}>
             其他人的評論
           </Text>
           <FlatList
@@ -162,7 +153,7 @@ const ReviewPage = ({ navigation }: { navigation: any }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: Colors.white,
     alignItems: "center",
     width: "100%",
   },
@@ -171,8 +162,8 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     paddingTop: 5,
     paddingHorizontal: 20,
-    backgroundColor: theme.COLOR_WHITE,
-    shadowColor: "#000000",
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -187,8 +178,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 18,
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
+    borderColor:Colors.primary,
     borderWidth: 1,
+    backgroundColor: Colors.white,
   },
   cardRow: {
     width: "100%",
@@ -205,17 +197,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   name: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
+    ...Typography.base_primary,
     lineHeight: 17,
-    color: theme.PRIMARY_COLOR_DEFAULT,
   },
   date: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    color: theme.SECONDARY_COLOR_DEFAULT,
+    ...Typography.base_secondary
   },
   content: {
     fontSize: 16,
-    color: "#828282",
+    color: Colors.gray_3,
   },
 });
 export default ReviewPage;

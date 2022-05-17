@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { Image } from "react-native";
 export type Props = {
   name: any;
   size: any;
@@ -13,5 +13,4 @@ const Icon: React.FC<Props> = ({ name, size, color }) => {
   };
   return <Image style={[customStyle]} source={name} />;
 };
-const styles = StyleSheet.create({});
 export default Icon;

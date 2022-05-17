@@ -1,66 +1,93 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { createRef, useRef, useState } from "react";
 import {
   StyleSheet,
   View,
-  Image,
-  Dimensions,
-  TouchableOpacity,
-  Animated,
   Text,
-  TextInput,
-  TouchableWithoutFeedback,
   ScrollView,
   SafeAreaView,
+  ActivityIndicator,
+  StatusBar
 } from "react-native";
+import _ from "lodash";
 import Button from "../../components/Button/Button";
-import Images from "../../assets/images";
 import Label from "../../components/Label/Label";
-import TabView from "../../components/TabView/TabView";
-import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
-import { DEVICE_WIDTH } from "../splashpage";
-import { apiConfig } from "../../config/api";
-import wordData from '../../assets/words/word.json';
+import { DEVICE_HEIGHT, DEVICE_WIDTH } from "../splashpage";
+import { useQuery } from 'react-query';
+import { Colors, Spacing, Typography } from "../../styles";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
+import { useNavigation, RouteProp, useRoute } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { IItem } from "../../types/pages/word";
+import TabView from "../../components/TabView/TabView";
+import Accordion from "../../components/Accordion";
+import axios from "axios";
 
-const wordDetailPage = ({
-  navigation,
-  route,
-}: {
-  navigation: any;
-  route: any;
-}) => {
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const { word } = route.params;
-  let tabBody = null;
-  React.useEffect(() => {
-    const fetchDailyWords = async () => {
-      try {
-        let formData = new FormData();
-        formData.append("type", "babylon");
-        formData.append("text", word);
-        const result = await axios({
-          method: "post",
-          url: "https://www.english4tw.com/blog/post/translate",
-          data: formData,
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-        fetch("https://www.english4tw.com/blog/post/translate", {
-          method: "post",
-          body: formData,
-          headers: { "Content-Type": "multipart/form-data" },
-        })
-          .then((res) => res.json())
-          .then((response) => console.log("fetch response", response))
-          .catch((err) => console.log("err", err));
-      } catch (err: any) {
-        console.log("err,", err.message);
+const speechMatch: any = {
+  '動詞': 'v. 動詞',
+  '名詞': 'n. 名詞',
+  '代名詞': 'pron. 代名詞',
+  '連接詞': 'conj. 連接詞',
+  '形容詞': 'adj. 形容詞',
+  '感嘆詞': 'int. 感嘆詞',
+  '副詞': 'adv. 副詞',
+  '介系詞': 'prep. 介系詞'
+}
+
+const propertyMatch: any = {
+  'phrases': '片語',
+  'synonyms': '同義詞',
+}
+
+const local_json_file = require("../../assets/words/lay.json")
+
+const wordDetailPage = () => {
+  const [accordion, setAccordion] = useState<boolean[]>([]) // [[true, false],[false, false],[false]]
+  const scrollViewRef:any = useRef(null)
+  let layoutOrder:any[] = []
+  let cloneLayoutOrder: any[]=[]
+  let layoutLength = 0
+  let wordBody = null;
+  const navigation = useNavigation<StackNavigationProp<any>>();
+  const route: RouteProp<{ params: { word: string, history: string } }, 'params'> = useRoute();
+  const { word, history } = route.params;
+
+  const fetchWord = async () => {
+    const res = await axios.get(
+      "https://www.english4tw.com/api/word3?word=lay", 
+      { 
+        headers: {
+          "Authorization" : `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJlbmdsaXNoNHR3LmNvbSIsImF1ZCI6ImVuZ2xpc2g0dHcgYXBwIiwiaWF0IjoxNjUyMzM4Nzc0LCJleHAiOjE2NTI0MjUxNzQsInVzZXIiOnsiaWQiOiI4MDU3IiwiZW1haWwiOiJ3ZXNsZXkxNjgzOEBnbWFpbC5jb20iLCJhZG1pbiI6IjAiLCJibG9ja2VkIjoiMCIsImFkdmFuY2VkX2R1ZV9kYXRlIjpudWxsfX0.lGh9iHhvJhQx5I152xWd5Um8UjJs1bUd_BoSrmpUTC3xyFz8VHBq5YWJVnjmM_CPecVCHf7_W_rTgwkExmByr9O97I5cawXm-fbByYAL3omy1MyOgOzmBpnPrUzPNwuaAwvf8nCI32gWzmBdaL18oa2RnxeCNUiFfI8vn7CUEt3437XlnoeSyE1FC1OWL5Z9TONh_IAoelOCPuQo7WOHhjnS1whwqBGSxz9F3QF7GqL2iNVIjVjvhcJN4JFL4QFhLDoqD4HJUKcOJLAqtr8bV3v5MIhBq-ixCCoNnSQM4X2pM0cRNLK3L6JSZO3eIeBtbRBwnDGnatbE7Tmvj3x-0RjEsQmZcj_Ja4Tjiaa6TpelUq4wUuEK_lG4QBbJw51VPAA9aR23HDrPSSeeXl7ACDL3zRtIhNX2zNqOuVUCY58unwYVUqRmqroIOtiFZfYjIIAL-AtGlxPXUvjhWnToQchPwHGVmQEwkXxfFfj1DTfflxR_gPmPAbi9-IoyatNRuKBYwrPdxH5xoII8S9iXDyJu864CTyS4GWgcZyqJvg7YQymPMdX0xc96k13H3Q9wSNgOurRGghF5FUhYcNY4OUhvszYTxKofSYAp6Pc5YDGJ8K22lCz2eux7YJZYeXwovLwV31Na75ayeBjqk-cMlydTml_pNbd-xMDyYZ_Cano`
+        } 
       }
-    };
-    fetchDailyWords();
-  }, []);
-  const screenWidth = Dimensions.get("window").width;
+    )
+    return res
+  }
 
+  const { data: wordInfo, isLoading, isSuccess } = useQuery(`${word}`, fetchWord,{
+      onSuccess: async(data) => {
+        console.log('success,', data)
+        const array:boolean[] = []
+        // Object.keys(data.data.content).map((word: any) => {
+        //   Object.keys(data.data.content[word]).map(() => {
+        //     array.push(false)
+        //   })
+        // })
+        const jsonValue = history ? JSON.parse(history) : []
+        const index = history ? jsonValue.map((e: IItem) => e.word)?.indexOf(word) : -1
+        if(index>-1){
+          jsonValue.splice(index, 1)
+        }
+        jsonValue.unshift({
+          word: word,
+          detail: "Word Detail"
+        })
+        await AsyncStorage.setItem('@word_history', JSON.stringify(jsonValue))
+        setAccordion(array)
+      },
+      onError: () => {},
+  })
   const handleClose = () => {
     navigation.goBack();
   };
@@ -70,334 +97,251 @@ const wordDetailPage = ({
   const handleNext = () => {
     navigation.push("sentenceAnalysisPage");
   };
-
-  tabBody = wordData && wordData.map((item, index) => {
-    const renderBasicInfo = () => {
-      return item.detail.map((items, index) => {
-        return(
-          <View style={styles.flexColumn} key={'basicInfo' + index}>
-            <View style={[styles.flexRow, {alignItems: 'center', marginTop: 30}]}>
-              <Label title={items.speech}/>
-              {
-                items.section.map(obj => {
-                  return (
-                    <Text style={{
-                      color: '#FF6379',
-                      marginLeft: 10,
-                    }}>
-                      {obj}
-                    </Text>
-                  )
-                })
-              }
-            </View>
-            <View style={{paddingTop: 10}}>
-              {
-                items.tenses && items.tenses.map((tense, index) => {
-                  return(
-                    <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: index ===items.tenses.length - 1 ? 20 : 15}}>
-                      <Button
-                        title=""
-                        image={images.icons.volume_icon}
-                        customStyle={{}}
-                        imageSize={{ height: 30, width: 30, marginRight: 10 }}
-                        type=""
-                        onPress={() => handleClose()}
-                      />
-                      <Text>{tense.tense}: {tense.word}</Text>
-                    </View>
-                  )
-                })
-              }
-            </View>
-            {
-              items.group.map((obj, index) => {
-                return (
-                  <View style={{marginBottom: index === items.group.length - 1 ? 0 : 20}}>
-                    <Text style={{
-                      color: '#00B4B4',
-                      lineHeight: 23
-                    }}>
-                      {obj.countability}
-                    </Text>
-                    <View style={[styles.flexColumn, {paddingLeft: 20}]}>
-                      {
-                        obj.description.map(obj => {
-                          return(
-                            <Text style={{lineHeight: 23}}>
-                              {obj}
-                            </Text>
-                          )
-                        })
-                      }
-                    </View>
-                  </View>
-                )
-              })
-            }
-          </View>
-        )
-      })
-    }
-
-    const renderSynonymsInfo = () => {
-      return(
+  console.log('accordion,', accordion);
+  const renderDef:any = (obj: any, defIndex: number) => {
+    if(obj.hasOwnProperty('condition')){
+      const conditionArr = obj['condition'].split('|')
+      return (
         <>
-          <View style={styles.subtitleContainer}>
-            <Text style={styles.subtitle}>同義詞</Text>
-          </View>
-          <View style={[styles.tabCard, {marginTop: 10}]}>
-            {
-              item.synonyms.map(synonym => {
-                return(
-                  <>
-                    <Label title={synonym.speech} customStyle={{marginBottom: 10}}/>
-                    {synonym.words.map(word => {
-                      return(
-                        <Text style={{lineHeight: 25}}>&#8226; {
-                          word.map((singleWord, index) => {
-                            return (
-                              <>
-                                {singleWord}{index !== word.length - 1 && ', '}
-                              </>
-                            )
-                          })
-                          }</Text>
-                      )
-                    })}
-                  </>
-                )
-              })
-            }
-          </View>
+          {
+            conditionArr.map((element: string, index: number) => <Text key={`${element}${index}`} style={{color: conditionArr.length > 1 ? Colors.black : Colors.primary, marginTop: conditionArr.length > 1 ? 10 : 0,...Typography.base}}>{element}</Text>)
+          }
+          {
+            obj.hasOwnProperty('examples') && obj['examples'].map((example:any, exampleIndex: number) => {
+              return renderDef(example, exampleIndex)
+            })
+          } 
         </>
       )
-    };
-
-    const renderPhrasesInfo = () => {
+    }else{
       return(
-        <>
-          <View style={styles.subtitleContainer}>
-            <Text style={styles.subtitle}>片語</Text>
-          </View>
-          <View style={{
-              borderColor: '#00B4B4',
-              borderWidth: .5,
-              borderRadius: 20,
-              padding: 15,
-              marginTop: 10,
-            }}
-          >
-            {
-              item.phrases.map(phrase => {
-                return(
-                  <>
-                    <Label title={phrase.speech}/>
-                    {
-                      phrase.countability && 
-                      <Text style={{
-                        color: '#00B4B4',
-                        lineHeight: 23,
-                        marginTop: 10,
-                      }}>
-                        {phrase.countability + ' -'}
-                      </Text>
-                    }
-                    
-                    {
-                      phrase.examples.map((example, index) => {
-                        let newExample = example
-                        return(
-                          <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: index === phrase.examples.length - 1 ? 20 : 15, marginTop: index === 0 ? 10 : 0,}}>
-                            {
-                              phrase.speech === 'n. 名詞' &&
-                              <Button
-                                title=""
-                                image={images.icons.volume_icon}
-                                customStyle={{}}
-                                imageSize={{ height: 30, width: 30, marginRight: 10 }}
-                                type=""
-                                onPress={() => handleClose()}
-                            />
-                            }
-                            
-                            <Text>{phrase.speech !== 'n. 名詞' && <>&#8226;</>} {example}</Text>
-                          </View>
-                        )
-                      })
-                    }
-                  </>
-                )
-              })
-            }
-          </View>
-        </>
-      )
-    }
-
-    const renderSentenceInfo = () => {
-      return(
-        <>
-          <View style={[styles.subtitleContainer, {backgroundColor: '#00B4B4'}]}>
-            <Text style={styles.subtitle}>單字例句</Text>
-          </View>
-          <View style={[styles.tabCard, {marginTop: 10}]}>
-            {
-              item.sentences.map((sentence, index) => {
-                return(
-                  <View style={{marginTop: index === 0 ? 0 : 15}}>
-                    <Label title={sentence.speech}/>
-                    {
-                      sentence.sentence.map((stn, index) => {
-                        return(
-                          <View style={{flexDirection: 'row', marginTop: index === 0 ? 10 : 15}}>
-                            <Button
-                                title=""
-                                image={images.icons.volume_icon}
-                                customStyle={{}}
-                                imageSize={{ height: 30, width: 30, marginRight: 10 }}
-                                type=""
-                                onPress={() => handleClose()}
-                            />
-                            <Text>
-                              {stn}
-                            </Text>
-                          </View>
-                        )
-                      })
-                    }
-                  </View>
-                )
-              })
-            }
-          </View>
-        </>
-      )
-    }
-   
-    return(
-      <View style={[styles.flexColumn]} key={index}>
-        <View style={[styles.flexColumn, styles.tabCard]}>
-            <View style={{marginTop: 8, flexDirection: 'row', alignItems: 'flex-end'}}>
-              <Text style={[styles.wordName]}>{item.name}</Text>
-              <Text style={[styles.wordAddition]}>{item.addition}</Text>
-              <Button
-                title=""
-                image={images.icons.volume_icon}
-                customStyle={{}}
-                imageSize={{ height: 30, width: 30 }}
-                type=""
-                onPress={() => handleClose()}
-              />
-            </View>
-            { renderBasicInfo() }
+        <View key={`def${defIndex}`}>
+          <Text style={{...Typography.base_primary, marginTop: 10, marginBottom: 10}}>{obj['name']}</Text>
+          {
+            obj.hasOwnProperty('definitions') && obj['definitions'].map((def: string) => {
+              return <Text style={{paddingLeft: 15}}>{def}</Text>
+            })
+          }
         </View>
-        { item.synonyms && renderSynonymsInfo() }
-        { item.phrases && renderPhrasesInfo() }
-        { item.sentences && renderSentenceInfo() }
+      )
+    }
+  }
+  const wordObj = wordInfo?.data?.content || local_json_file?.content
+  wordBody = isSuccess && Object.keys(wordObj).map((words: any, wordIndex: number) => {
+    return(
+      /* 詞彙區 */
+      <View style={{flexDirection: 'column'}} key={`wordBody${wordIndex}`}>
+        {/* 定義區 */}
+        <View style={styles.tabCard}>
+           {/* 標題區 */}
+          <View style={styles.wordSection}>
+            <Text style={styles.wordName}>{word}</Text>
+            <Button
+              image={images.icons.volume_icon}
+              customStyle={{}}
+              imageSize={{ height: 30, width: 30, marginRight: 0 }}
+              type=""
+              onPress={() => handleClose()}
+            />
+          </View>
+          {/* 複標題區 */}
+          <View style={styles.subtitleSection}>
+            <Label title={speechMatch[words]}/>
+            {
+              Object.keys(wordObj[words]).map(property => {
+                if(property !== 'simple') {
+                  layoutLength++
+                  return(
+                    <Text key={`${words}${propertyMatch[property]}`} style={styles.propertyText} onPress={() => {
+                      const index = layoutOrder.findIndex(i => i.name === `${words}_${property}`)
+                      scrollViewRef.current.scrollTo({
+                        y: layoutOrder[index].height.y,
+                        animated: true
+                      });
+                    }}>
+                      &#60;{propertyMatch[property]}&#62;
+                    </Text>
+                )}
+              })
+            }
+          </View>
+           {/* 解釋區 */}
+           {wordObj[words]['simple'].map((def: any, index: number) => {
+             return(  
+              <View style={{marginTop: index !== 0 ? 20 : 0}} key={`description${index}`}>
+                {renderDef(def)}
+              </View>
+             )
+           })}
+        </View>
+        {/* 屬性區 */}
+        {
+          Object.keys(wordObj[words]).map((property: string, propertyIndex: number) => {
+            if(property !=='simple'){
+              layoutOrder.push({name: `${words}_${property}`})
+            }
+            let accordionBody = null;
+            accordionBody =  wordObj[words][property].map((prop: any, propIndex: number) => {
+              switch(property){
+                case "phrases":
+                  return(  
+                    <View style={{marginTop: propIndex !== 0 ? 20 : 0}} key={`accordionbody${propIndex}`}>
+                      {renderDef(prop)}
+                    </View>
+                  )
+                case "synonyms":
+                  return(
+                    <Text key={`accordionbody${propIndex}${prop}`}>&#8226; {prop}</Text>
+                  )
+              }
+            })
+            return (
+              <View
+                onLayout={event => {
+                  // set base height for each section
+                  if(property !=='simple') {
+                    const layoutIndex = layoutOrder.findIndex(i => i.name === `${words}_${property}`)
+                    const newHeight = event.nativeEvent.layout;
+                    layoutOrder[layoutIndex] = {...layoutOrder[layoutIndex], height:newHeight}
+                    if(layoutLength>0){
+                      layoutLength --
+                    }
+                  }
+                  // update height base on previous height
+                  if(layoutLength === 0){
+                    for(let i = 0; i < layoutOrder.length - 1; i++){
+                      // 不同類別
+                      if(layoutOrder[i].name.split('_')[0] !== layoutOrder[i+1].name.split('_')[0]){
+                        if(cloneLayoutOrder.length === 0){
+                          layoutOrder[i+1].height.y = layoutOrder[i].height.y + layoutOrder[i+1].height.y
+                        } else {
+                          // next height = current height + height difference between next and current + increased height
+                          layoutOrder[i+1].height.y = layoutOrder[i].height.y + (cloneLayoutOrder[i+1].height.y - cloneLayoutOrder[i].height.y) + (layoutOrder[i].height.height - cloneLayoutOrder[i].height.height)
+                        }
+                      }else{ // 同類別
+                        layoutOrder[i+1].height.y = layoutOrder[i].height.y + layoutOrder[i].height.height
+                      }
+                    }
+                    if(cloneLayoutOrder.length === 0) cloneLayoutOrder = _.cloneDeep(layoutOrder)
+                  }
+                }}
+                key={`${words}_${property}_${propertyIndex}`}
+              >
+                {property !== 'simple' && <Accordion title={propertyMatch[property]} content={accordionBody} key={`accordion${propertyIndex}`} onOpen={() => {
+                    const obj = Object.keys(wordObj[words]); 
+                    layoutLength = obj.length - obj.indexOf(property) - (obj.indexOf("simple") > obj.indexOf(property) ? 1 : 0)
+                  }}
+                />}
+              </View>
+            )
+          })
+        }
       </View>
     )
   })
 
   return (
-    <SafeAreaView>
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.sectionRow}>
-          <View style={styles.actionsheet}>
+    <LinearGradientLayout>
+      <SafeAreaView style={{marginTop: StatusBar.currentHeight}}>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          showsVerticalScrollIndicator={false}
+          ref={scrollViewRef}
+        >
+          <View style={styles.sectionRow}>
+            <View style={styles.actionsheet}>
+              <Button
+                title=""
+                image={images.icons.leftarrow_icon}
+                customStyle={{}}
+                imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                type=""
+                onPress={() => handleBack()}
+              />
+              <Button
+                title=""
+                image={images.icons.rightarrow_disable_icon}
+                customStyle={{}}
+                imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                type=""
+                onPress={() => handleNext()}
+              />
+            </View>
             <Button
               title=""
-              image={images.icons.leftarrow_icon}
+              image={images.icons.close_icon}
               customStyle={{}}
-              imageSize={{ height: 20, width: 12, marginRight: 0 }}
+              imageSize={{ height: 30, width: 30, marginRight: 0 }}
               type=""
-              onPress={() => handleBack()}
-            />
-            <Button
-              title=""
-              image={images.icons.rightarrow_disable_icon}
-              customStyle={{}}
-              imageSize={{ height: 20, width: 12, marginRight: 0 }}
-              type=""
-              onPress={() => handleNext()}
+              onPress={() => handleClose()}
             />
           </View>
-          <Button
-            title=""
-            image={images.icons.close_icon}
-            customStyle={{}}
-            imageSize={{ height: 30, width: 30, marginRight: 0 }}
-            type=""
-            onPress={() => handleClose()}
-          />
-        </View>
-        <View
-          style={{
-            width: screenWidth - 40,
-            marginHorizontal: 20,
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            paddingBottom: 23,
-          }}
-        >
-          <Button
-            title=""
-            image={images.icons.share_icon}
-            customStyle={{}}
-            imageSize={{ height: 30, width: 30, marginRight: 0 }}
-            type=""
-            onPress={() => handleClose()}
-          />
-          <Button
-            title=""
-            image={images.icons.saved_icon}
-            customStyle={{}}
-            imageSize={{ height: 30, width: 30, marginRight: 0 }}
-            type=""
-            onPress={() => handleClose()}
-          />
-          <Button
-            title=""
-            image={images.icons.speed_secondary_icon}
-            customStyle={{}}
-            imageSize={{ height: 30, width: 30, marginRight: 0 }}
-            type=""
-            onPress={() => handleClose()}
-          />
-        </View>
-        <TabView
-          titles={["發音一", "發音二"]}
-          customStyle={{ width: screenWidth - 40, marginHorizontal: 20 }}
-          children={tabBody}
-        />
-      </ScrollView>
-    </SafeAreaView>
+          <View
+            style={{
+              width: DEVICE_WIDTH - 40,
+              marginHorizontal: 20,
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              paddingBottom: 23,
+            }}
+          >
+            <Button
+              title=""
+              image={images.icons.share_icon}
+              customStyle={{}}
+              imageSize={{ height: 30, width: 30, marginRight: 0 }}
+              type=""
+              onPress={() => handleClose()}
+            />
+            <Button
+              title=""
+              image={images.icons.saved_icon}
+              customStyle={{}}
+              imageSize={{ height: 30, width: 30, marginRight: 0 }}
+              type=""
+              onPress={() => handleClose()}
+            />
+            <Button
+              title=""
+              image={images.icons.speed_secondary_icon}
+              customStyle={{}}
+              imageSize={{ height: 30, width: 30, marginRight: 0 }}
+              type=""
+              onPress={() => handleClose()}
+            />
+          </View>
+          {
+            isLoading ? <ActivityIndicator size="large" /> : 
+            // <TabView
+            //   titles={["發音一", "發音二"]}
+            //   customStyle={{ width: DEVICE_WIDTH - 40, marginHorizontal: 20 }}
+            //   children={tabBody}
+            // />
+            <View style={{alignItems: 'center'}}>{wordBody}</View>
+          }
+        </ScrollView>
+      </SafeAreaView>
+    </LinearGradientLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.page_modal_background,
   },
   sheet: {
     position: "absolute",
-    top: Dimensions.get("window").height,
+    top: DEVICE_HEIGHT,
     left: 0,
     right: 0,
     height: "100%",
     justifyContent: "flex-end",
   },
   topic: {
+    ...Typography.base_bold,
     flexDirection: "row",
     alignItems: "center",
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    fontWeight: "700",
     marginBottom: 10,
   },
   topicTitle: {
@@ -410,11 +354,10 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
-    minHeight: Dimensions.get("window").height - 54,
-
+    minHeight: DEVICE_HEIGHT - 54,
     paddingTop: 26,
   },
   sectionRow: {
@@ -428,15 +371,24 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  wordSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  }, 
   wordName: {
-    fontSize: theme.FONT_SIZE_EXTREME_LARGE,
-    fontWeight: "500",
+    ...Typography.xxl,
     lineHeight: 41,
-
+    marginRight: 10,
+  },
+  subtitleSection:{
+    flexDirection: 'row', 
+    flexWrap: 'wrap', 
+    alignItems: 'center',
+    marginTop: Spacing.space_l,
+    marginBottom: 10,
   },
   wordAddition: {
-    fontSize: theme.FONT_SIZE_SUPER_LARGE,
-    fontWeight: "500",
+    ...Typography.xl,
     lineHeight: 30,
     marginRight: 10
   },
@@ -446,7 +398,6 @@ const styles = StyleSheet.create({
   },
   flexColumn: {
     flexDirection: "column",
-    flexWrap: "wrap",
   },
   tabCard: {
     borderColor: '#00B4B4',
@@ -454,19 +405,31 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 15,
     width: DEVICE_WIDTH - 40,
-    marginBottom: 30,
+    marginBottom: Spacing.space_xl,
   },
   subtitle: {
-    color: theme.COLOR_WHITE,
-    fontSize: theme.FONT_SIZE_MEDIUM,
+    ...Typography.base,
+    color: Colors.white,
     textAlign: 'center'
   },
-  subtitleContainer: {
+  sectionContainer: {
+    width: DEVICE_WIDTH - 40,
     borderRadius: 25,
-    backgroundColor: '#007E7E',
-    paddingTop:15,
-    paddingBottom: 15, 
+    backgroundColor: Colors.button_primary_press,
+    paddingVertical: 15,
+    marginBottom: 10,
     height: 50,
+    textAlign: "center",
+  },
+  sectionTitle: {
+    ...Typography.base_bold,
+    color: Colors.white,
+    textAlign: "center",
+  },
+  propertyText: {
+    ...Typography.base,
+    color: Colors.red,
+    marginLeft: 10
   }
 });
 

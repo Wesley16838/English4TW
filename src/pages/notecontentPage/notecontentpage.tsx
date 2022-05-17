@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
+
 import {
   StyleSheet,
   View,
@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Modal,
   Alert,
+  TextStyle,
 } from "react-native";
 import { Audio } from "expo-av";
 import { Sound } from "expo-av/build/Audio/Sound";
@@ -19,10 +20,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Slider from "@react-native-community/slider";
 import Button from "../../components/Button/Button";
 import images from "../../assets/images";
-import theme from "./../../utilities/theme.style";
+import { Colors, Spacing, Typography } from "../../styles";
 import Tag from "../../components/Tag/Tag";
 import ModalContainer from "../../components/Modal/Modal";
 import { DEVICE_WIDTH } from "../splashpage";
+import ActionButton from "../../components/ActionButton/ActionButton";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
 //  setOnPlaybackStatusUpdate(({ shouldPlay, isLoaded }) => { ... })
 const noteContentPage = ({
   navigation,
@@ -47,7 +50,7 @@ const noteContentPage = ({
   const [paragraphModalVisible, setParagraphModalVisible] = React.useState(
     false
   );
-  const [tags, setTags] = React.useState([
+  const tags = [
     "經典生活引語",
     "初級",
     "文法基礎",
@@ -56,7 +59,17 @@ const noteContentPage = ({
     "運動",
     "建築",
     "時尚",
-  ]);
+  ]
+  const actionList = [
+    {
+      name: "播放速度",
+      func: () => setSpeedModalVisible(true)
+    },
+    {
+      name: "播放段落",
+      func: () => setParagraphModalVisible(true)
+    }
+  ]
   const apiEndpoint =
     "https://www.english4tw.com/blog/get/tts?text=This%20gave%20oarsmen%20enough%20leverage%20to%20row%20efficiently%2C%20but%20at%20the%20expense%20of%20seaworthiness.%20&from_lang=en&to_lang=zh-CHT";
   const insets = useSafeAreaInsets();
@@ -247,24 +260,21 @@ const noteContentPage = ({
           onCancel={() => setParagraphModalVisible(false)}
         />
       </Modal>
-      <LinearGradient
-        colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-        style={styles.container}
-      >
+      <LinearGradientLayout>
         <SafeAreaView
           style={{
-            marginTop: 10,
+            marginTop: Spacing.space_xs,
             height: "100%",
             alignItems: "center",
             width: DEVICE_WIDTH,
-            paddingBottom: insets.bottom + 20,
+            paddingBottom: insets.bottom + Spacing.space_l,
           }}
         >
           <View
             style={{
               flexDirection: "row",
               alignItems: "center",
-              paddingHorizontal: 20,
+              paddingHorizontal: Spacing.space_l,
             }}
           >
             <View style={{ flex: 1, alignItems: "flex-start" }}>
@@ -279,13 +289,7 @@ const noteContentPage = ({
             </View>
 
             <Text
-              style={{
-                flex: 1,
-                textAlign: "center",
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 22,
-                fontWeight: "bold",
-              }}
+              style={ Typography.pageTitle as TextStyle }
             >
               {title}
             </Text>
@@ -305,19 +309,10 @@ const noteContentPage = ({
             </View>
           </View>
           <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              paddingHorizontal: 20,
-              marginTop: 20,
-            }}
+            style={styles.sliderWrapper}
           >
             <Text
-              style={{
-                flex: 1,
-                textAlign: "center",
-                color: theme.PRIMARY_COLOR_DEFAULT,
-              }}
+              style={styles.timer}
             >
               {new Date(time).toISOString().substr(14, 5)}
             </Text>
@@ -326,14 +321,14 @@ const noteContentPage = ({
               value={time}
               minimumValue={0}
               maximumValue={duration}
-              minimumTrackTintColor={theme.PRIMARY_COLOR_DEFAULT}
-              maximumTrackTintColor={theme.SLIDER_BACKGROUND_COLOR}
+              minimumTrackTintColor={Colors.primary}
+              maximumTrackTintColor={Colors.range_slider}
               onValueChange={(val) => onSliderValueChanging(val)}
               onSlidingComplete={(val) => onSlidingCompleted(val)}
               onSlidingStart={() => onSlidingStarted()}
             />
             <View
-              style={{ flex: 1, alignItems: "center", position: "relative" }}
+              style={styles.filterButton}
             >
               <TouchableOpacity
                 onPress={() => {
@@ -345,55 +340,11 @@ const noteContentPage = ({
                   source={images.icons.filter_icon}
                 />
               </TouchableOpacity>
-              {isOptionVisible && (
-                <View
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "#3A3A3C",
-                    flexDirection: "column",
-                    borderRadius: 8,
-                    right: 15,
-                    top: 24,
-                    width: 91,
-                  }}
-                >
-                  <TouchableOpacity
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                      paddingVertical: 9,
-                    }}
-                    onPress={() => setSpeedModalVisible(true)}
-                  >
-                    <Text style={{ color: theme.COLOR_WHITE }}>播放速度</Text>
-                  </TouchableOpacity>
-                  <View
-                    style={{
-                      borderTopWidth: 1,
-                      borderTopColor: "#BDBDBD",
-                    }}
-                  />
-                  <TouchableOpacity
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                      paddingVertical: 9,
-                    }}
-                    onPress={() => setParagraphModalVisible(true)}
-                  >
-                    <Text style={{ color: theme.COLOR_WHITE }}>播放段落</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
+              {isOptionVisible && <ActionButton options={actionList}/>}
             </View>
           </View>
           <View
-            style={{
-              flexDirection: "row",
-              width: 170,
-              justifyContent: "space-between",
-              marginTop: 10,
-            }}
+            style={styles.audioActions}
           >
             <TouchableOpacity onPress={() => {}}>
               <Image
@@ -417,13 +368,9 @@ const noteContentPage = ({
               <Image source={images.icons.next_icon} style={styles.audioIcon} />
             </TouchableOpacity>
           </View>
-          <View style={{ paddingHorizontal: 20, marginTop: 20 }}>
+          <View style={styles.noteContainer}>
             <Text
-              style={{
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 25,
-                marginTop: 10,
-              }}
+              style={styles.noteContent}
             >
               During its harrowing descent to the surface of Mars last Thursday,
               NASA's Perseverance rover captured video that the agency is
@@ -431,11 +378,7 @@ const noteContentPage = ({
             </Text>
 
             <Text
-              style={{
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 25,
-                marginTop: 10,
-              }}
+              style={styles.noteContent}
             >
               The video, along with other newly released footage, gives
               earthlings back home a better sense of the sights and sounds on
@@ -443,11 +386,7 @@ const noteContentPage = ({
             </Text>
 
             <Text
-              style={{
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 25,
-                marginTop: 10,
-              }}
+              style={styles.noteContent}
             >
               Cameras on "Percy," as the rover is affectionately called at
               mission control, show for the first time the perspective of a
@@ -455,11 +394,7 @@ const noteContentPage = ({
             </Text>
 
             <Text
-              style={{
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 25,
-                marginTop: 10,
-              }}
+              style={styles.noteContent}
             >
               The video begins 230 seconds after the rover entered the Martian
               atmosphere, with the inflation of the rover's parachute 7 miles
@@ -476,11 +411,11 @@ const noteContentPage = ({
                     title={tag}
                     OnClick={() => {}}
                     customStyle={{
+                      height: 24,
                       paddingHorizontal: 15,
                       paddingVertical: 3,
                       marginRight: 5,
                       marginBottom: 5,
-                      height: 24,
                     }}
                     disable={true}
                   />
@@ -488,38 +423,43 @@ const noteContentPage = ({
               })}
           </View>
         </SafeAreaView>
-      </LinearGradient>
+      </LinearGradientLayout>
     </>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    width: "100%",
-  },
   sectionRow: {
     flexDirection: "row",
     flexWrap: "wrap",
     paddingTop: 5,
     paddingHorizontal: 20,
-    backgroundColor: theme.COLOR_WHITE,
-    shadowColor: "#000000",
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
     elevation: 5,
     marginBottom: 21,
   },
+  sliderWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: Spacing.space_l,
+    marginTop: Spacing.space_l,
+  },
+  timer: {
+    flex: 1,
+    textAlign: "center",
+    color: Colors.primary,
+  },
   noteItem: {
     width: DEVICE_WIDTH,
-    paddingHorizontal: 20,
+    paddingHorizontal: Spacing.space_l,
     height: 60,
     justifyContent: "center",
-    borderBottomColor: theme.PRIMARY_COLOR_DEFAULT,
+    borderBottomColor: Colors.primary,
     borderBottomWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
   noteWord: {},
   imagefavstyle: {
@@ -537,19 +477,39 @@ const styles = StyleSheet.create({
     width: 18,
     resizeMode: "contain",
   },
+  filterButton: {
+    flex: 1, 
+    alignItems: "center", 
+    position: "relative"
+  },
   audioIcon: {
     width: 40,
     height: 40,
     resizeMode: "contain",
+  },
+  audioActions: {
+    flexDirection: "row",
+    width: 170,
+    justifyContent: "space-between",
+    marginTop: 10,
   },
   sectionContainer: {
     width: DEVICE_WIDTH - 40,
     flexDirection: "row",
     flexWrap: "wrap",
     borderTopWidth: 0.5,
-    borderTopColor: theme.BORDER_COLOR,
-    marginTop: 20,
-    paddingTop: 20,
+    borderTopColor: Colors.gray_2,
+    marginTop: Spacing.space_l,
+    paddingTop: Spacing.space_l,
   },
+  noteContent: {
+    ...Typography.base,
+    lineHeight: 25,
+    marginTop: 10,
+  },
+  noteContainer: {
+    paddingHorizontal: 20, 
+    marginTop: 20
+  }
 });
 export default noteContentPage;

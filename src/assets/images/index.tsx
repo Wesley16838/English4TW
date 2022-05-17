@@ -55,6 +55,7 @@ const images = {
     success_icon: require("./icons/successIcon.png"),
     comment_icon: require("./icons/commentIcon.png"),
     check_black_icon: require("./icons/checkBlackIcon.png"),
+    remove_icon: require("./icons/remove.png")
   },
 };
 

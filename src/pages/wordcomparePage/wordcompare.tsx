@@ -3,34 +3,23 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  TouchableOpacity,
   Animated,
   Text,
-  TextInput,
-  TouchableWithoutFeedback,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
+import { NavigationProp, ParamListBase, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import Button from "../../components/Button/Button";
 import InputBox from "../../components/InputBox/InputBox";
 import Label from "../../components/Label/Label";
-import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
-import { DEVICE_WIDTH } from "../splashpage";
+import { DEVICE_HEIGHT, DEVICE_WIDTH } from "../splashpage";
+import { Colors, Typography } from "../../styles";
 
-const wordComparePage = ({
-  route,
-  navigation,
-}: {
-  route: any;
-  navigation: any;
-}) => {
-  const [animation, setAnimation] = React.useState(new Animated.Value(0));
+const wordComparePage = () => {
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const route: RouteProp<{ params: { first: string, second: string } }, 'params'> = useRoute();
   const { first, second } = route.params;
-
-  const [isOutside, setIsOutside] = React.useState(true); // 一開始是不顯示, 所以outside
-  const [compareWord, setCompareWord] = React.useState("");
+  const [compareWord, setCompareWord] = useState("");
   const screenHeight = Dimensions.get("window").height;
 
   const backdrop = {
@@ -102,114 +91,112 @@ const wordComparePage = ({
     ],
   };
   return (
-    <TouchableWithoutFeedback onPressIn={() => setIsOutside(true)}>
-      <View style={styles.container}>
-        <Animated.View
-          style={[StyleSheet.absoluteFill, styles.cover, backdrop]}
-        />
-        <View style={[styles.sheet]}>
-          <Animated.View style={[styles.popup, slideUp]}>
-            <View style={styles.sectionRow}>
-              <View style={styles.actionsheet}>
-                <Button
-                  title=""
-                  image={images.icons.leftarrow_icon}
-                  customStyle={{}}
-                  imageSize={{ height: 20, width: 12, marginRight: 0 }}
-                  type=""
-                  onPress={() => handleBack()}
-                />
-                <Button
-                  title=""
-                  image={images.icons.rightarrow_disable_icon}
-                  customStyle={{}}
-                  imageSize={{ height: 20, width: 12, marginRight: 0 }}
-                  type=""
-                  onPress={() => handleNext()}
-                />
-              </View>
+    <View style={styles.container}>
+      <Animated.View
+        style={[StyleSheet.absoluteFill, styles.cover, backdrop]}
+      />
+      <View style={[styles.sheet]}>
+        <Animated.View style={[styles.popup, slideUp]}>
+          <View style={styles.sectionRow}>
+            <View style={styles.actionsheet}>
               <Button
                 title=""
-                image={images.icons.close_icon}
+                image={images.icons.leftarrow_icon}
                 customStyle={{}}
-                imageSize={{ height: 30, width: 30, marginRight: 0 }}
+                imageSize={{ height: 20, width: 12, marginRight: 0 }}
                 type=""
-                onPress={() => handleClose()}
+                onPress={() => handleBack()}
+              />
+              <Button
+                title=""
+                image={images.icons.rightarrow_disable_icon}
+                customStyle={{}}
+                imageSize={{ height: 20, width: 12, marginRight: 0 }}
+                type=""
+                onPress={() => handleNext()}
               />
             </View>
-            <View style={styles.sectionColumn}>
-              <View
-                style={{
-                  marginBottom: 30,
-                  marginTop: 20,
-                }}
-              >
-                <Text style={styles.compareWord}>{first}</Text>
-                <Text style={styles.compareWordKK}>{first}</Text>
-                <View style={styles.labelContainer}>
-                  <Label title={first} customStyle={{}} />
-                </View>
-                <Text style={styles.compareWordDes}>{first}</Text>
+            <Button
+              title=""
+              image={images.icons.close_icon}
+              customStyle={{}}
+              imageSize={{ height: 30, width: 30, marginRight: 0 }}
+              type=""
+              onPress={() => handleClose()}
+            />
+          </View>
+          <View style={styles.sectionColumn}>
+            <View
+              style={{
+                marginBottom: 30,
+                marginTop: 20,
+              }}
+            >
+              <Text style={styles.compareWord}>{first}</Text>
+              <Text style={styles.compareWordKK}>{first}</Text>
+              <View style={styles.labelContainer}>
+                <Label title={first} customStyle={{}} />
               </View>
-              <View
-                style={{
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#BDBDBD",
-                  borderTopWidth: 1,
-                  borderTopColor: "#BDBDBD",
-                  width: DEVICE_WIDTH - 40,
-                  alignItems: "center",
-                  height: 47,
-                  justifyContent: "center",
-                }}
-              >
-                <Text>VS</Text>
-              </View>
-              <View
-                style={{
-                  marginBottom: 30,
-                  marginTop: 20,
-                }}
-              >
-                {first.length !== 0 && second.length === 0 ? (
-                  <>
-                    <InputBox
-                      OnChangeText={(str: string) => setCompareWord(str)}
-                      customStyle={{
-                        width: DEVICE_WIDTH - 40,
-                        height: 40,
-                        marginTop: 20,
-                      }}
-                      placeHolder={"輸入內容"}
-                      placeHolderTextColor={"#96CACA"}
-                      value={compareWord}
-                    />
-                    {false && (
-                      <>
-                        <Text style={styles.compareWordKK}>{second}</Text>
-                        <View style={styles.labelContainer}>
-                          <Label title={second} />
-                        </View>
-                        <Text style={styles.compareWordDes}>{second}</Text>
-                      </>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <Text style={styles.compareWord}>{second}</Text>
-                    <Text style={styles.compareWordKK}>{second}</Text>
-                    <View style={styles.labelContainer}>
-                      <Label title={second} />
-                    </View>
-                    <Text style={styles.compareWordDes}>{second}</Text>
-                  </>
-                )}
-              </View>
+              <Text style={styles.compareWordDes}>{first}</Text>
             </View>
-          </Animated.View>
-        </View>
+            <View
+              style={{
+                borderBottomWidth: 1,
+                borderBottomColor: Colors.gray_4,
+                borderTopWidth: 1,
+                borderTopColor: Colors.gray_4,
+                width: DEVICE_WIDTH - 40,
+                alignItems: "center",
+                height: 47,
+                justifyContent: "center",
+              }}
+            >
+              <Text>VS</Text>
+            </View>
+            <View
+              style={{
+                marginBottom: 30,
+                marginTop: 20,
+              }}
+            >
+              {first.length !== 0 && second.length === 0 ? (
+                <>
+                  <InputBox
+                    OnChangeText={(str: string) => setCompareWord(str)}
+                    customStyle={{
+                      width: DEVICE_WIDTH - 40,
+                      height: 40,
+                      marginTop: 20,
+                    }}
+                    placeHolder={"輸入內容"}
+                    placeHolderTextColor={Colors.primary_light}
+                    value={compareWord}
+                  />
+                  {false && (
+                    <>
+                      <Text style={styles.compareWordKK}>{second}</Text>
+                      <View style={styles.labelContainer}>
+                        <Label title={second} />
+                      </View>
+                      <Text style={styles.compareWordDes}>{second}</Text>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <Text style={styles.compareWord}>{second}</Text>
+                  <Text style={styles.compareWordKK}>{second}</Text>
+                  <View style={styles.labelContainer}>
+                    <Label title={second} />
+                  </View>
+                  <Text style={styles.compareWordDes}>{second}</Text>
+                </>
+              )}
+            </View>
+          </View>
+        </Animated.View>
       </View>
-    </TouchableWithoutFeedback>
+    </View>
   );
 };
 
@@ -218,18 +205,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.page_modal_background,
   },
   sheet: {
     position: "absolute",
-    top: Dimensions.get("window").height,
+    top: DEVICE_HEIGHT,
     left: 0,
     right: 0,
     height: "100%",
     justifyContent: "flex-end",
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
     minHeight: Dimensions.get("window").height - 54,
@@ -239,7 +226,7 @@ const styles = StyleSheet.create({
   sectionRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    borderBottomColor: "#BDBDBD",
+    borderBottomColor: Colors.gray_4,
     paddingHorizontal: 20,
     borderBottomWidth: 0.5,
     paddingBottom: 20,
@@ -257,19 +244,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   compareWord: {
-    fontSize: theme.FONT_SIZE_EXTREME_LARGE,
-    fontWeight: "700",
+    ...Typography.xl_bold
   },
   compareWordKK: {
-    fontSize: theme.FONT_SIZE_SMALL,
-    fontWeight: "500",
-    color: theme.FONT_COLOR_GRAY,
+    ...Typography.sm,
+    color: Colors.gray_3,
     marginTop: 5,
     marginBottom: 20,
   },
   compareWordDes: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    fontWeight: "500",
+    ...Typography.base,
     lineHeight: 25,
     marginTop: 8,
   },

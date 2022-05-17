@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import Button from "../../components/Button/Button";
-import theme from "./../../utilities/theme.style";
 import images from "../../assets/images";
-
 import {
   StyleSheet,
   Text,
   View,
-  TouchableWithoutFeedback,
   Image,
   TouchableOpacity,
   ScrollView,
-  Switch,
+  TextStyle,
 } from "react-native";
 import { DEVICE_WIDTH } from "../splashpage";
+import { Colors, Typography } from "../../styles";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
 const subscriptPage = ({
   navigation,
   route,
@@ -25,16 +21,13 @@ const subscriptPage = ({
   navigation: any;
   route: any;
 }) => {
-  const [cases, setCases] = React.useState(0);
+  const [cases, setCases] = useState(0);
   const handleBack = () => {
     navigation.goBack();
   };
 
   return (
-    <LinearGradient
-      colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-      style={styles.container}
-    >
+    <LinearGradientLayout>
       <SafeAreaView>
         <ScrollView
             contentContainerStyle={{ flexGrow: 1 }}
@@ -60,13 +53,7 @@ const subscriptPage = ({
           </View>
 
           <Text
-            style={{
-              flex: 1,
-              textAlign: "center",
-              fontSize: theme.FONT_SIZE_MEDIUM,
-              lineHeight: 22,
-              fontWeight: "bold",
-            }}
+            style={ Typography.pageTitle as TextStyle }
           >
             進階功能
           </Text>
@@ -79,12 +66,12 @@ const subscriptPage = ({
           }}
         >
           <Text
-            style={{ fontWeight: "bold", fontSize: theme.FONT_SIZE_MEDIUM }}
+            style={Typography.base_bold}
           >
             目前方案: {"30天方案"}
           </Text>
           <Text
-            style={{ fontWeight: "bold", fontSize: theme.FONT_SIZE_MEDIUM }}
+            style={Typography.base_bold}
           >
             到期日: {"2020-12-20"}
           </Text>
@@ -118,8 +105,7 @@ const subscriptPage = ({
 
         <Text
           style={{
-            fontWeight: "bold",
-            fontSize: theme.FONT_SIZE_MEDIUM,
+            ...Typography.base_bold,
             width: DEVICE_WIDTH - 40,
             marginBottom: 15,
             alignSelf: "center"
@@ -134,7 +120,7 @@ const subscriptPage = ({
               height: 50,
               borderBottomWidth: 1,
               borderBottomColor: "rgba(0, 0, 0, 0.2)",
-              backgroundColor: theme.COLOR_WHITE,
+              backgroundColor: Colors.white,
               paddingHorizontal: 20,
               justifyContent: "space-between",
               alignItems: "center",
@@ -156,7 +142,7 @@ const subscriptPage = ({
               height: 50,
               borderBottomWidth: 1,
               borderBottomColor: "rgba(0, 0, 0, 0.2)",
-              backgroundColor: theme.COLOR_WHITE,
+              backgroundColor: Colors.white,
               paddingHorizontal: 20,
               justifyContent: "space-between",
               alignItems: "center",
@@ -178,7 +164,7 @@ const subscriptPage = ({
               height: 50,
               borderBottomWidth: 1,
               borderBottomColor: "rgba(0, 0, 0, 0.2)",
-              backgroundColor: theme.COLOR_WHITE,
+              backgroundColor: Colors.white,
               paddingHorizontal: 20,
               justifyContent: "space-between",
               alignItems: "center",
@@ -213,33 +199,22 @@ const subscriptPage = ({
         </View>
         <Button
           title="確定"
-          image={""}
           customStyle={{
             width: DEVICE_WIDTH - 40,
             height: 50,
             borderRadius: 25,
             alignSelf: "center",
           }}
-          fontStyle={{
-            fontWeight: "bold",
-            fontSize: theme.FONT_SIZE_MEDIUM,
-          }}
-          imageSize={{}}
+          fontStyle={Typography.base_bold}
           type="2"
-          onPress={() => console.log("finish")}
+          onPress={() => {}}
         />
         </ScrollView>
       </SafeAreaView>
-    </LinearGradient>
+    </LinearGradientLayout>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   sectionRow: {
     flexDirection: "row",
     height: 60,
@@ -247,7 +222,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     width: DEVICE_WIDTH,
-    borderTopColor: "#96CACA",
+    borderTopColor: Colors.primary_light,
     borderTopWidth: 1,
   },
   sectionText: {},

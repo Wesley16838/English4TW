@@ -1,0 +1,874 @@
+{
+    "word": "lay",
+    "content": {
+        "動詞": {
+            "simple": [
+                {
+                    "condition": "(1)lay原形動詞:",
+                    "examples": [
+                        {
+                            "condition": "過去式與過去分詞為\"laid\"|現在分詞為\"laying\"|第三者單數現在式為\"lays\"",
+                            "examples": [
+                                {
+                                    "definitions": [
+                                        "生蛋, 下蛋",
+                                        "產卵",
+                                        "航海: 就位, 擊船"
+                                    ],
+                                    "pattern": "lay",
+                                    "name": "不及物"
+                                },
+                                {
+                                    "definitions": [
+                                        "放置...(物)",
+                                        "安放...(物、人)",
+                                        "平放...(物、人)",
+                                        "擱...(物)",
+                                        "砌...(磚等)",
+                                        "塗...(物)",
+                                        "制定...(計劃等)",
+                                        "擬定...(計劃等)",
+                                        "研究...(方法等)",
+                                        "鋪設...(地毯、電纜、管等)",
+                                        "聲明...(主張等)",
+                                        "聲稱...(主張等)",
+                                        "提出...(提案、資訊等)",
+                                        "打...(賭)",
+                                        "押...(賭注等)",
+                                        "平息...(恐懼等)",
+                                        "平服...(恐懼等)",
+                                        "驅除...(恐懼等)",
+                                        "生...(蛋)",
+                                        "下...(蛋)",
+                                        "產...(蛋)",
+                                        "與...(人)性交"
+                                    ],
+                                    "pattern": "lay ...(物)",
+                                    "name": "及物"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "condition": "(2)lie過去式:",
+                    "refer": {
+                        "text": "lie過去式:",
+                        "words": [
+                            "lie"
+                        ]
+                    }
+                }
+            ],
+            "phrases": [
+                {
+                    "condition": "(1)lay原形動詞:",
+                    "examples": [
+                        {
+                            "condition": "過去式與過去分詞為\"laid\"|現在分詞為\"laying\"|第三者單數現在式為\"lays\"",
+                            "examples": [
+                                {
+                                    "pattern": "lay ...(a: 物、人) ...(b: 形容詞):",
+                                    "definitions": [
+                                        "把(a)放(b)"
+                                    ],
+                                    "name": "lay ...(a: 物、人) ...(b: 形容詞):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 物) over/on ...(b: 物):",
+                                    "definitions": [
+                                        "把(a)放在(b)上",
+                                        "把(a)放置在(b)上"
+                                    ],
+                                    "name": "lay ...(a: 物) over/on ...(b: 物):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 物、人) in ...(b: 物):",
+                                    "definitions": [
+                                        "把(a)放在(b)裡",
+                                        "把(a)放置在(b)裡"
+                                    ],
+                                    "name": "lay ...(a: 物、人) in ...(b: 物):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 物、人) into ...(b: 物):",
+                                    "definitions": [
+                                        "把(a)放進(b)裡"
+                                    ],
+                                    "name": "lay ...(a: 物、人) into ...(b: 物):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 物) into ...(b: 物):",
+                                    "definitions": [
+                                        "將(a)插入(b)",
+                                        "將(a)嵌入(b)"
+                                    ],
+                                    "name": "lay ...(a: 物) into ...(b: 物):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 平面等) with ...(b: 物):",
+                                    "definitions": [
+                                        "用(b)鋪(a)"
+                                    ],
+                                    "name": "lay ...(a: 平面等) with ...(b: 物):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 責任、負擔、罪等) on/to ...(b: 人):",
+                                    "definitions": [
+                                        "把(a)歸咎於(b)",
+                                        "把(a)加在(b)身上"
+                                    ],
+                                    "name": "lay ...(a: 責任、負擔、罪等) on/to ...(b: 人):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 計劃、想法) on ...(b: 人):",
+                                    "definitions": [
+                                        "向(b)提出(a)"
+                                    ],
+                                    "name": "lay ...(a: 計劃、想法) on ...(b: 人):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 人事物) in/under ...(b: 困難的狀態等):",
+                                    "definitions": [
+                                        "讓(a)變成(b)"
+                                    ],
+                                    "name": "lay ...(a: 人事物) in/under ...(b: 困難的狀態等):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 金額等) on ...(b: 人事物):",
+                                    "definitions": [
+                                        "把(a)下注在(b)上面"
+                                    ],
+                                    "name": "lay ...(a: 金額等) on ...(b: 人事物):"
+                                },
+                                {
+                                    "pattern": "lay ...(生命、聲譽、前途等) on the line:",
+                                    "definitions": [
+                                        "拿著...冒險"
+                                    ],
+                                    "name": "lay ...(生命、聲譽、前途等) on the line:"
+                                },
+                                {
+                                    "pattern": "lay ...(事) on the line:",
+                                    "definitions": [
+                                        "把...說清楚",
+                                        "把...說白了",
+                                        "明確說明...",
+                                        "把...一五一十地說出來",
+                                        "明白無誤地說..."
+                                    ],
+                                    "name": "lay ...(事) on the line:"
+                                },
+                                {
+                                    "pattern": "lay it on the line:",
+                                    "definitions": [
+                                        "實話實說",
+                                        "坦率地說",
+                                        "坦白講",
+                                        "一五一十地說出來",
+                                        "把它說白了"
+                                    ],
+                                    "name": "lay it on the line:"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 金額等) that ...(b: 完整句)|lay ...(a: 金額等) ...(b: 完整句):",
+                                    "definitions": [
+                                        "打賭(a)(b)"
+                                    ],
+                                    "name": "lay ...(a: 金額等) that ...(b: 完整句)|lay ...(a: 金額等) ...(b: 完整句):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 人) ...(b: 金額等) that ...(c: 完整句)|lay ...(a: 人) ...(b: 金額等) ...(c: 完整句):",
+                                    "definitions": [
+                                        "跟(a)打賭(b)(c)"
+                                    ],
+                                    "name": "lay ...(a: 人) ...(b: 金額等) that ...(c: 完整句)|lay ...(a: 人) ...(b: 金額等) ...(c: 完整句):"
+                                },
+                                {
+                                    "pattern": "lay down:",
+                                    "definitions": [
+                                        "屈從",
+                                        "屈服",
+                                        "降服"
+                                    ],
+                                    "name": "lay down:"
+                                },
+                                {
+                                    "pattern": "lay ...(人) down|lay down ...(人):",
+                                    "definitions": [
+                                        "讓...躺下來"
+                                    ],
+                                    "name": "lay ...(人) down|lay down ...(人):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 人) down on ...(b: 平面等)|lay down ...(a: 人) on ...(b: 平面等):",
+                                    "definitions": [
+                                        "讓(a)安躺在(b)上"
+                                    ],
+                                    "name": "lay ...(a: 人) down on ...(b: 平面等)|lay down ...(a: 人) on ...(b: 平面等):"
+                                },
+                                {
+                                    "pattern": "lay down ...(物)|lay ...(物) down|lay ...(物):",
+                                    "definitions": [
+                                        "把...平放",
+                                        "使...平臥",
+                                        "把...鋪平"
+                                    ],
+                                    "name": "lay down ...(物)|lay ...(物) down|lay ...(物):"
+                                },
+                                {
+                                    "pattern": "lay down ...(事)|lay ...(事) down:",
+                                    "definitions": [
+                                        "給出...(指令、命令)",
+                                        "犧牲...(生命等)"
+                                    ],
+                                    "name": "lay down ...(事)|lay ...(事) down:"
+                                },
+                                {
+                                    "pattern": "lay down the law:",
+                                    "definitions": [
+                                        "立規矩",
+                                        "立法",
+                                        "制定法律",
+                                        "發號施令"
+                                    ],
+                                    "name": "lay down the law:"
+                                },
+                                {
+                                    "pattern": "lay down ...(武器等)|lay ...(武器等) down:",
+                                    "definitions": [
+                                        "丟棄..."
+                                    ],
+                                    "name": "lay down ...(武器等)|lay ...(武器等) down:"
+                                },
+                                {
+                                    "pattern": "lay down/in/up/aside/away/by ...(物)|lay ...(物) in/up/aside/away/by:",
+                                    "definitions": [
+                                        "保留...以供未來使用",
+                                        "存儲...以供未來使用"
+                                    ],
+                                    "name": "lay down/in/up/aside/away/by ...(物)|lay ...(物) in/up/aside/away/by:"
+                                },
+                                {
+                                    "pattern": "lay off:",
+                                    "definitions": [
+                                        "停止打擾",
+                                        "停止騷擾"
+                                    ],
+                                    "name": "lay off:"
+                                },
+                                {
+                                    "pattern": "lay off ...(人)|lay ...(人) off:",
+                                    "definitions": [
+                                        "解僱..."
+                                    ],
+                                    "name": "lay off ...(人)|lay ...(人) off:"
+                                },
+                                {
+                                    "pattern": "lay off ...(人):",
+                                    "definitions": [
+                                        "停止打擾...",
+                                        "停止騷擾..."
+                                    ],
+                                    "name": "lay off ...(人):"
+                                },
+                                {
+                                    "pattern": "lay off ...(地點)|lay ...(地點) off:",
+                                    "definitions": [
+                                        "在...標記號"
+                                    ],
+                                    "name": "lay off ...(地點)|lay ...(地點) off:"
+                                },
+                                {
+                                    "pattern": "lay off ...(物)|lay ...(物) off:",
+                                    "definitions": [
+                                        "停止使用...",
+                                        "停止製造...",
+                                        "停止吃...(藥物等)"
+                                    ],
+                                    "name": "lay off ...(物)|lay ...(物) off:"
+                                },
+                                {
+                                    "pattern": "lay off ...(a: 賭注等) with ...(b: 人):",
+                                    "definitions": [
+                                        "把(a)下注在(b)以降低風險"
+                                    ],
+                                    "name": "lay off ...(a: 賭注等) with ...(b: 人):"
+                                },
+                                {
+                                    "pattern": "lay ...(事) out|lay out ...(事):",
+                                    "definitions": [
+                                        "制定詳細的...(計劃、設計等)",
+                                        "解説...(行動計劃、一系列的事件)"
+                                    ],
+                                    "name": "lay ...(事) out|lay out ...(事):"
+                                },
+                                {
+                                    "pattern": "lay ...(人) out|lay out ...(人):",
+                                    "definitions": [
+                                        "為...(死去的人)準備做埋葬",
+                                        "為...(死去的人)準備做守靈",
+                                        "嚴厲地責罵..."
+                                    ],
+                                    "name": "lay ...(人) out|lay out ...(人):"
+                                },
+                                {
+                                    "pattern": "lay ...(物) out|lay out ...(物):",
+                                    "definitions": [
+                                        "把...排列好",
+                                        "(按特定順序)展示...",
+                                        "花...(錢)"
+                                    ],
+                                    "name": "lay ...(物) out|lay out ...(物):"
+                                },
+                                {
+                                    "pattern": "lay ...(主詞自己) out:",
+                                    "definitions": [
+                                        "付出很多努力",
+                                        "給自己帶來不便",
+                                        "給自己經歷很多麻煩"
+                                    ],
+                                    "name": "lay ...(主詞自己) out:"
+                                },
+                                {
+                                    "pattern": "lay ...(主詞自己) out to ...(a: 動詞):",
+                                    "definitions": [
+                                        "付出很多努力來做(a)",
+                                        "給自己帶來不便以做(a)",
+                                        "給自己經歷很多麻煩以做(a)"
+                                    ],
+                                    "name": "lay ...(主詞自己) out to ...(a: 動詞):"
+                                },
+                                {
+                                    "pattern": "lay out ...(a: 人) with ...(b: 重擊等)|lay ...(a: 人) out with ...(b: 重擊等):",
+                                    "definitions": [
+                                        "以(b)打暈(a)"
+                                    ],
+                                    "name": "lay out ...(a: 人) with ...(b: 重擊等)|lay ...(a: 人) out with ...(b: 重擊等):"
+                                },
+                                {
+                                    "pattern": "lay about:",
+                                    "definitions": [
+                                        "向四周亂打"
+                                    ],
+                                    "name": "lay about:"
+                                },
+                                {
+                                    "pattern": "lay about ...(人等):",
+                                    "definitions": [
+                                        "對...拳打腳踢",
+                                        "狠打..."
+                                    ],
+                                    "name": "lay about ...(人等):"
+                                },
+                                {
+                                    "pattern": "lay on:",
+                                    "definitions": [
+                                        "攻擊"
+                                    ],
+                                    "name": "lay on:"
+                                },
+                                {
+                                    "pattern": "lay ...(物) on|lay on ...(物):",
+                                    "definitions": [
+                                        "準備好...",
+                                        "大量提供..."
+                                    ],
+                                    "name": "lay ...(物) on|lay on ...(物):"
+                                },
+                                {
+                                    "pattern": "lay ...(態度、行為等) on|lay on ...(態度、行為等):",
+                                    "definitions": [
+                                        "(在互動時)過度散發..."
+                                    ],
+                                    "name": "lay ...(態度、行為等) on|lay on ...(態度、行為等):"
+                                },
+                                {
+                                    "pattern": "lay to:",
+                                    "definitions": [
+                                        "(船)拋錨",
+                                        "(船)停泊"
+                                    ],
+                                    "name": "lay to:"
+                                },
+                                {
+                                    "pattern": "lay to/by:",
+                                    "definitions": [
+                                        "(船)逆風滯航"
+                                    ],
+                                    "name": "lay to/by:"
+                                },
+                                {
+                                    "pattern": "lay into ...(人):",
+                                    "definitions": [
+                                        "痛斥...",
+                                        "訓斥...",
+                                        "對...拳打腳踢",
+                                        "痛歐..."
+                                    ],
+                                    "name": "lay into ...(人):"
+                                },
+                                {
+                                    "pattern": "lay into ...(食物):",
+                                    "definitions": [
+                                        "大吃..."
+                                    ],
+                                    "name": "lay into ...(食物):"
+                                },
+                                {
+                                    "pattern": "lay into ...(事):",
+                                    "definitions": [
+                                        "開始對...採取堅決的行動"
+                                    ],
+                                    "name": "lay into ...(事):"
+                                },
+                                {
+                                    "pattern": "lay over:",
+                                    "definitions": [
+                                        "旅途中短暫停留"
+                                    ],
+                                    "name": "lay over:"
+                                },
+                                {
+                                    "pattern": "lay over in/at ...(地方):",
+                                    "definitions": [
+                                        "旅途中在...短暫停留"
+                                    ],
+                                    "name": "lay over in/at ...(地方):"
+                                },
+                                {
+                                    "pattern": "lay up:",
+                                    "definitions": [
+                                        "(高爾夫)限制揮桿力量以避免把球擊到障礙區",
+                                        "(船)停靠碼頭以作修理"
+                                    ],
+                                    "name": "lay up:"
+                                },
+                                {
+                                    "pattern": "lay ...(人) up|lay up ...(人):",
+                                    "definitions": [
+                                        "讓...臥躺在病床",
+                                        "讓...躺在床上療癢"
+                                    ],
+                                    "name": "lay ...(人) up|lay up ...(人):"
+                                },
+                                {
+                                    "pattern": "lay ...(船) up|lay up ...(船):",
+                                    "definitions": [
+                                        "把...放在碼頭以作修理"
+                                    ],
+                                    "name": "lay ...(船) up|lay up ...(船):"
+                                },
+                                {
+                                    "pattern": "lay ...(物、人) aside|lay aside ...(物、人):",
+                                    "definitions": [
+                                        "把...放在一邊"
+                                    ],
+                                    "name": "lay ...(物、人) aside|lay aside ...(物、人):"
+                                },
+                                {
+                                    "pattern": "lay ...(事) aside|lay aside ...(事):",
+                                    "definitions": [
+                                        "暫時停止...",
+                                        "放棄...(目標等)"
+                                    ],
+                                    "name": "lay ...(事) aside|lay aside ...(事):"
+                                },
+                                {
+                                    "pattern": "lay for ...(人):",
+                                    "definitions": [
+                                        "等著攻擊..."
+                                    ],
+                                    "name": "lay for ...(人):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 餐具等) for ...(b: 人等):",
+                                    "definitions": [
+                                        "為(b)準備好(a)"
+                                    ],
+                                    "name": "lay ...(a: 餐具等) for ...(b: 人等):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 餐具等) for ...(b: 餐等) for ...(c: 人等):",
+                                    "definitions": [
+                                        "為(b)準備好(b)的(a)"
+                                    ],
+                                    "name": "lay ...(a: 餐具等) for ...(b: 餐等) for ...(c: 人等):"
+                                },
+                                {
+                                    "pattern": "lay ...(人) to rest:",
+                                    "definitions": [
+                                        "讓...安息"
+                                    ],
+                                    "name": "lay ...(人) to rest:"
+                                },
+                                {
+                                    "pattern": "lay ...(事) to rest:",
+                                    "definitions": [
+                                        "把...(事情、爭論等)解決",
+                                        "不再提起...(事情、爭論等)",
+                                        "闢...(謠)"
+                                    ],
+                                    "name": "lay ...(事) to rest:"
+                                },
+                                {
+                                    "pattern": "lay claim to ...(事物):",
+                                    "definitions": [
+                                        "提出對...的所有權",
+                                        "宣稱有...",
+                                        "自以為有..."
+                                    ],
+                                    "name": "lay claim to ...(事物):"
+                                },
+                                {
+                                    "pattern": "lay it on thick|lay it on a bit thick|lay it on with a trowel:",
+                                    "definitions": [
+                                        "誇大",
+                                        "過分吹捧",
+                                        "言過其辭",
+                                        "誇大其辭"
+                                    ],
+                                    "name": "lay it on thick|lay it on a bit thick|lay it on with a trowel:"
+                                },
+                                {
+                                    "pattern": "(人)lay ...(秘密等) bare:",
+                                    "definitions": [
+                                        "暴露...",
+                                        "揭穿..."
+                                    ],
+                                    "name": "(人)lay ...(秘密等) bare:"
+                                },
+                                {
+                                    "pattern": "lay ...(主詞: 人)'s hands on ...(a: 人)|lay a hand on ...(a: 人):",
+                                    "definitions": [
+                                        "傷害(a)",
+                                        "碰(a)",
+                                        "抓住(a)"
+                                    ],
+                                    "name": "lay ...(主詞: 人)'s hands on ...(a: 人)|lay a hand on ...(a: 人):"
+                                },
+                                {
+                                    "pattern": "lay eyes on ...(人、物):",
+                                    "definitions": [
+                                        "第一次看見...",
+                                        "第一次看到..."
+                                    ],
+                                    "name": "lay eyes on ...(人、物):"
+                                },
+                                {
+                                    "pattern": "lay siege to ...(地方、建物等):",
+                                    "definitions": [
+                                        "包圍...",
+                                        "圍攻..."
+                                    ],
+                                    "name": "lay siege to ...(地方、建物等):"
+                                },
+                                {
+                                    "pattern": "lay low:",
+                                    "definitions": [
+                                        "潛伏",
+                                        "低調行事",
+                                        "不張揚",
+                                        "不露行跡",
+                                        "不出聲",
+                                        "平臥"
+                                    ],
+                                    "name": "lay low:"
+                                },
+                                {
+                                    "pattern": "lay ...(地方、物等) to waste|lay ...(地方、物等) waste|lay waste to ...(地方、物等):",
+                                    "definitions": [
+                                        "把...夷爲平地",
+                                        "完全摧毀...",
+                                        "徹底搗毀..."
+                                    ],
+                                    "name": "lay ...(地方、物等) to waste|lay ...(地方、物等) waste|lay waste to ...(地方、物等):"
+                                },
+                                {
+                                    "pattern": "lay ...(事) to waste|lay ...(事) waste|lay waste to ...(事):",
+                                    "definitions": [
+                                        "糟蹋...",
+                                        "對...造成破壞"
+                                    ],
+                                    "name": "lay ...(事) to waste|lay ...(事) waste|lay waste to ...(事):"
+                                },
+                                {
+                                    "pattern": "lay ...(物、人) low|lay low ...(物、人):",
+                                    "definitions": [
+                                        "擊倒...",
+                                        "使...倒下",
+                                        "把...打倒在地上"
+                                    ],
+                                    "name": "lay ...(物、人) low|lay low ...(物、人):"
+                                },
+                                {
+                                    "pattern": "lay ...(人) low|lay low ...(人):",
+                                    "definitions": [
+                                        "使...病倒"
+                                    ],
+                                    "name": "lay ...(人) low|lay low ...(人):"
+                                },
+                                {
+                                    "pattern": "lay ...(人、動物) low|lay low ...(人、動物):",
+                                    "definitions": [
+                                        "殺死..."
+                                    ],
+                                    "name": "lay ...(人、動物) low|lay low ...(人、動物):"
+                                },
+                                {
+                                    "pattern": "lay store by/on ...(人事物)|lay a lot of store by/on ...(人事物)|lay great store by/on ...(人事物):",
+                                    "definitions": [
+                                        "看重...",
+                                        "重視...",
+                                        "器重...(人)"
+                                    ],
+                                    "name": "lay store by/on ...(人事物)|lay a lot of store by/on ...(人事物)|lay great store by/on ...(人事物):"
+                                },
+                                {
+                                    "pattern": "lay little store by/on ...(人事物):",
+                                    "definitions": [
+                                        "不看重...",
+                                        "不重視...",
+                                        "不器重...(人)"
+                                    ],
+                                    "name": "lay little store by/on ...(人事物):"
+                                },
+                                {
+                                    "pattern": "lay a finger on ...(人):",
+                                    "definitions": [
+                                        "動...一根寒毛",
+                                        "動...一個手指頭"
+                                    ],
+                                    "name": "lay a finger on ...(人):"
+                                },
+                                {
+                                    "pattern": "lay ...(事) open|lay open ...(事):",
+                                    "definitions": [
+                                        "暴露...",
+                                        "揭發...",
+                                        "揭露...",
+                                        "攤開..."
+                                    ],
+                                    "name": "lay ...(事) open|lay open ...(事):"
+                                },
+                                {
+                                    "pattern": "lay ...(a: 人) open to ...(b: 負面的事等):",
+                                    "definitions": [
+                                        "使(a)易遭到(a)"
+                                    ],
+                                    "name": "lay ...(a: 人) open to ...(b: 負面的事等):"
+                                },
+                                {
+                                    "pattern": "lay ...(主詞: 人)'s cards on the table:",
+                                    "definitions": [
+                                        "攤牌",
+                                        "和盤托出",
+                                        "開誠佈公",
+                                        "表明意圖",
+                                        "表明計劃"
+                                    ],
+                                    "name": "lay ...(主詞: 人)'s cards on the table:"
+                                },
+                                {
+                                    "pattern": "(人)lay an egg:",
+                                    "definitions": [
+                                        "失敗",
+                                        "出醜",
+                                        "搞砸"
+                                    ],
+                                    "name": "(人)lay an egg:"
+                                },
+                                {
+                                    "pattern": "lay ...(主詞: 人)'s head on the block|lay ...(主詞: 人)'s neck on the block:",
+                                    "definitions": [
+                                        "冒著受懲罸的危險",
+                                        "冒著失業的風險",
+                                        "冒險"
+                                    ],
+                                    "name": "lay ...(主詞: 人)'s head on the block|lay ...(主詞: 人)'s neck on the block:"
+                                },
+                                {
+                                    "pattern": "lay the foundations:",
+                                    "definitions": [
+                                        "打下基礎",
+                                        "奠定基礎"
+                                    ],
+                                    "name": "lay the foundations:"
+                                },
+                                {
+                                    "pattern": "lay the foundations of ...(事):",
+                                    "definitions": [
+                                        "打下...的基礎",
+                                        "奠定...的基礎"
+                                    ],
+                                    "name": "lay the foundations of ...(事):"
+                                },
+                                {
+                                    "pattern": "lay the basis for ...(任務、活動等)|lay the foundations for ...(任務、活動等):",
+                                    "definitions": [
+                                        "為...打下基礎",
+                                        "為...奠定基礎"
+                                    ],
+                                    "name": "lay the basis for ...(任務、活動等)|lay the foundations for ...(任務、活動等):"
+                                },
+                                {
+                                    "pattern": "lay the ghost of ...(事)|lay the ghost of ...(事) to rest:",
+                                    "definitions": [
+                                        "終於走出...的陰影",
+                                        "終於把...拋在腦後",
+                                        "終於擺脫...的困擾"
+                                    ],
+                                    "name": "lay the ghost of ...(事)|lay the ghost of ...(事) to rest:"
+                                },
+                                {
+                                    "pattern": "lay up trouble for ...(主詞自己):",
+                                    "definitions": [
+                                        "種下禍根",
+                                        "埋下禍根",
+                                        "埋下禍種",
+                                        "留下隱患"
+                                    ],
+                                    "name": "lay up trouble for ...(主詞自己):"
+                                },
+                                {
+                                    "pattern": "lay a guilt trip on ...(人):",
+                                    "definitions": [
+                                        "讓...感到內疚",
+                                        "讓...有罪惡感",
+                                        "讓...有內疚感"
+                                    ],
+                                    "name": "lay a guilt trip on ...(人):"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "synonyms": [
+                "depose",
+                "deposit",
+                "dispose",
+                "emplace",
+                "fix",
+                "place",
+                "position",
+                "put",
+                "set",
+                "set up",
+                "situate",
+                "stick",
+                "sediment",
+                "settle",
+                "assess",
+                "charge",
+                "exact",
+                "fine",
+                "impose",
+                "levy",
+                "put",
+                "fit",
+                "fix",
+                "groom",
+                "prep",
+                "prepare",
+                "ready",
+                "apply",
+                "lay on",
+                "spread",
+                "bet",
+                "gamble",
+                "go",
+                "play",
+                "put",
+                "stake",
+                "wager",
+                "accredit",
+                "ascribe",
+                "attribute",
+                "chalk up",
+                "credit",
+                "impute",
+                "put down",
+                "bury",
+                "entomb",
+                "inhume",
+                "inter",
+                "put away"
+            ]
+        },
+        "名詞": {
+            "simple": [
+                {
+                    "definitions": [
+                        "短敘事詩",
+                        "短抒情詩",
+                        "民歌, 民謠",
+                        "短詩",
+                        "俚語: 性伴侶"
+                    ],
+                    "pattern": "lay",
+                    "name": "複數為\"lays\""
+                },
+                {
+                    "definitions": [
+                        "位置",
+                        "地形"
+                    ],
+                    "pattern": "the lay",
+                    "name": "限定單數the lay:"
+                }
+            ],
+            "synonyms": [
+                "air",
+                "melody",
+                "song",
+                "strain",
+                "tune",
+                "warble",
+                "ballad",
+                "ditty",
+                "jingle",
+                "lyric",
+                "song",
+                "vocal"
+            ],
+            "phrases": [
+                {
+                    "pattern": "a lay-off|lay-offs:",
+                    "definitions": [
+                        "臨時解雇, 解僱",
+                        "臨時解聘, 解聘",
+                        "下崗",
+                        "停工期, 歇工期",
+                        "(足球賽的)喂球"
+                    ],
+                    "name": "a lay-off|lay-offs:"
+                },
+                {
+                    "definitions": [
+                        "大勢所趨",
+                        "事態",
+                        "地形",
+                        "地勢",
+                        "海岸的方向"
+                    ],
+                    "pattern": "the lay of the land",
+                    "name": "限定單數the lay of the land:"
+                }
+            ]
+        },
+        "形容詞": {
+            "simple": [
+                {
+                    "definitions": [
+                        "世俗的",
+                        "外行的, 客串的"
+                    ],
+                    "pattern": "lay",
+                    "name": "lay"
+                }
+            ],
+            "synonyms": []
+        }
+    }
+}

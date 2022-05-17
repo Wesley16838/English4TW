@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import theme from "../../utilities/theme.style";
+import theme from "../../utils/theme.style";
 import images from "../../assets/images";
 export type Props = {
   customStyle: any;

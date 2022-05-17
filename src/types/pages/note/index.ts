@@ -5,7 +5,10 @@ export type NItem = {
 
 export type SItem = {
   title: string;
-  kk: string;
+  subtitle: string;
+  speech: string;
   detail: string;
   buttons: any;
+  OnClick:()=>void;
+  OnCompare?:()=>void;
 };

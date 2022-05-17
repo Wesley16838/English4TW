@@ -4,25 +4,22 @@ import {
   View,
   Image,
   Dimensions,
-  TouchableOpacity,
   Animated,
   Text,
-  TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
 import Button from "../../components/Button/Button";
 import Images from "../../assets/images";
-import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
-import { DEVICE_WIDTH } from "../splashpage";
-import { setNextPage } from "../../actions/page";
+import { DEVICE_HEIGHT, DEVICE_WIDTH } from "../splashpage";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Dispatch } from "redux";
+import { Colors, Typography } from "../../styles";
 
 const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
   const dispatch: Dispatch<any> = useDispatch();
-  const [animation, setAnimation] = React.useState(new Animated.Value(0));
-  const [analysis, setAnalysis] = React.useState([
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const [analysis, setAnalysis] = useState([
     {
       sentence:
         "In this session, we will get acquainted with React Navigation, which is used for routing and transitionbetween screens.",
@@ -36,15 +33,14 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
     (state: any) => state,
     shallowEqual
   );
-  const [isOutside, setIsOutside] = React.useState(true); // 一開始是不顯示, 所以outside
-  const screenHeight = Dimensions.get("window").height;
+  const [isOutside, setIsOutside] = useState(true); // 一開始是不顯示, 所以outside
 
   const backdrop = {
     transform: [
       {
         translateY: animation.interpolate({
           inputRange: [0, 0.01],
-          outputRange: [screenHeight, 0],
+          outputRange: [DEVICE_HEIGHT, 0],
           extrapolate: "clamp",
         }),
       },
@@ -91,37 +87,23 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
     return analysis.map((anal, index) => {
       return (
         <View key={index}>
-          {/* <SelectableText
-            customStyle={{
-              fontSize: theme.FONT_SIZE_MEDIUM,
-              fontWeight: "400",
-              marginBottom: 6,
-              lineHeight: 25,
-            }}
-            value={anal.sentence}
-            outside={isOutside}
-            menu={["字彙查詢", "字彙比較", "詞句分析"]}
-            onPressOutside={() => setIsOutside(false)}
-          /> */}
           <Text style={styles.sentence_analysis}>{anal.sentence}</Text>
           <View style={{ flexDirection: "row", marginBottom: 6 }}>
             <Text
               style={{
-                fontSize: theme.FONT_SIZE_LARGE,
-                fontWeight: "700",
+                ...Typography.lg_bold,
                 marginBottom: 6,
                 lineHeight: 23,
-                color: "#C48148",
+                color: Colors.secondary,
               }}
             >
               (人) put a spin on (事)
             </Text>
             <Text
               style={{
-                fontWeight: "700",
+                ...Typography.lg_bold,
                 color: "#00B4B4",
                 lineHeight: 25,
-                fontSize: theme.FONT_SIZE_LARGE,
                 marginLeft: 10,
               }}
               onPress={() => {
@@ -136,11 +118,10 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
           </View>
           <Text
             style={{
-              fontSize: theme.FONT_SIZE_LARGE,
-              fontWeight: "700",
+             ...Typography.lg_bold,
               marginBottom: 30,
               lineHeight: 23,
-              color: "#C48148",
+              color: Colors.secondary,
             }}
           >
             對...加油添醋
@@ -154,7 +135,7 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
       {
         translateY: animation.interpolate({
           inputRange: [0.01, 1],
-          outputRange: [0, -1 * screenHeight],
+          outputRange: [0, -1 * DEVICE_HEIGHT],
           extrapolate: "clamp",
         }),
       },
@@ -173,7 +154,6 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
                 <Button
                   title=""
                   image={images.icons.leftarrow_icon}
-                  customStyle={{}}
                   imageSize={{ height: 20, width: 12, marginRight: 0 }}
                   type=""
                   onPress={() => handleBack()}
@@ -181,7 +161,6 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
                 <Button
                   title=""
                   image={images.icons.rightarrow_disable_icon}
-                  customStyle={{}}
                   imageSize={{ height: 20, width: 12, marginRight: 0 }}
                   type=""
                   onPress={() => handleNext()}
@@ -190,7 +169,6 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
               <Button
                 title=""
                 image={images.icons.close_icon}
-                customStyle={{}}
                 imageSize={{ height: 30, width: 30, marginRight: 0 }}
                 type=""
                 onPress={() => handleClose()}
@@ -211,8 +189,8 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
                   paddingVertical: 10,
                   borderRadius: 20,
                   borderWidth: 1,
-                  borderColor: theme.PRIMARY_COLOR_DEFAULT,
-                  backgroundColor: theme.COLOR_WHITE,
+                  borderColor: Colors.primary,
+                  backgroundColor: Colors.white,
                   marginBottom: 30,
                   alignItems: "center",
                   justifyContent: "space-between",
@@ -229,8 +207,7 @@ const sentenceAnalysisPage = ({ navigation }: { navigation: any }) => {
                 <View style={{ width: DEVICE_WIDTH - 30 - 30 - 10 - 40 }}>
                   <Text
                     style={{
-                      fontSize: theme.FONT_SIZE_MEDIUM,
-                      fontWeight: "400",
+                      ...Typography.base,
                       lineHeight: 25,
                     }}
                   >
@@ -270,25 +247,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.page_modal_background,
   },
   sheet: {
     position: "absolute",
-    top: Dimensions.get("window").height,
+    top: DEVICE_HEIGHT,
     left: 0,
     right: 0,
     height: "100%",
     justifyContent: "flex-end",
   },
   topic: {
+    ...Typography.base_bold,
     flexDirection: "row",
     alignItems: "center",
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    fontWeight: "700",
     marginBottom: 10,
   },
   topicTitle: {
-    fontWeight: "bold",
+    ...Typography.base_bold
   },
   topicIcon: {
     height: 16,
@@ -297,17 +273,17 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
-    minHeight: Dimensions.get("window").height - 54,
+    minHeight: DEVICE_HEIGHT - 54,
 
     paddingTop: 26,
   },
   sectionRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    borderBottomColor: "#BDBDBD",
+    borderBottomColor: Colors.gray_4,
     paddingHorizontal: 20,
     borderBottomWidth: 0.5,
     paddingBottom: 20,
@@ -321,7 +297,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     width: DEVICE_WIDTH - 40,
     flexDirection: "column",
-    borderBottomColor: "#BDBDBD",
+    borderBottomColor: Colors.gray_4,
     borderBottomWidth: 0.5,
     marginHorizontal: 20,
   },

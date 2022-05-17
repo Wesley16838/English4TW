@@ -8,3 +8,5 @@ export const SET_DAILY_WORD = "SET_DAILY_WORD";
 
 export const SET_NEXT_PAGE = "SET_NEXT_PAGE";
 export const RESET_NEXT_PAGE = "RESET_NEXT_PAGE";
+
+export const IS_USER_AUTHENTICATED = "IS_USER_AUTHENTICATED";

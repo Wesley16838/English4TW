@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+
+import { useSelector, shallowEqual } from "react-redux";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import Button from "../../components/Button/Button";
-import theme from "./../../utilities/theme.style";
+
 import images from "../../assets/images";
 import ModalContainer from "../../components/Modal/Modal";
 import {
@@ -18,6 +18,8 @@ import {
   Alert,
 } from "react-native";
 import { DEVICE_WIDTH } from "../splashpage";
+import { Colors, Typography } from "../../styles";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
 
 const settingPage = ({
   navigation,
@@ -50,10 +52,7 @@ const settingPage = ({
           onCancel={() => setModalVisible(false)}
         />
       </Modal>
-      <LinearGradient
-        colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-        style={styles.container}
-      >
+      <LinearGradientLayout>
         <SafeAreaView
           style={{
             height: "100%",
@@ -90,7 +89,6 @@ const settingPage = ({
                 marginRight: 7,
               }}
               type="1"
-              image={""}
             />
           )}
           {isLoggedIn && (
@@ -118,7 +116,7 @@ const settingPage = ({
               accessible={true}
               accessibilityLabel={"特色介紹"}
               accessibilityHint={"特色介紹"}
-              onPress={() => console.log("coming soon")}
+              onPress={() => {}}
             >
               <View style={styles.sectionRow}>
                 <Text style={styles.sectionText}>{"特色介紹"}</Text>
@@ -149,7 +147,7 @@ const settingPage = ({
               onPressIn={() => {}}
               onPressOut={() => {}}
             >
-              <View style={[styles.sectionRow, { borderBottomColor: "#96CACA", borderBottomWidth: isLoggedIn ? 0 : 1 }]}>
+              <View style={[styles.sectionRow, { borderBottomColor: Colors.primary_light, borderBottomWidth: isLoggedIn ? 0 : 1 }]}>
                 <Text style={styles.sectionText}>{"開發版號"}</Text>
                 <Text style={styles.version}>{"0.2.1"}</Text>
               </View>
@@ -167,7 +165,7 @@ const settingPage = ({
                   <Switch
                     trackColor={{
                       false: "rgba(120, 120, 128, 0.16)",
-                      true: theme.PRIMARY_COLOR_DEFAULT,
+                      true: Colors.primary,
                     }}
                     onValueChange={toggleSwitch}
                     value={isEnabled}
@@ -204,7 +202,7 @@ const settingPage = ({
                 <View
                   style={[
                     styles.sectionRow,
-                    { borderBottomColor: "#96CACA", borderBottomWidth: 1 },
+                    { borderBottomColor: Colors.primary_light, borderBottomWidth: 1 },
                   ]}
                 >
                   <Text style={styles.sectionText}>{"隱私權與使用條款"}</Text>
@@ -218,17 +216,11 @@ const settingPage = ({
             )}
           </View>
         </SafeAreaView>
-      </LinearGradient>
+        </LinearGradientLayout>
     </>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   sectionRow: {
     flexDirection: "row",
     height: 60,
@@ -236,22 +228,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     width: DEVICE_WIDTH,
-    borderTopColor: "#96CACA",
+    borderTopColor: Colors.primary_light,
     borderTopWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
   sectionText: {},
   version: {
-    color: "rgba(60, 60, 67, 0.6)",
+    color: Colors.info,
   },
   sectionArrow: {
     width: 7,
     height: 12,
   },
   username: {
-    fontWeight: "700",
-    color: "#C48148",
-    fontSize: 20,
+    ...Typography.lg_bold,
+    color: Colors.secondary,
     marginBottom: 40,
   }
 });

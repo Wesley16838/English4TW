@@ -7,5 +7,7 @@ export interface IWord {
 export interface IItem {
   word: string;
   detail: string; 
-  number: number;
+  number?: number;
+  handleOnPress:()=>void
+  handleOnRemove:()=>void
 }

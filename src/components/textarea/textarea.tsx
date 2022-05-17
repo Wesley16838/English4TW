@@ -7,8 +7,7 @@ import {
   Image,
   Platform,
 } from "react-native";
-import Icon from "../Icon/Icon";
-import theme from "../../utilities/theme.style";
+import { Colors, Spacing } from "../../styles";
 import Button from "../Button/Button";
 
 export type Props = {
@@ -74,19 +73,16 @@ const TextArea: React.FC<Props> = ({
           {textNumber}/{limit}
         </Text>
         {source && <Image source={source} style={styles.textAreaBottomImage} />}
-        {button && <Button
-          title={button}
-          onPress={() => {
-            if (OnClick) OnClick(string)
-          }}
-          customStyle={
-            buttonStyle
-          }
-          imageSize={{}}
-          type="2"
-          image={""}
-          fontStyle={{}}
-        />}
+        {button && 
+          <Button
+            title={button}
+            onPress={() => {
+              if (OnClick) OnClick(string)
+            }}
+            customStyle={buttonStyle}
+            type="2"
+          />
+        }
       </View>
     </View>
   );
@@ -94,27 +90,26 @@ const TextArea: React.FC<Props> = ({
 const styles = StyleSheet.create({
   textAreaSection: {
     height: 150,
-    // width: 335,
     flexDirection: "column",
-    borderRadius: 20,
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
-    borderWidth: 1,
     justifyContent: "space-between",
-    backgroundColor: theme.COLOR_WHITE,
+    borderWidth: 1,
+    borderRadius: 20,
+    borderColor: Colors.primary,
+    backgroundColor: Colors.white,
   },
   input: {
     width: "100%",
-    paddingTop: 10,
-    paddingHorizontal: 15,
+    paddingTop: Spacing.space_xs,
+    paddingHorizontal: Spacing.space_s,
   },
   textAreaBottom: {
-    height: 46,
     width: "100%",
+    height: 46,
+    paddingHorizontal: Spacing.space_s,
     flexDirection: "row",
-    paddingHorizontal: 15,
-    justifyContent: "space-between",
     alignItems: "center",
-    borderTopColor: "rgba(0, 0, 0, 0.1)",
+    justifyContent: "space-between",
+    borderTopColor: Colors.textarea_line,
     borderTopWidth: 1,
   },
   textAreaBottomImage: {
@@ -124,7 +119,7 @@ const styles = StyleSheet.create({
   },
   textAreaText: {
     marginTop: 2,
-    color: "#828282",
+    color: Colors.gray_3,
   },
 });
 export default TextArea;

@@ -1,5 +1,5 @@
 import * as actionTypes from "../actionTypes";
-import * as types from "../../types/word";
+import * as types from "../../types/pages/word";
 
 export const setNextPage = (page: string, parameter?: object) => ({
     type: actionTypes.SET_NEXT_PAGE,

@@ -1,9 +1,14 @@
 import * as actionTypes from "../actionTypes";
-import * as types from "../../types/user";
+import * as types from "../../types/pages/user";
 
-export const setUserLogin = (formData: any) => ({
+export const isUserAuthenticated = (data: any) => ({
+  type: actionTypes.IS_USER_AUTHENTICATED,
+  data,
+});
+
+export const setUserLogin = (data: any) => ({
   type: actionTypes.SET_USER_LOGIN,
-  formData,
+  payload: data,
 });
 
 export const setUserLoginSuccess = (users: any) => ({
@@ -19,3 +24,4 @@ export const setUserLoginFail = (err: any) => ({
 export const setUserLogout = () => ({
   type: actionTypes.SET_USER_LOGOUT,
 });
+

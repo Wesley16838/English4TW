@@ -9,7 +9,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import theme from "../../utilities/theme.style";
+import theme from "../../utils/theme.style";
 import images from "../../assets/images";
 export type Props = {
   customStyle: any;
@@ -110,7 +110,7 @@ const SelectableText: React.FC<Props> = ({
         <View
           style={{
             borderLeftWidth: 1,
-            borderLeftColor: "#BDBDBD",
+            borderLeftColor: Colors.gray_4,
           }}
         />
         <Image

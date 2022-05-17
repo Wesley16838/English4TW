@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
 import {
   StyleSheet,
   View,
-  Dimensions,
   FlatList,
   Text,
   Animated,
@@ -12,6 +10,7 @@ import {
   TouchableOpacity,
   Modal,
   Alert,
+  TextStyle,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
@@ -19,26 +18,22 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import Button from "../../components/Button/Button";
 import ModalContainer from "../../components/Modal/Modal";
 import images from "../../assets/images";
-import theme from "./../../utilities/theme.style";
-import Tag from "../../components/Tag/Tag";
-import Card from "../../components/Card/Card";
-import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
-import { SItem } from "./../../types/note";
 
-const SavedItem: React.FC<SItem> = ({ title, detail, kk, buttons }) => {
-  const navigation = useNavigation<StackNavigationProp<any>>();// navigation hook
-  const handleOnWordCompare = (str: string) => {
-    navigation.push("wordcomparePage", {
-      first: str
-    });
-  };
+import Card from "../../components/Card/Card";
+import { DEVICE_WIDTH } from "../splashpage";
+import { SItem } from "../../types/pages/note";
+import { Colors, Typography } from "../../styles";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const SavedItem: React.FC<SItem> = ({ title, detail, speech, buttons, subtitle, OnClick, OnCompare }) => {
   return (
     <Card
       title={title}
-      OnClick={() => handleOnWordCompare(title)}
+      OnClick={OnClick}
       customStyle={{ marginBottom: 20 }}
-      speech={''}
-      status={''}
+      speech={speech}
+      subtitle={subtitle}
       detail={detail}
       buttons={buttons}
       manualCompare={true}
@@ -47,14 +42,10 @@ const SavedItem: React.FC<SItem> = ({ title, detail, kk, buttons }) => {
 };
 const savedwordPage = ({ navigation }: { navigation: any }) => {
   const choices = ["最近", "最早", "A - Z", "Z - A", "詞性"]
-  const [selected, setSelected] = React.useState((choices && choices[0]) || "");
-  const onCheck = (option: string) => {
-    setSelected(option);
-  };
-  const [animation, setAnimation] = React.useState(new Animated.Value(0));
-  const [modalVisible, setModalVisible] = React.useState(false);
-  const [savedword, setSavedWord] = React.useState([]);
-  const DEVICE_WIDTH = Dimensions.get("window").width;
+  const [selected, setSelected] = useState((choices && choices[0]) || "");
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const [modalVisible, setModalVisible] = useState(false);
+  const [savedword, setSavedWord] = useState([]);
   const insets = useSafeAreaInsets();
   const handleBack = () => {
     Animated.timing(animation, {
@@ -64,6 +55,22 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
     }).start();
     navigation.goBack();
   };
+
+  const handleOnWordPlay = (str: string) => {}
+  const handleOnWordFavorite = (str: string) => {}
+  const handleOnWordCompare = (str: string) => {
+    navigation.push("wordcomparePage", {
+      first: str
+    });
+  };
+
+  const handleOnWordClick = async(str: string) => {
+    const result = await AsyncStorage.getItem('@word_history')
+      navigation.push("wordDetailPage", {
+        word: str,
+        history: result ? result : '[]'
+      });
+  }
 
   return (
     <>
@@ -81,10 +88,7 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
           onCancel={() => setModalVisible(!modalVisible)}
         />
       </Modal>
-      <LinearGradient
-        colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-        style={styles.container}
-      >
+      <LinearGradientLayout>
         <SafeAreaView
           style={{
             marginTop: 10,
@@ -115,13 +119,7 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
             </View>
 
             <Text
-              style={{
-                flex: 1,
-                textAlign: "center",
-                fontSize: theme.FONT_SIZE_MEDIUM,
-                lineHeight: 22,
-                fontWeight: "bold",
-              }}
+              style={ Typography.pageTitle as TextStyle }
             >
               儲存字彙
             </Text>
@@ -153,7 +151,7 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
                 style={styles.imagefavstyle}
                 source={images.icons.non_favorite_icon}
               />
-              <Text style={{ color: theme.FONT_COLOR_GRAY4 }}>
+              <Text style={{ color: Colors.gray_4 }}>
                 尚未儲存字彙
               </Text>
             </View>
@@ -167,24 +165,41 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
                   }}
                   showsVerticalScrollIndicator={false}
                   data={[
-                    { word: "test1", detail: "A test1", kk: "/sfege3ge/" },
-                    { word: "test2", detail: "A test2", kk: "/sfege3ge/" },
-                    { word: "test3", detail: "A test3", kk: "/sfege3ge/" },
-                    { word: "test4", detail: "A test4", kk: "/sfege3ge/" },
-                    { word: "test5", detail: "A test5", kk: "/sfege3ge/" },
-                    { word: "test6", detail: "A test6", kk: "/sfege3ge/" },
+                    { word: "test1", detail: "A test1", speech: "v. 動詞", subtitle: "可數與不可數 --" },
+                    { word: "test2", detail: "A test2", speech: "v. 動詞", subtitle: "可數與不可數 --" },
+                    { word: "test3", detail: "A test3", speech: "v. 動詞", subtitle: "可數與不可數 --"},
+                    { word: "test4", detail: "A test4", speech: "v. 動詞", subtitle: "可數與不可數 --" },
+                    { word: "test5", detail: "A test5", speech: "v. 動詞", subtitle: "可數與不可數 --" },
+                    { word: "test6", detail: "A test6", speech: "v. 動詞", subtitle: "可數與不可數 --" },
                   ]}
                   renderItem={({ item, index }) => (
                     <SavedItem
                       key={index}
                       title={item.word}
+                      subtitle={item.subtitle}
                       detail={item.detail}
-                      kk={item.kk}
+                      speech={item.speech}
                       buttons={[
-                        images.icons.volume_icon,
-                        images.icons.favorited_icon,
-                        images.icons.compare_icon,
+                        {
+                          name: 'volumn',
+                          path: images.icons.volume_icon,
+                          onClick: () => handleOnWordPlay(item.word)
+                        },
+                        {
+                          name: 'favorite',
+                          path: images.icons.favorited_icon,
+                          onClick: () => handleOnWordFavorite(item.word)
+                        },
+                        {
+                          name: 'compare',
+                          path: images.icons.compare_icon,
+                          onClick: () =>  handleOnWordCompare(item.word)
+                        },
+                        
+                        
                       ]}
+                      OnClick={() => handleOnWordClick(item.word)}
+                      OnCompare={() => handleOnWordCompare(item.word)}
                     />
                   )}
                   keyExtractor={(item, index) => index.toString()}
@@ -192,24 +207,18 @@ const savedwordPage = ({ navigation }: { navigation: any }) => {
               </View>
             )}
         </SafeAreaView>
-      </LinearGradient>
+      </LinearGradientLayout>
     </>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    width: "100%",
-  },
   sectionRow: {
     flexDirection: "row",
     flexWrap: "wrap",
     paddingTop: 5,
     paddingHorizontal: 20,
-    backgroundColor: theme.COLOR_WHITE,
-    shadowColor: "#000000",
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -221,11 +230,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     height: 60,
     justifyContent: "center",
-    borderBottomColor: theme.PRIMARY_COLOR_DEFAULT,
+    borderBottomColor: Colors.primary,
     borderBottomWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
-  noteWord: {},
   imagefavstyle: {
     resizeMode: "contain",
     width: 355,

@@ -1,27 +1,17 @@
 import {
   View,
   StyleSheet,
-  TextInput,
   Text,
   Image,
   TouchableOpacity,
 } from "react-native";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 import React from "react";
 import Images from "../../assets/images";
 import { BlurView } from "expo-blur";
-import theme from "../../utilities/theme.style";
+import { Colors, Typography } from "../../styles";
+import IModal from "../../types/components/modal";
 
-export type Props = {
-  title: string;
-  customStyle?: any;
-  onCancel?: any;
-  onConfirm?: any;
-  content?: any;
-  confirmString?: string;
-  children?: any;
-};
-const Modal: React.FC<Props> = ({
+const Modal: React.FC<IModal> = ({
   title,
   customStyle,
   onCancel,
@@ -41,13 +31,7 @@ const Modal: React.FC<Props> = ({
         return (
           <TouchableOpacity
             onPress={() => onCheck(option)}
-            style={{
-              paddingVertical: 17,
-              paddingHorizontal: 16,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              width: 270,
-            }}
+            style={styles.listItem}
             key={index}
           >
             <Text>{option}</Text>
@@ -64,7 +48,6 @@ const Modal: React.FC<Props> = ({
   };
   const handleOnConfirm = () => {
     if (onConfirm) onConfirm(selected);
-    if (onCancel) onCancel();
   };
   return (
     <BlurView
@@ -74,43 +57,23 @@ const Modal: React.FC<Props> = ({
     >
       <View style={styles.modalContainer}>
         <Text
-          style={{
-            textAlign: "center",
-            marginBottom: 19,
-            color: theme.SECONDARY_COLOR_DEFAULT,
-          }}
+          style={styles.modalContent}
         >
           {title}
         </Text>
         {children ? <View>{children}</View> : <View>{renderOption()}</View>}
-        <View style={{ width: "100%", flexDirection: "row" }}>
+        <View style={styles.buttonWrapper}>
           <TouchableOpacity
             onPress={() => handleOnCancel()}
-            style={{
-              width: 135,
-              alignItems: "center",
-              justifyContent: "center",
-              paddingVertical: 11,
-              borderTopWidth: 0.5,
-              borderTopColor: theme.LINE_COLOR,
-              borderRightWidth: 0.5,
-              borderRightColor: theme.LINE_COLOR,
-            }}
+            style={styles.button}
           >
-            <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>取消</Text>
+            <Text style={Typography.base_primary}>取消</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => handleOnConfirm()}
-            style={{
-              width: 135,
-              alignItems: "center",
-              justifyContent: "center",
-              paddingVertical: 11,
-              borderTopWidth: 0.5,
-              borderTopColor: theme.LINE_COLOR,
-            }}
+            style={styles.button}
           >
-            <Text style={{ color: theme.PRIMARY_COLOR_DEFAULT }}>
+            <Text style={Typography.base_primary}>
               {confirmString ? confirmString : "完成"}
             </Text>
           </TouchableOpacity>
@@ -121,20 +84,20 @@ const Modal: React.FC<Props> = ({
 };
 const styles = StyleSheet.create({
   modalWrapper: {
-    position: "absolute",
-    top: 0,
-    left: 0,
     width: "100%",
     height: "100%",
     flex: 1,
+    position: "absolute",
+    top: 0,
+    left: 0,
     zIndex: 20,
   },
   modalContainer: {
-    borderRadius: 14,
-    paddingTop: 19,
-    backgroundColor: theme.COLOR_WHITE,
     width: 270,
+    backgroundColor: Colors.white,
     alignItems: "center",
+    paddingTop: 19,
+    borderRadius: 14,
   },
   checked: {
     width: 14,
@@ -144,6 +107,30 @@ const styles = StyleSheet.create({
   nonBlurredContent: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  modalContent: {
+    textAlign: "center",
+    marginBottom: 19,
+    color: Colors.secondary,
+  },
+  button: {
+    width: 135,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 11,
+    borderTopWidth: 0.5,
+    borderTopColor: Colors.modal_line,
+  },
+  buttonWrapper: {
+    width: "100%", 
+    flexDirection: "row"
+  },
+  listItem: {
+    width: 270,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 17,
+    paddingHorizontal: 16,
   },
 });
 export default Modal;

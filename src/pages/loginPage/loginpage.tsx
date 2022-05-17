@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,21 +6,17 @@ import {
   Animated,
   Image,
   Text,
-  Modal,
-  Alert,
-  ActivityIndicator,
 } from "react-native";
 import Button from "../../components/Button/Button";
 import InputBox from "../../components/InputBox/InputBox";
 import CheckBox from "../../components/Checkbox/Checkbox";
-import theme from "../../utilities/theme.style";
 import images from "../../assets/images";
 import { setUserLogin } from "../../actions/user";
-import { DEVICE_WIDTH } from "../splashpage";
+import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Dispatch } from "redux";
-import { CommonActions } from "@react-navigation/native";
+import { Colors, Spacing, Typography } from "../../styles";
 
 const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -30,31 +25,24 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
     shallowEqual
   );
   const [animation, setAnimation] = React.useState(new Animated.Value(0));
-  const [account, setAccount] = React.useState({
+  const [account, setAccount] = useState({
     email: "",
     password: "",
   });
-  const [checked, onCheck] = React.useState(false);
+  const [checked, onCheck] = useState(false);
   const screenHeight = Dimensions.get("window").height;
   useEffect(()=>{
     if(isLoggedIn){
       navigation.push('settingPage')
-      // navigation.dispatch(
-      //   CommonActions.navigate({
-      //     name: 'settingPage',
-      //   })
-      // );
     }
   }, [isLoggedIn])
   const handleOnFacebookLogin = () => {};
   const handleOnLogin = async () => {
     try {
-      let formData = new FormData();
-      formData.append("email", account.email);
-      formData.append("password", account.password);
-      dispatch(setUserLogin(formData));
-      // navigation.push("settingPage");
-      
+      dispatch(setUserLogin({
+        email: account.email,
+        password: account.password
+      }));
     } catch (err) {
       console.error("err", err);
     }
@@ -126,7 +114,6 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
               <Button
                 title=""
                 image={images.icons.close_icon}
-                customStyle={{}}
                 imageSize={{ height: 30, width: 30, marginRight: 0 }}
                 type=""
                 onPress={() => handleClose()}
@@ -140,7 +127,7 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
               <Text
                 style={{
                   fontSize: 12,
-                  color: theme.FONT_COLOR_GRAY,
+                  color: Colors.gray_3,
                   textAlign: "center",
                   marginTop: 30,
                   marginBottom: 15,
@@ -173,7 +160,7 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                 <View
                   style={{
                     borderBottomWidth: 1,
-                    borderBottomColor: "#BDBDBD",
+                    borderBottomColor: Colors.gray_4,
                     width: DEVICE_WIDTH - 246,
                   }}
                 />
@@ -181,7 +168,7 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                 <View
                   style={{
                     borderBottomWidth: 1,
-                    borderBottomColor: "#BDBDBD",
+                    borderBottomColor: Colors.gray_4,
                     width: DEVICE_WIDTH - 246,
                   }}
                 />
@@ -200,7 +187,7 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                   marginBottom: 20,
                 }}
                 placeHolder={"例如：XXXXXX@gmail.com"}
-                placeHolderTextColor={"#96CACA"}
+                placeHolderTextColor={Colors.primary_light}
                 value={account.email}
                 title={"電子信箱"}
               />
@@ -218,7 +205,7 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                   marginBottom: 20,
                 }}
                 placeHolder={"需有大小寫字母加數字"}
-                placeHolderTextColor={"#96CACA"}
+                placeHolderTextColor={Colors.primary_light}
                 value={account.password}
                 title={"密碼"}
               />
@@ -244,8 +231,8 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                 >
                   <Text
                     style={{
-                      color: theme.FONT_COLOR_GRAY,
-                      fontSize: theme.FONT_SIZE_MEDIUM,
+                      color: Colors.gray_3,
+                      ...Typography.base,
                     }}
                   >
                     重設密碼
@@ -259,18 +246,15 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                   width: DEVICE_WIDTH - 40,
                   height: 50,
                   borderRadius: 25,
-                  marginVertical: 20,
+                  marginVertical: Spacing.space_l,
                 }}
-                imageSize={{}}
                 type="2"
-                image={""}
-                fontStyle={{}}
               />
               <View style={{ flexDirection: "row" }}>
                 <Text
                   style={{
-                    color: theme.FONT_COLOR_GRAY,
-                    fontSize: theme.FONT_SIZE_MEDIUM,
+                    color: Colors.gray_3,
+                    ...Typography.base,
                   }}
                 >
                   還沒創建帳戶嗎？
@@ -278,9 +262,8 @@ const loginPage = ({ navigation, route }: { navigation: any; route: any }) => {
                 <TouchableWithoutFeedback onPress={() => onCreateAccount()}>
                   <Text
                     style={{
-                      color: theme.FONT_COLOR_GRAY,
-                      fontSize: theme.FONT_SIZE_MEDIUM,
-                      fontWeight: "bold",
+                      color: Colors.gray_3,
+                      ...Typography.base_bold,
                     }}
                   >
                     點擊創建新帳戶
@@ -300,34 +283,33 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.page_modal_background,
   },
   sheet: {
-    position: "absolute",
-    top: Dimensions.get("window").height,
-    left: 0,
-    right: 0,
     height: "100%",
     justifyContent: "flex-end",
+    position: "absolute",
+    top: DEVICE_HEIGHT,
+    left: 0,
+    right: 0,    
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
-    minHeight: Dimensions.get("window").height - 54,
-
+    minHeight: DEVICE_HEIGHT - 54,
     paddingTop: 26,
   },
   sectionRow: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: Spacing.space_l,
+    paddingBottom: Spacing.space_l,
   },
   sectionContainer: {
     flexDirection: "column",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: Spacing.space_l,
   },
   actionsheet: {
     flexDirection: "row",

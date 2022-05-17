@@ -1,41 +1,52 @@
 import React from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { View, StyleSheet, TextInput, Keyboard } from "react-native";
 import Icon from "../Icon/Icon";
 import Images from "../../assets/images";
-import theme from "../../utilities/theme.style";
-
+import { Colors } from "../../styles";
 export type Props = {
-  OnClick: any;
+  OnChange: (str: string) => void,
+  OnClick: () => void;
   customStyle: any;
   placeHolder: string;
   placeHolderTextColor: string;
+  value: string;
 };
 const SearchBox: React.FC<Props> = ({
+  OnChange,
   OnClick,
   customStyle,
   placeHolder,
   placeHolderTextColor,
+  value
 }) => {
   return (
     <View style={[styles.searchSection, customStyle]}>
       <Icon
         name={Images.icons.search_icon}
         size={15}
-        color={theme.SECONDARY_COLOR_DEFAULT}
+        color={Colors.secondary}
       />
       <TextInput
         multiline={false}
         numberOfLines={1}
         style={[styles.input, { width: customStyle.width - 49 }]}
         placeholder={placeHolder}
-        onChangeText={(searchString) => {}}
+        onChangeText={(searchString) => {
+          OnChange(searchString)
+        }}
         underlineColorAndroid="transparent"
         placeholderTextColor={placeHolderTextColor}
+        defaultValue={value}
+        onSubmitEditing={()=> {
+          OnClick()
+          Keyboard.dismiss()
+        }}
+        onBlur={Keyboard.dismiss}
       />
       <Icon
         name={Images.icons.micro_icon}
         size={15}
-        color={theme.SECONDARY_COLOR_DEFAULT}
+        color={Colors.secondary}
       />
     </View>
   );
@@ -43,14 +54,14 @@ const SearchBox: React.FC<Props> = ({
 const styles = StyleSheet.create({
   searchSection: {
     height: 36,
-    flexDirection: "row",
     paddingHorizontal: 8,
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 18,
-    borderColor: theme.SECONDARY_COLOR_DEFAULT,
+    borderColor: Colors.secondary,
     borderWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
   input: {
     height: 36,

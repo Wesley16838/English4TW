@@ -1,50 +1,36 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   View,
   StyleSheet,
   Text,
   Pressable,
   Image,
-  TouchableWithoutFeedback,
 } from "react-native";
-import Icon from "../Icon/Icon";
 import Images from "../../assets/images";
-import theme from "../../utilities/theme.style";
+import { Colors, Typography } from "../../styles";
+import ICheckbox from "../../types/components/checkbox";
 
-export type Props = {
-  checked: boolean;
-  OnClick: any;
-  customStyle: any;
-  title: string;
-};
-const Checkbox: React.FC<Props> = ({
+const Checkbox: React.FC<ICheckbox> = ({
+  title,
   checked,
   OnClick,
   customStyle,
-  title,
 }) => {
   const handleOnCheck = () => {
     if (OnClick) OnClick(!checked);
   };
-
   return (
-    <View style={styles.checkbox}>
-      <Pressable style={[customStyle, styles.circle]} onPress={handleOnCheck}>
+    <View style={styles.container}>
+      <Pressable style={[customStyle, styles.checkbox]} onPress={handleOnCheck}>
         {checked && (
           <Image
             source={Images.icons.checkbox_icon}
-            style={{
-              width: 12,
-              height: 10,
-            }}
+            style={styles.icon}
           />
         )}
       </Pressable>
       <Text
-        style={{
-          color: theme.PRIMARY_COLOR_DEFAULT,
-          fontSize: theme.FONT_SIZE_MEDIUM,
-        }}
+        style={[Typography.base, {color: Colors.primary}]}
       >
         {title}
       </Text>
@@ -52,17 +38,21 @@ const Checkbox: React.FC<Props> = ({
   );
 };
 const styles = StyleSheet.create({
-  circle: {
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  checkbox: {
+    borderColor: Colors.primary,
     borderWidth: 1,
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
     marginRight: 9,
   },
-  checkbox: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
+  icon: {
+    width: 12,
+    height: 10
+  }
 });
 export default Checkbox;

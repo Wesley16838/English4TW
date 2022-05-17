@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
+
 import {
   StyleSheet,
   View,
@@ -15,10 +15,12 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import Button from "../../components/Button/Button";
 import images from "../../assets/images";
-import theme from "./../../utilities/theme.style";
+import { Colors, Spacing, Typography } from "../../styles";
+
 import Tag from "../../components/Tag/Tag";
 import { DEVICE_WIDTH } from "../splashpage";
-import { NItem } from "./../../types/note";
+import { NItem } from "../../types/pages/note";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
 
 const NoteItem: React.FC<NItem> = ({ word, index }) => {
   const navigation = useNavigation<StackNavigationProp<any>>(); // navigation hook
@@ -34,11 +36,11 @@ const NoteItem: React.FC<NItem> = ({ word, index }) => {
           styles.noteItem,
           {
             borderTopWidth: index === 1 ? 1 : 0,
-            borderTopColor: theme.PRIMARY_COLOR_DEFAULT,
+            borderTopColor: Colors.primary,
           },
         ]}
       >
-        <Text style={styles.noteWord}>
+        <Text style={{...Typography.base}}>
           {index}. {word}
         </Text>
       </View>
@@ -57,14 +59,10 @@ const notePage = ({ navigation }: { navigation: any }) => {
     "建築",
   ]);
   const [note, setNote] = React.useState([]);
-  const DEVICE_WIDTH = Dimensions.get("window").width;
-  const handleOnFilter = (e: string) => { };
+  const handleOnFilter = () => { };
 
   return (
-    <LinearGradient
-      colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-      style={styles.container}
-    >
+    <LinearGradientLayout>
       <SafeAreaView
         style={{
           marginTop: 10,
@@ -105,7 +103,7 @@ const notePage = ({ navigation }: { navigation: any }) => {
               style={styles.imagenotestyle}
               source={images.icons.note_icon}
             />
-            <Text style={{ color: theme.FONT_COLOR_GRAY4 }}>尚未新增筆記</Text>
+            <Text style={{ color: Colors.gray_4 }}>尚未新增筆記</Text>
           </View>
         ) : (
             <>
@@ -160,23 +158,17 @@ const notePage = ({ navigation }: { navigation: any }) => {
 
         <View style={{}}></View>
       </SafeAreaView>
-    </LinearGradient>
+    </LinearGradientLayout>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    width: "100%",
-  },
   sectionRow: {
     flexDirection: "row",
     flexWrap: "wrap",
     paddingTop: 5,
     paddingHorizontal: 20,
-    backgroundColor: theme.COLOR_WHITE,
-    shadowColor: "#000000",
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -185,18 +177,17 @@ const styles = StyleSheet.create({
   },
   noteItem: {
     width: DEVICE_WIDTH,
-    paddingHorizontal: 20,
     height: 60,
     justifyContent: "center",
-    borderBottomColor: theme.PRIMARY_COLOR_DEFAULT,
+    paddingHorizontal: Spacing.space_l,
+    borderBottomColor: Colors.primary,
     borderBottomWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
-  noteWord: {},
   imagenotestyle: {
-    resizeMode: "contain",
     width: 355,
     height: 255,
+    resizeMode: "contain",
   },
 });
 

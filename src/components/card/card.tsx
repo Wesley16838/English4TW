@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   View,
   StyleSheet,
@@ -7,50 +7,40 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import Label from "../Label/Label";
-import theme from "../../utilities/theme.style";
+import { Colors, Typography } from "../../styles";
 import Button from "../Button/Button";
 import images from "../../assets/images";
+import { ICard, ICardButton } from "../../types/components/card";
 
-export type Props = {
-  OnClick: any;
-  customStyle: any;
-  title: string;
-  speech: string;//詞性
-  status: string;//可數, 不可數, 單複數
-  detail: any;
-  buttons: any;
-  manualCompare?: boolean;
+const printImage = (array: ICardButton[]) => {
+  return array.map((item: ICardButton, index: number) => {
+    return (
+      <TouchableWithoutFeedback
+        onPress={() => {
+          item.onClick()
+        }}
+        key={index}
+      >
+        <Image
+          key={index}
+          source={item.path}
+          style={{ width: 30, height: 30, marginLeft: 10 }}
+        />  
+      </TouchableWithoutFeedback>
+      
+    );
+  });
 };
-const Card: React.FC<Props> = ({
+
+const Card: React.FC<ICard> = ({
   OnClick,
   customStyle,
   title,
   speech,
-  status,
+  subtitle,
   detail,
   buttons,
-  manualCompare,
 }) => {
-  const printImage = (array: any) => {
-    return array.map((images: any, index: any) => {
-      if (manualCompare && index === 2) {
-        return (
-          <Image
-            key={index}
-            source={images}
-            style={{ width: 30, height: 30, marginLeft: 10 }}
-          />
-        );
-      }
-      return (
-        <Image
-          key={index}
-          source={images}
-          style={{ width: 30, height: 30, marginLeft: 10 }}
-        />
-      );
-    });
-  };
   return (
     <TouchableWithoutFeedback>
       <View style={[styles.cardContainer, customStyle]}>
@@ -60,18 +50,17 @@ const Card: React.FC<Props> = ({
         </View>
         <View style={styles.cardColumn}>
           <Label title={speech} customStyle={{marginTop: 10, marginBottom:5}}/>
-          <Text style={styles.status}>{status}-</Text>
+          <Text style={styles.status}>{subtitle}</Text>
         </View>
         <View style={styles.cardRow}>
           <Text style={styles.detail}>{detail}</Text>
           <Button
-                title=""
-                image={images.icons.rightarrow_icon_b}
-                customStyle={{}}
-                imageSize={{ height: 20, width: 12, marginRight: 0 }}
-                type=""
-                onPress={() => OnClick(title)}
-              />
+            title=""
+            image={images.icons.rightarrow_icon_b}
+            imageSize={{ height: 20, width: 12, marginRight: 0 }}
+            type=""
+            onPress={() => OnClick(title)}
+          />
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -81,14 +70,14 @@ const styles = StyleSheet.create({
   cardContainer: {
     height: "auto",
     flexDirection: "column",
-    paddingHorizontal: 15,
-    paddingVertical: 15,
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: 15,
+    paddingVertical: 15,
     borderRadius: 18,
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
+    borderColor: Colors.primary,
     borderWidth: 1,
-    backgroundColor: theme.BACKGROUND_COLOR_1,
+    backgroundColor: Colors.white,
   },
   cardRow: {
     width: "100%",
@@ -105,18 +94,17 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   title: {
-    fontWeight: "bold",
-    fontSize: 25,
+    ...Typography.title,
     lineHeight: 30,
   },
   status: {
     fontSize: 15,
-    color: theme.PRIMARY_COLOR_DEFAULT,
+    color: Colors.primary,
     marginBottom: 5,
   },
   detail: {
     fontSize: 16,
-    color: "#828282",
+    color: Colors.gray_3,
   },
 });
 export default Card;

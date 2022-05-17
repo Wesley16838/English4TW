@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   StyleSheet,
   View,
-  Dimensions,
   Animated,
   Text,
   Image,
@@ -10,35 +9,18 @@ import {
   Alert,
   TouchableOpacity,
 } from "react-native";
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import Button from "../../components/Button/Button";
 import ModalContainer from "../../components/Modal/Modal";
-import theme from "../../utilities/theme.style";
 import Images from "../../assets/images";
-import { apiConfig } from "../../config/api";
-import { setNextPage } from "../../actions/page";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import {
-  TouchableWithoutFeedback,
-
-} from "react-native-gesture-handler";
 import { DEVICE_WIDTH, DEVICE_HEIGHT } from "../splashpage";
-import { Dispatch } from "redux";
+import { Colors, Typography } from "../../styles";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-const sentenceExamplesPage = ({
-  route,
-  navigation,
-}: {
-  route: any;
-  navigation: any;
-}) => {
-  const dispatch: Dispatch<any> = useDispatch();
-  const nextPage: any = useSelector(
-    (state: any) => state.page.nextPage,
-    shallowEqual
-  );
-  const { sentence } = route.params;
-  const [animation, setAnimation] = React.useState(new Animated.Value(0));
-  const [sentences, setSentences] = React.useState([
+const sentenceExamplesPage = () => {
+  const navigation = useNavigation<StackNavigationProp<any>>();
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const [sentences, setSentences] = useState([
     {
       sentence:
         "Lee puts a spin on what happened last nigh. That just aggravates me.",
@@ -76,35 +58,13 @@ const sentenceExamplesPage = ({
         "https://ia800204.us.archive.org/11/items/hamlet_0911_librivox/hamlet_act1_shakespeare.mp3",
     },
   ]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const screenHeight = Dimensions.get("window").height;
-  const screenWidth = Dimensions.get("window").width;
   const [modalVisible, setModalVisible] = useState(false);
-  React.useEffect(() => {
-    const fetchSentences = async () => {
-      setIsLoading(true);
-      try {
-        let result = await apiConfig.get("/", {
-          params: {
-            // sentence:sentence,
-            results: 1,
-            inc: "name,email,picture",
-          },
-        });
-        // setSentences(result.data.results);
-      } catch (err) {
-        console.log("err,", err);
-      }
-      setIsLoading(false);
-    };
-    fetchSentences();
-  }, []);
   const backdrop = {
     transform: [
       {
         translateY: animation.interpolate({
           inputRange: [0, 0.01],
-          outputRange: [screenHeight, 0],
+          outputRange: [DEVICE_HEIGHT, 0],
           extrapolate: "clamp",
         }),
       },
@@ -154,7 +114,7 @@ const sentenceExamplesPage = ({
           <Image style={styles.volumeIcon} source={Images.icons.volume_icon} />
           <Text
             style={{
-              width: screenWidth - 70,
+              width: DEVICE_WIDTH - 70,
               fontSize: 17,
               lineHeight: 25.5,
               marginTop: 10,
@@ -171,7 +131,7 @@ const sentenceExamplesPage = ({
       {
         translateY: animation.interpolate({
           inputRange: [0.01, 1],
-          outputRange: [0, -1 * screenHeight],
+          outputRange: [0, -1 * DEVICE_HEIGHT],
           extrapolate: "clamp",
         }),
       },
@@ -252,11 +212,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cover: {
-    backgroundColor: "rgba(0,0,0,.5)",
+    backgroundColor: Colors.modal_background,
   },
   sheet: {
     position: "absolute",
-    top: Dimensions.get("window").height,
+    top: DEVICE_HEIGHT,
     left: 0,
     right: 0,
     height: "100%",
@@ -269,10 +229,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   topic: {
+    ...Typography.base_bold,
     flexDirection: "row",
     alignItems: "center",
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    fontWeight: "700",
     marginTop: 24,
     paddingHorizontal: 25,
   },
@@ -294,7 +253,7 @@ const styles = StyleSheet.create({
   sectionRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    borderBottomColor: "#BDBDBD",
+    borderBottomColor: Colors.gray_4,
     paddingHorizontal: 20,
     borderBottomWidth: 0.5,
     paddingBottom: 20,
@@ -311,10 +270,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   popup: {
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 13,
     borderTopRightRadius: 13,
-    minHeight: Dimensions.get("window").height - 54,
+    minHeight: DEVICE_HEIGHT - 54,
 
     paddingTop: 26,
   },
@@ -324,10 +283,9 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   title: {
+    ...Typography.lg_bold,
     lineHeight: 24,
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#C48148",
+    color: Colors.secondary,
     paddingHorizontal: 25,
     marginTop: 14,
   },

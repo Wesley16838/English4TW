@@ -1,0 +1,3937 @@
+{
+    "word": "go",
+    "content": {
+        "動詞": {
+            "simple": [
+                {
+                    "definitions": [
+                        "去, 離去",
+                        "離開",
+                        "行走, 旅行",
+                        "移動",
+                        "通向, 通到",
+                        "延伸, 延及",
+                        "變為, 成為",
+                        "被接受, 被准許",
+                        "有效",
+                        "進行, 運作",
+                        "流逝, 離去",
+                        "(鐘)報時",
+                        "發出聲響",
+                        "分配",
+                        "外帶",
+                        "被放置",
+                        "容得下",
+                        "衰退, 受損",
+                        "磨損",
+                        "相配",
+                        "開始, 開動",
+                        "(除法)除得整數商"
+                    ],
+                    "pattern": "go",
+                    "name": "不及物"
+                },
+                {
+                    "definitions": [
+                        "去...(那裡)",
+                        "走過...(距離)",
+                        "駛過...(距離)",
+                        "跑過...(距離)",
+                        "回...(家)",
+                        "跟隨...(路線等)",
+                        "參與到...(程度等)",
+                        "説...(言語)",
+                        "唱...(言語)",
+                        "發出...(特有的聲響)",
+                        "拿...(金額)打賭",
+                        "出價...(金額)",
+                        "承擔...(保釋等)的義務",
+                        "得出...(結果等)",
+                        "重達...(重量)",
+                        "享受...(事物)",
+                        "(比賽)比分是...(分數 : 分數)",
+                        "限定否定句: 受(不)了...(人事物)|(不)能容忍...(人事物)|付(不)起...(價位)"
+                    ],
+                    "pattern": "go ...(物)",
+                    "name": "及物"
+                }
+            ],
+            "phrases": [
+                {
+                    "pattern": "go ...(形容詞):",
+                    "definitions": [
+                        "變得...",
+                        "變為...",
+                        "成為..."
+                    ],
+                    "tags": [
+                        "同其它狀態改變動詞become、grow、get、turn可接形容詞"
+                    ],
+                    "name": "go ...(形容詞):"
+                },
+                {
+                    "pattern": "go ...(a: 形容詞) on ...(b: 人):",
+                    "definitions": [
+                        "在(b)面前變得(a)",
+                        "(限定祈使句)在(b)面前要(a)"
+                    ],
+                    "tags": [
+                        "同其它狀態改變動詞become、grow、get、turn可接形容詞"
+                    ],
+                    "name": "go ...(a: 形容詞) on ...(b: 人):"
+                },
+                {
+                    "pattern": "(人、物、地方)go dark:",
+                    "definitions": [
+                        "變暗",
+                        "變黑",
+                        "熄燈"
+                    ],
+                    "name": "(人、物、地方)go dark:"
+                },
+                {
+                    "pattern": "(店面等)go dark:",
+                    "definitions": [
+                        "關門",
+                        "停止營業"
+                    ],
+                    "name": "(店面等)go dark:"
+                },
+                {
+                    "pattern": "(器官、機械物等)go dark:",
+                    "definitions": [
+                        "停止運作"
+                    ],
+                    "name": "(器官、機械物等)go dark:"
+                },
+                {
+                    "pattern": "(通訊、服務等)go dark:",
+                    "definitions": [
+                        "下線",
+                        "突然中斷"
+                    ],
+                    "name": "(通訊、服務等)go dark:"
+                },
+                {
+                    "pattern": "go ...(a: 金額等) on ...(b: 所賭的事):",
+                    "definitions": [
+                        "拿(a)賭在(b)上面"
+                    ],
+                    "name": "go ...(a: 金額等) on ...(b: 所賭的事):"
+                },
+                {
+                    "pattern": "go to ...(地方):",
+                    "definitions": [
+                        "去...",
+                        "前往..."
+                    ],
+                    "name": "go to ...(地方):"
+                },
+                {
+                    "pattern": "go to ...(事):",
+                    "definitions": [
+                        "開始..."
+                    ],
+                    "name": "go to ...(事):"
+                },
+                {
+                    "pattern": "(人)go to trial:",
+                    "definitions": [
+                        "接受審判",
+                        "受審"
+                    ],
+                    "name": "(人)go to trial:"
+                },
+                {
+                    "pattern": "(人)go to ...(人):",
+                    "definitions": [
+                        "找...談論問題"
+                    ],
+                    "name": "(人)go to ...(人):"
+                },
+                {
+                    "pattern": "(人)go to great lengths|(人)go to any lengths:",
+                    "definitions": [
+                        "竭盡全力",
+                        "不遺餘力",
+                        "全力以赴"
+                    ],
+                    "name": "(人)go to great lengths|(人)go to any lengths:"
+                },
+                {
+                    "pattern": "(人)go to great lengths to ...(動詞...)|(人)go to any lengths to ...(動詞...):",
+                    "definitions": [
+                        "竭盡全力做...",
+                        "不遺餘力做...",
+                        "全力以赴做..."
+                    ],
+                    "name": "(人)go to great lengths to ...(動詞...)|(人)go to any lengths to ...(動詞...):"
+                },
+                {
+                    "pattern": "go to ...(動詞...):",
+                    "definitions": [
+                        "去做...",
+                        "從事去做..."
+                    ],
+                    "name": "go to ...(動詞...):"
+                },
+                {
+                    "pattern": "go ...(動詞ing):",
+                    "definitions": [
+                        "(強調去與所做動作為同時性)去做...",
+                        "從事做..."
+                    ],
+                    "name": "go ...(動詞ing):"
+                },
+                {
+                    "pattern": "go straight:",
+                    "definitions": [
+                        "直走",
+                        "向前直走",
+                        "往前走",
+                        "改過自新",
+                        "戒毒",
+                        "停止吸毒"
+                    ],
+                    "name": "go straight:"
+                },
+                {
+                    "pattern": "go straight ahead:",
+                    "definitions": [
+                        "一直直走",
+                        "一直往前走",
+                        "一直走"
+                    ],
+                    "name": "go straight ahead:"
+                },
+                {
+                    "pattern": "go straight to ...(地方):",
+                    "definitions": [
+                        "直接去...",
+                        "直接前往..."
+                    ],
+                    "name": "go straight to ...(地方):"
+                },
+                {
+                    "pattern": "go straight to ...(事):",
+                    "definitions": [
+                        "直接開始..."
+                    ],
+                    "name": "go straight to ...(事):"
+                },
+                {
+                    "pattern": "(人)go straight to ...(人):",
+                    "definitions": [
+                        "直接找...談論問題"
+                    ],
+                    "name": "(人)go straight to ...(人):"
+                },
+                {
+                    "pattern": "go straight for ...(人事物):",
+                    "definitions": [
+                        "直奔...",
+                        "直擊...",
+                        "直搗..."
+                    ],
+                    "name": "go straight for ...(人事物):"
+                },
+                {
+                    "pattern": "go to the top|go straight to the top:",
+                    "definitions": [
+                        "直接找做決定的人",
+                        "直接找能做決定的人",
+                        "(字面上)直接到頂端"
+                    ],
+                    "name": "go to the top|go straight to the top:"
+                },
+                {
+                    "pattern": "go through:",
+                    "definitions": [
+                        "被批准",
+                        "通過審批",
+                        "順利通過",
+                        "(電話等)打得通",
+                        "(電子信件等)成功地發送出去",
+                        "(貫穿物)穿過去"
+                    ],
+                    "name": "go through:"
+                },
+                {
+                    "pattern": "go through ...(地方等):",
+                    "definitions": [
+                        "走過...",
+                        "穿越..."
+                    ],
+                    "name": "go through ...(地方等):"
+                },
+                {
+                    "pattern": "go through ...(物體等):",
+                    "definitions": [
+                        "穿過...",
+                        "穿透...",
+                        "刺穿...",
+                        "釘穿...",
+                        "翻遍...",
+                        "仔細檢查...",
+                        "把...用完",
+                        "通過...(有開口之物)",
+                        "過得去...(有開口之物)",
+                        "把...(文件等)看過一遍",
+                        "查閱...(文件等)",
+                        "把...(食物)吃光",
+                        "把...(飲料)喝光",
+                        "把...(錢)花光",
+                        "耗盡...(資源等)"
+                    ],
+                    "name": "go through ...(物體等):"
+                },
+                {
+                    "pattern": "go through ...(人):",
+                    "definitions": [
+                        "通過...的篩選",
+                        "經過...的審核",
+                        "透過...(第三者)傳話",
+                        "透過...(第三者)傳達訊息",
+                        "透過...(第三者)達成目的"
+                    ],
+                    "name": "go through ...(人):"
+                },
+                {
+                    "pattern": "(食物)go through ...(人)|(食物)go right through ...(人):",
+                    "definitions": [
+                        "攝入...的腸胃後就馬上變成排泄物"
+                    ],
+                    "name": "(食物)go through ...(人)|(食物)go right through ...(人):"
+                },
+                {
+                    "pattern": "go through ...(事):",
+                    "definitions": [
+                        "經歷...(不愉快、困難的事等)",
+                        "受...(不愉快、困難的事等)的苦",
+                        "經過...(階段、過程等)",
+                        "把...(解説、故事等)説一遍",
+                        "排練...",
+                        "排演...",
+                        "把...演奏完",
+                        "把...表演完"
+                    ],
+                    "name": "go through ...(事):"
+                },
+                {
+                    "pattern": "go through with ...(事):",
+                    "definitions": [
+                        "完成...(麻煩、困難的計劃等)",
+                        "進行...(麻煩、困難的計劃等)",
+                        "執行...(麻煩、困難的計劃等)",
+                        "堅持...(困難的承諾、決定等)"
+                    ],
+                    "name": "go through with ...(事):"
+                },
+                {
+                    "pattern": "go through to ...(下一個階段等):",
+                    "definitions": [
+                        "成功進行到..."
+                    ],
+                    "name": "go through to ...(下一個階段等):"
+                },
+                {
+                    "pattern": "go to/toward/towards ...(事物):",
+                    "definitions": [
+                        "算進...裡面"
+                    ],
+                    "name": "go to/toward/towards ...(事物):"
+                },
+                {
+                    "pattern": "go together:",
+                    "definitions": [
+                        "相配",
+                        "很搭配",
+                        "相伴而生",
+                        "相伴而行",
+                        "(情侶)在一起"
+                    ],
+                    "name": "go together:"
+                },
+                {
+                    "pattern": "(人等)go with ...(人等):",
+                    "definitions": [
+                        "伴隨...",
+                        "和...為伴"
+                    ],
+                    "name": "(人等)go with ...(人等):"
+                },
+                {
+                    "pattern": "(人、物)go with ...(物):",
+                    "definitions": [
+                        "隨...漂動"
+                    ],
+                    "name": "(人、物)go with ...(物):"
+                },
+                {
+                    "pattern": "(人)go with ...(事) :",
+                    "definitions": [
+                        "同意..."
+                    ],
+                    "name": "(人)go with ...(事) :"
+                },
+                {
+                    "pattern": "(東西)go with ...(東西):",
+                    "definitions": [
+                        "與...搭得起來",
+                        "與...配得起來",
+                        "與...相合",
+                        "與...相配"
+                    ],
+                    "name": "(東西)go with ...(東西):"
+                },
+                {
+                    "pattern": "(東西)go well with ...(東西):",
+                    "definitions": [
+                        "和...很搭",
+                        "和...很搭配",
+                        "和...很相配",
+                        "和...很配",
+                        "與...相得益彰"
+                    ],
+                    "name": "(東西)go well with ...(東西):"
+                },
+                {
+                    "pattern": "(東西)go well with ...(人):",
+                    "definitions": [
+                        "讓...滿意",
+                        "讓...喜歡"
+                    ],
+                    "name": "(東西)go well with ...(人):"
+                },
+                {
+                    "pattern": "(事)go well:",
+                    "definitions": [
+                        "順利",
+                        "進行順利",
+                        "進展順利",
+                        "都好",
+                        "合乎心意"
+                    ],
+                    "name": "(事)go well:"
+                },
+                {
+                    "pattern": "(事)go well for ...(人):",
+                    "definitions": [
+                        "對...來說順利",
+                        "對...來說進行順利",
+                        "對...來說進展順利",
+                        "對...來說都好",
+                        "對...來說合乎心意"
+                    ],
+                    "name": "(事)go well for ...(人):"
+                },
+                {
+                    "pattern": "(a: 主詞限定all、everything、things)go well with ...(b: 人事物):",
+                    "definitions": [
+                        "(b)(a: 一切)順利",
+                        "(b)(a: 一切)都好"
+                    ],
+                    "name": "(a: 主詞限定all、everything、things)go well with ...(b: 人事物):"
+                },
+                {
+                    "pattern": "go without ...(通常所需的人事物):",
+                    "definitions": [
+                        "沒有...也行",
+                        "缺少...也行",
+                        "不用...而將就"
+                    ],
+                    "name": "go without ...(通常所需的人事物):"
+                },
+                {
+                    "pattern": "go without saying:",
+                    "definitions": [
+                        "不用說",
+                        "不言而喻",
+                        "不待說",
+                        "理所當然"
+                    ],
+                    "name": "go without saying:"
+                },
+                {
+                    "pattern": "go without saying that ...(完整句):",
+                    "definitions": [
+                        "不用說...",
+                        "...不言而喻",
+                        "不待說...",
+                        "...理所當然"
+                    ],
+                    "name": "go without saying that ...(完整句):"
+                },
+                {
+                    "pattern": "go out:",
+                    "definitions": [
+                        "去約會",
+                        "外出",
+                        "出去參與社交生活",
+                        "(浪朝等)離開岸邊",
+                        "暈了",
+                        "罷工",
+                        "不再流行",
+                        "傳播出去",
+                        "被分發出去",
+                        "被發送出去",
+                        "廣播出去",
+                        "積極去追求",
+                        "(火、光等)熄滅",
+                        "(球等)飛越界限",
+                        "(結構上)崩潰"
+                    ],
+                    "name": "go out:"
+                },
+                {
+                    "pattern": "go out/off:",
+                    "definitions": [
+                        "停止運作",
+                        "死去"
+                    ],
+                    "name": "go out/off:"
+                },
+                {
+                    "pattern": "go outside:",
+                    "definitions": [
+                        "去外面",
+                        "走出去"
+                    ],
+                    "name": "go outside:"
+                },
+                {
+                    "pattern": "go outside ...(地方、空間、房子等有空間之物等):",
+                    "definitions": [
+                        "去...外面",
+                        "走到...外面",
+                        "走出...外"
+                    ],
+                    "name": "go outside ...(地方、空間、房子等有空間之物等):"
+                },
+                {
+                    "pattern": "go out with ...(人):",
+                    "definitions": [
+                        "與...約會",
+                        "與...保持穩定的浪漫關係",
+                        "與...出去玩"
+                    ],
+                    "name": "go out with ...(人):"
+                },
+                {
+                    "pattern": "go out for ...(事物):",
+                    "definitions": [
+                        "到外面取得...",
+                        "(透過選拔)嘗試成為...(球隊等)的成員"
+                    ],
+                    "name": "go out for ...(事物):"
+                },
+                {
+                    "pattern": "go out ...(出去室外的媒介物如門等)|go out of ...(出去室外的媒介物如門等):",
+                    "definitions": [
+                        "從...出去"
+                    ],
+                    "name": "go out ...(出去室外的媒介物如門等)|go out of ...(出去室外的媒介物如門等):"
+                },
+                {
+                    "pattern": "go out of ...(房子等有空間之物、空間、地方等):",
+                    "definitions": [
+                        "離開...",
+                        "從...離開"
+                    ],
+                    "name": "go out of ...(房子等有空間之物、空間、地方等):"
+                },
+                {
+                    "pattern": "go out to ...(遙遠、偏遠的地方):",
+                    "definitions": [
+                        "去...旅行"
+                    ],
+                    "name": "go out to ...(遙遠、偏遠的地方):"
+                },
+                {
+                    "pattern": "(內心)go out to ...(人):",
+                    "definitions": [
+                        "同情...的糟遇"
+                    ],
+                    "name": "(內心)go out to ...(人):"
+                },
+                {
+                    "pattern": "go after ...(人事物):",
+                    "definitions": [
+                        "追求...",
+                        "追逐...",
+                        "追蹤...",
+                        "隨...之後做",
+                        "在...(特定時間)之後離開",
+                        "調查...以做刑事起訴"
+                    ],
+                    "name": "go after ...(人事物):"
+                },
+                {
+                    "pattern": "go in|go inside:",
+                    "definitions": [
+                        "進入",
+                        "進去",
+                        "走入"
+                    ],
+                    "name": "go in|go inside:"
+                },
+                {
+                    "pattern": "go in:",
+                    "definitions": [
+                        "穿入",
+                        "去特定的地方",
+                        "被理解",
+                        "從視線中消失",
+                        "(日、月)被雲遮住"
+                    ],
+                    "name": "go in:"
+                },
+                {
+                    "pattern": "go in ...(進入室內的媒介物如門等)|go in through ...(進入室內的媒介物如門等)|go in by ...(進入室內的媒介物如門等):",
+                    "definitions": [
+                        "從...進入",
+                        "從...進去",
+                        "(物)go in ...(物)",
+                        "應置放於...",
+                        "應放入...",
+                        "應加入..."
+                    ],
+                    "name": "go in ...(進入室內的媒介物如門等)|go in through ...(進入室內的媒介物如門等)|go in by ...(進入室內的媒介物如門等):"
+                },
+                {
+                    "pattern": "go into ...(地方、空間、房子等有空間之物等)|go inside ...(地方、空間、房子等有空間之物等):",
+                    "definitions": [
+                        "進入...",
+                        "進去...",
+                        "走入...",
+                        "走進..."
+                    ],
+                    "name": "go into ...(地方、空間、房子等有空間之物等)|go inside ...(地方、空間、房子等有空間之物等):"
+                },
+                {
+                    "pattern": "go inside ...(人):",
+                    "definitions": [
+                        "進入...的體內",
+                        "進去...的體內"
+                    ],
+                    "name": "go inside ...(人):"
+                },
+                {
+                    "pattern": "go in for ...(事):",
+                    "definitions": [
+                        "喜歡...",
+                        "對...充滿熱情",
+                        "参與...",
+                        "参加...(比賽等)"
+                    ],
+                    "name": "go in for ...(事):"
+                },
+                {
+                    "pattern": "go into ...(人事物):",
+                    "definitions": [
+                        "穿入...(物)",
+                        "去...(中心或特定的位置)",
+                        "加入...(特定專業、學習領域等)",
+                        "從事...(特定專業、學習領域等)",
+                        "詳細解釋...(事物)",
+                        "詳細討論...(事物)",
+                        "檢視...",
+                        "放得進...(物)",
+                        "進得去...(物)",
+                        "被加入...(物)",
+                        "陷入...(某種狀態)",
+                        "開始進入...(過程等)",
+                        "(資源等)放入...(活動等)",
+                        "屈服於...(某種狀況)",
+                        "拜訪...(特定地方)",
+                        "(數理)能除...(數字)",
+                        "(不小心)觸摸到...(物、人)",
+                        "(無意地)撞上...(物、人)"
+                    ],
+                    "name": "go into ...(人事物):"
+                },
+                {
+                    "pattern": "(人等)go into a coma:",
+                    "definitions": [
+                        "處於昏迷狀態",
+                        "陷入昏迷狀態",
+                        "昏迷不醒"
+                    ],
+                    "name": "(人等)go into a coma:"
+                },
+                {
+                    "pattern": "(人等)go into ...(主詞)'s shell:",
+                    "definitions": [
+                        "變得自閉",
+                        "變得沈默寡言",
+                        "變得羞怯"
+                    ],
+                    "name": "(人等)go into ...(主詞)'s shell:"
+                },
+                {
+                    "pattern": "(人等)go into rhapsodies about ...(事物)|(人等)go into rhapsodies over ...(事物):",
+                    "definitions": [
+                        "對...讚不絕口"
+                    ],
+                    "name": "(人等)go into rhapsodies about ...(事物)|(人等)go into rhapsodies over ...(事物):"
+                },
+                {
+                    "pattern": "(情勢等)go into reverse:",
+                    "definitions": [
+                        "發生逆轉",
+                        "出現逆轉",
+                        "向相反方向發展"
+                    ],
+                    "name": "(情勢等)go into reverse:"
+                },
+                {
+                    "pattern": "go into the stratosphere:",
+                    "definitions": [
+                        "(價格等)飛漲",
+                        "上升到非常高的水準"
+                    ],
+                    "name": "go into the stratosphere:"
+                },
+                {
+                    "pattern": "go up:",
+                    "definitions": [
+                        "上升",
+                        "向上走",
+                        "往上走",
+                        "被建造起來",
+                        "開始燃燒",
+                        "被焚毀",
+                        "失敗",
+                        "在觀眾面前表演失誤",
+                        "往北邊走",
+                        "(聽得見的聲音由人群)發出來"
+                    ],
+                    "name": "go up:"
+                },
+                {
+                    "pattern": "go up ...(物):",
+                    "definitions": [
+                        "攀登...",
+                        "登...",
+                        "走上...(斜坡、樓梯等)",
+                        "向...(斜坡、樓梯等)上走",
+                        "往...(斜坡、樓梯等)上走",
+                        "沿著...(走道等)走"
+                    ],
+                    "name": "go up ...(物):"
+                },
+                {
+                    "pattern": "go up to ...(物、地方等):",
+                    "definitions": [
+                        "走到...上",
+                        "到...(離市中心較遠之處)",
+                        "到...(更大的城市等)",
+                        "延伸到...(地點或時間點)",
+                        "接近...",
+                        "上升到..."
+                    ],
+                    "name": "go up to ...(物、地方等):"
+                },
+                {
+                    "pattern": "go up against ...(人、事):",
+                    "definitions": [
+                        "與...對決",
+                        "對付...",
+                        "對抗...",
+                        "和...決賽"
+                    ],
+                    "name": "go up against ...(人、事):"
+                },
+                {
+                    "pattern": "go down:",
+                    "definitions": [
+                        "下去",
+                        "向下走",
+                        "往下走",
+                        "向低處伸展",
+                        "減少, 降低",
+                        "下沉, 下降",
+                        "倒下, 坍塌",
+                        "落下",
+                        "被吞下, 被嚥下",
+                        "被寫下, 被記下",
+                        "被打敗, 被推翻",
+                        "被送進監獄, 被捕",
+                        "給予口交",
+                        "往南邊走",
+                        "(船等)下沈",
+                        "(風、火、海浪等)勢頭減弱",
+                        "(燈)暗下",
+                        "(日、月、星辰等)落到地平線下面",
+                        "(橋牌遊戲)未能履行合同",
+                        "行動、事件等: 發生, 展開",
+                        "健康、經濟狀況方面: 衰退, 倒閉"
+                    ],
+                    "name": "go down:"
+                },
+                {
+                    "pattern": "go down ...(物):",
+                    "definitions": [
+                        "沿著...下去",
+                        "走下...(斜坡、樓梯等)",
+                        "向...(斜坡、樓梯等)下走",
+                        "往...(斜坡、樓梯等)下走"
+                    ],
+                    "name": "go down ...(物):"
+                },
+                {
+                    "pattern": "go down to ...(物、地方等):",
+                    "definitions": [
+                        "下去到...",
+                        "向低處伸展到...",
+                        "降低到..."
+                    ],
+                    "name": "go down to ...(物、地方等):"
+                },
+                {
+                    "pattern": "go down/over with ...(人等):",
+                    "definitions": [
+                        "被...接受",
+                        "受到...的歡迎"
+                    ],
+                    "name": "go down/over with ...(人等):"
+                },
+                {
+                    "pattern": "go down on ...(人):",
+                    "definitions": [
+                        "給予...口交"
+                    ],
+                    "name": "go down on ...(人):"
+                },
+                {
+                    "pattern": "go down as ...(重要人物或事件)|go down in history as ...(重要人物或事件):",
+                    "definitions": [
+                        "在歷史上被記載為...",
+                        "在歷史上被載入為..."
+                    ],
+                    "name": "go down as ...(重要人物或事件)|go down in history as ...(重要人物或事件):"
+                },
+                {
+                    "pattern": "go down ...(a: 副詞) with ...(b: 人等):",
+                    "definitions": [
+                        "(a: 程度上如何)被(b)接受",
+                        "(a: 程度上如何)受到(b)的歡迎"
+                    ],
+                    "name": "go down ...(a: 副詞) with ...(b: 人等):"
+                },
+                {
+                    "pattern": "go down on all fours:",
+                    "definitions": [
+                        "趴下",
+                        "蹲伏下來",
+                        "躺臥下來"
+                    ],
+                    "name": "go down on all fours:"
+                },
+                {
+                    "pattern": "go downhill:",
+                    "definitions": [
+                        "每況愈下",
+                        "衰退",
+                        "走下坡",
+                        "走下坡路",
+                        "下山"
+                    ],
+                    "name": "go downhill:"
+                },
+                {
+                    "pattern": "go uphill:",
+                    "definitions": [
+                        "走上坡路",
+                        "上山"
+                    ],
+                    "name": "go uphill:"
+                },
+                {
+                    "pattern": "go around:",
+                    "definitions": [
+                        "走間接路徑",
+                        "足夠分享於團體",
+                        "足夠滿足於團體",
+                        "旋轉"
+                    ],
+                    "name": "go around:"
+                },
+                {
+                    "pattern": "go around ...(物、人、地方):",
+                    "definitions": [
+                        "繞過...",
+                        "繞著...走"
+                    ],
+                    "name": "go around ...(物、人、地方):"
+                },
+                {
+                    "pattern": "go around with ...(人):",
+                    "definitions": [
+                        "與...廝混在一起"
+                    ],
+                    "name": "go around with ...(人):"
+                },
+                {
+                    "pattern": "go about/around:",
+                    "definitions": [
+                        "走來走去",
+                        "(故事、消息、傳言等)流傳, 傳播",
+                        "疾病: 傳染, 流行"
+                    ],
+                    "name": "go about/around:"
+                },
+                {
+                    "pattern": "go about/around ...(地方):",
+                    "definitions": [
+                        "在...走來走去"
+                    ],
+                    "name": "go about/around ...(地方):"
+                },
+                {
+                    "pattern": "go about:",
+                    "definitions": [
+                        "(駕駛船時)改變方向"
+                    ],
+                    "name": "go about:"
+                },
+                {
+                    "pattern": "go about ...(事):",
+                    "definitions": [
+                        "著手...",
+                        "從事...",
+                        "忙於...",
+                        "執行...(例程之事等)"
+                    ],
+                    "name": "go about ...(事):"
+                },
+                {
+                    "pattern": "go about ...(動詞ing ...):",
+                    "definitions": [
+                        "著手做...",
+                        "從事做..."
+                    ],
+                    "name": "go about ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go about/around ...(動詞ing ...):",
+                    "definitions": [
+                        "四處做...",
+                        "習慣性地做..."
+                    ],
+                    "name": "go about/around ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go about in ...(衣服):",
+                    "definitions": [
+                        "在公共場合走動穿著..."
+                    ],
+                    "name": "go about in ...(衣服):"
+                },
+                {
+                    "pattern": "go about ...(形容詞):",
+                    "definitions": [
+                        "...地四處走"
+                    ],
+                    "name": "go about ...(形容詞):"
+                },
+                {
+                    "pattern": "go about that ...(完整句)|go around that ...(完整句):",
+                    "definitions": [
+                        "(故事、消息、傳言等)流傳著...",
+                        "(故事、消息、傳言等)傳播著...",
+                        "謠傳著..."
+                    ],
+                    "name": "go about that ...(完整句)|go around that ...(完整句):"
+                },
+                {
+                    "pattern": "go about/around ...(a: 地方) ...(b: 動詞ing ...):",
+                    "definitions": [
+                        "在(a)四處活動做(b)"
+                    ],
+                    "name": "go about/around ...(a: 地方) ...(b: 動詞ing ...):"
+                },
+                {
+                    "pattern": "(人)go about ...(主詞)'s business:",
+                    "definitions": [
+                        "做自己的事",
+                        "忙自己的事"
+                    ],
+                    "name": "(人)go about ...(主詞)'s business:"
+                },
+                {
+                    "pattern": "(航海術語)(人)go ashore:",
+                    "definitions": [
+                        "下船"
+                    ],
+                    "name": "(航海術語)(人)go ashore:"
+                },
+                {
+                    "pattern": "go on:",
+                    "definitions": [
+                        "繼續下去",
+                        "堅持下去",
+                        "繼續前進",
+                        "繼續下去而無變化",
+                        "用作證據",
+                        "作為解釋",
+                        "上場",
+                        "出場",
+                        "發場",
+                        "開始廣播",
+                        "發生",
+                        "出現",
+                        "無休止地説",
+                        "(從特定的地方)伸展出去",
+                        "(燈等)點亮",
+                        "(電子產品等)開始運作",
+                        "(時間)流逝"
+                    ],
+                    "name": "go on:"
+                },
+                {
+                    "pattern": "go on with ...(事):",
+                    "definitions": [
+                        "(儘管有挑戰或問題等)繼續進行...|繼續..."
+                    ],
+                    "name": "go on with ...(事):"
+                },
+                {
+                    "pattern": "go on ...(動詞ing ...):",
+                    "definitions": [
+                        "繼續做..."
+                    ],
+                    "name": "go on ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go on ...(物、事):",
+                    "definitions": [
+                        "移動到...(物)",
+                        "攀爬上...(物)",
+                        "參與...(活動或任務)",
+                        "使用...(電腦、電話、數位電子平台等)",
+                        "快到...(年齡歲數等)",
+                        "服用...(藥物等)",
+                        "採取...(非一般的程序等)"
+                    ],
+                    "name": "go on ...(物、事):"
+                },
+                {
+                    "pattern": "go on a date:",
+                    "definitions": [
+                        "去約會"
+                    ],
+                    "name": "go on a date:"
+                },
+                {
+                    "pattern": "go on a blind date:",
+                    "definitions": [
+                        "去相親"
+                    ],
+                    "name": "go on a blind date:"
+                },
+                {
+                    "pattern": "go on strike:",
+                    "definitions": [
+                        "舉行罷工",
+                        "參加罷工"
+                    ],
+                    "name": "go on strike:"
+                },
+                {
+                    "pattern": "go on to ...(程序等):",
+                    "definitions": [
+                        "進行到..."
+                    ],
+                    "name": "go on to ...(程序等):"
+                },
+                {
+                    "pattern": "go on to ...(動詞...):",
+                    "definitions": [
+                        "接下來做..."
+                    ],
+                    "name": "go on to ...(動詞...):"
+                },
+                {
+                    "pattern": "go on about ...(人事物)|go on and on about ...(人事物):",
+                    "definitions": [
+                        "無休止地談論..."
+                    ],
+                    "name": "go on about ...(人事物)|go on and on about ...(人事物):"
+                },
+                {
+                    "pattern": "go on at ...(人):",
+                    "definitions": [
+                        "對...狂罵",
+                        "對...怒吼"
+                    ],
+                    "name": "go on at ...(人):"
+                },
+                {
+                    "pattern": "go off:",
+                    "definitions": [
+                        "(爆藥裝置等)爆炸",
+                        "(警鈴等)啟動",
+                        "(聲音設備等)發出噪音",
+                        "突然發怒",
+                        "突然離開",
+                        "(事件、活動等)發生",
+                        "照計劃進行",
+                        "食物: 過期, 變質",
+                        "達到性高潮",
+                        "去隱居",
+                        "孤立自己"
+                    ],
+                    "name": "go off:"
+                },
+                {
+                    "pattern": "go off ...(藥物等):",
+                    "definitions": [
+                        "停止服用..."
+                    ],
+                    "name": "go off ...(藥物等):"
+                },
+                {
+                    "pattern": "go off to/into ...(地方等):",
+                    "definitions": [
+                        "離開去..."
+                    ],
+                    "name": "go off to/into ...(地方等):"
+                },
+                {
+                    "pattern": "go off on ...(人事物):",
+                    "definitions": [
+                        "對...(人)突然發怒",
+                        "大聲地譴責...(人)",
+                        "長篇大論..."
+                    ],
+                    "name": "go off on ...(人事物):"
+                },
+                {
+                    "pattern": "go off with ...(人):",
+                    "definitions": [
+                        "與...一起離開"
+                    ],
+                    "name": "go off with ...(人):"
+                },
+                {
+                    "pattern": "go for ...(人事物):",
+                    "definitions": [
+                        "去取得...(物)",
+                        "暫時離開去拿...(物)",
+                        "選擇了...",
+                        "特別喜歡...",
+                        "去找...(人)",
+                        "向...(物、人)移動",
+                        "相信...",
+                        "接受...",
+                        "適用於...",
+                        "努力嘗試...(事)",
+                        "共同努力實現...(事)",
+                        "尋找...(有趣、合意的東西)",
+                        "(浪漫與性慾上)被...(人)吸引",
+                        "試圖達到...(某種情境等)",
+                        "以...(價格)出售",
+                        "以...(價格)購買",
+                        "試圖迅速拿出...(武器等)"
+                    ],
+                    "name": "go for ...(人事物):"
+                },
+                {
+                    "pattern": "(限定現在分詞)going for ...(人):",
+                    "definitions": [
+                        "能表現出...的價值"
+                    ],
+                    "name": "(限定現在分詞)going for ...(人):"
+                },
+                {
+                    "pattern": "go for/at ...(人):",
+                    "definitions": [
+                        "(肢體上)猛烈攻擊...",
+                        "批評...",
+                        "譴責...",
+                        "不斷騷擾..."
+                    ],
+                    "name": "go for/at ...(人):"
+                },
+                {
+                    "pattern": "go at ...(人):",
+                    "definitions": [
+                        "衝向...",
+                        "撲向..."
+                    ],
+                    "name": "go at ...(人):"
+                },
+                {
+                    "pattern": "go at ...(事物):",
+                    "definitions": [
+                        "著手於...",
+                        "著手幹...",
+                        "賣力幹...",
+                        "積極處理..."
+                    ],
+                    "name": "go at ...(事物):"
+                },
+                {
+                    "pattern": "go by:",
+                    "definitions": [
+                        "時間: 過去, 流逝, 消逝",
+                        "機會等: 流逝",
+                        "短暫拜訪",
+                        "順便拜訪"
+                    ],
+                    "name": "go by:"
+                },
+                {
+                    "pattern": "go by ...(人事物):",
+                    "definitions": [
+                        "走過...(人、物、地方)",
+                        "過去...(地方)",
+                        "遵行...(規則等)",
+                        "依照...(規則等)",
+                        "以...為名",
+                        "稱為...",
+                        "名叫..."
+                    ],
+                    "name": "go by ...(人事物):"
+                },
+                {
+                    "pattern": "go by the book:",
+                    "definitions": [
+                        "照規矩行事",
+                        "按規矩行事",
+                        "照章辦事"
+                    ],
+                    "name": "go by the book:"
+                },
+                {
+                    "pattern": "go by/on ...(想法、信念等):",
+                    "definitions": [
+                        "憑...判斷",
+                        "以...作判斷根據"
+                    ],
+                    "name": "go by/on ...(想法、信念等):"
+                },
+                {
+                    "pattern": "go by the name ...(名字)|go by the name of ...(名字):",
+                    "definitions": [
+                        "使用...這個假名"
+                    ],
+                    "name": "go by the name ...(名字)|go by the name of ...(名字):"
+                },
+                {
+                    "pattern": "go away:",
+                    "definitions": [
+                        "離開",
+                        "走開",
+                        "去旅行",
+                        "消失",
+                        "散去",
+                        "變淡",
+                        "停止打擾"
+                    ],
+                    "name": "go away:"
+                },
+                {
+                    "pattern": "go away for ...(物、多久的時間):",
+                    "definitions": [
+                        "離開去取回...(物)",
+                        "離開...(多久的時間)"
+                    ],
+                    "name": "go away for ...(物、多久的時間):"
+                },
+                {
+                    "pattern": "go far|go a long way:",
+                    "definitions": [
+                        "大有前途",
+                        "有遠大的前程",
+                        "大有成就",
+                        "走很長的路",
+                        "走很遠"
+                    ],
+                    "name": "go far|go a long way:"
+                },
+                {
+                    "pattern": "go a long way in ...(動詞ing ...)|go a long way towards ...(動詞ing ...)|go a long way toward ...(動詞ing ...):",
+                    "definitions": [
+                        "對做...大有幫助",
+                        "對做...很有用",
+                        "對做...有深遠的影響"
+                    ],
+                    "name": "go a long way in ...(動詞ing ...)|go a long way towards ...(動詞ing ...)|go a long way toward ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go the distance:",
+                    "definitions": [
+                        "堅持到最後",
+                        "堅持到底",
+                        "堅持到比賽結束",
+                        "跑完全程",
+                        "永不放棄",
+                        "去向遠方"
+                    ],
+                    "name": "go the distance:"
+                },
+                {
+                    "pattern": "go the full distance:",
+                    "definitions": [
+                        "賽足全局",
+                        "打滿全局",
+                        "(棒球投手)投滿九局"
+                    ],
+                    "name": "go the full distance:"
+                },
+                {
+                    "pattern": "go the distance alone:",
+                    "definitions": [
+                        "孤軍奮戰"
+                    ],
+                    "name": "go the distance alone:"
+                },
+                {
+                    "pattern": "go over:",
+                    "definitions": [
+                        "排練",
+                        "排演",
+                        "受歡迎",
+                        "獲得批准",
+                        "成功",
+                        "投敵"
+                    ],
+                    "name": "go over:"
+                },
+                {
+                    "pattern": "go over ...(人事物):",
+                    "definitions": [
+                        "檢查...",
+                        "審查...",
+                        "解釋...(事物)",
+                        "排練...(事)",
+                        "排演...(事)",
+                        "在...(物)的整個表面上整理過"
+                    ],
+                    "name": "go over ...(人事物):"
+                },
+                {
+                    "pattern": "go over to ...(地方):",
+                    "definitions": [
+                        "探望...",
+                        "拜訪..."
+                    ],
+                    "name": "go over to ...(地方):"
+                },
+                {
+                    "pattern": "go over ...(a: 人事物) with ...(b: 人、物):",
+                    "definitions": [
+                        "和(b: 人)一起檢查(a)",
+                        "用(b: 物)在(a: 物)的整個表面上整理過"
+                    ],
+                    "name": "go over ...(a: 人事物) with ...(b: 人、物):"
+                },
+                {
+                    "pattern": "go over ...(人)'s head|go over the head of ...(人):",
+                    "definitions": [
+                        "不經過...直接越級",
+                        "不經過...直接越級上報",
+                        "跳過...直接越級上報",
+                        "超出...的理解力",
+                        "讓...無法理解",
+                        "讓...搞不懂"
+                    ],
+                    "name": "go over ...(人)'s head|go over the head of ...(人):"
+                },
+                {
+                    "pattern": "go under:",
+                    "definitions": [
+                        "失敗",
+                        "(事業等)垮掉",
+                        "(事業等)倒閉",
+                        "(因麻醉而)昏迷",
+                        "(因麻醉而)失去知覺",
+                        "下沉",
+                        "下潛",
+                        "沉沒"
+                    ],
+                    "name": "go under:"
+                },
+                {
+                    "pattern": "go under ...(物、人):",
+                    "definitions": [
+                        "從...下面過去",
+                        "從...下面走",
+                        "從...下面行進",
+                        "走到...下面",
+                        "應放在...下面"
+                    ],
+                    "name": "go under ...(物、人):"
+                },
+                {
+                    "pattern": "(病人)go under the knife:",
+                    "definitions": [
+                        "接受手術",
+                        "動手術",
+                        "開刀"
+                    ],
+                    "name": "(病人)go under the knife:"
+                },
+                {
+                    "pattern": "go under the name of ...(指定名稱等):",
+                    "definitions": [
+                        "用...這名字",
+                        "被稱為...",
+                        "稱作...",
+                        "稱為...",
+                        "被冠以...的名義"
+                    ],
+                    "name": "go under the name of ...(指定名稱等):"
+                },
+                {
+                    "pattern": "go ahead:",
+                    "definitions": [
+                        "先走",
+                        "(儘管猶豫或遇到挑戰)繼續進行",
+                        "(等待或計劃之後)開始",
+                        "毫不猶豫地做"
+                    ],
+                    "name": "go ahead:"
+                },
+                {
+                    "pattern": "go ahead with ...(事物):",
+                    "definitions": [
+                        "繼續進行...(計劃等)",
+                        "先去完成...(事)",
+                        "先把...(物)帶去"
+                    ],
+                    "name": "go ahead with ...(事物):"
+                },
+                {
+                    "pattern": "go ahead of ...(人事物):",
+                    "definitions": [
+                        "走到...(人、物)前面",
+                        "比...先"
+                    ],
+                    "name": "go ahead of ...(人事物):"
+                },
+                {
+                    "pattern": "go along:",
+                    "definitions": [
+                        "合作",
+                        "進展",
+                        "發展",
+                        "符合要求",
+                        "伴隨著",
+                        "繼續",
+                        "進行下一項活動"
+                    ],
+                    "name": "go along:"
+                },
+                {
+                    "pattern": "go along with ...(人事物):",
+                    "definitions": [
+                        "與...(人)合作",
+                        "順從...(人等)",
+                        "參加...(活動、計劃等)",
+                        "與...(人)意見一致",
+                        "與...(人)達成協議",
+                        "結合...(物)以達到和諧的效果",
+                        "贊同...(人)",
+                        "接受...(建議或已陳述之事)",
+                        "與...(人)一起",
+                        "與...(人)結伴而行",
+                        "成為...的附帶影響"
+                    ],
+                    "name": "go along with ...(人事物):"
+                },
+                {
+                    "pattern": "go along ...(地方):",
+                    "definitions": [
+                        "沿著...向前移動",
+                        "沿著...行進",
+                        "在...的邊緣形成一條路徑"
+                    ],
+                    "name": "go along ...(地方):"
+                },
+                {
+                    "pattern": "go back:",
+                    "definitions": [
+                        "返回原產地",
+                        "返回",
+                        "退回",
+                        "回去"
+                    ],
+                    "name": "go back:"
+                },
+                {
+                    "pattern": "go back ...(距離、時間):",
+                    "definitions": [
+                        "向後伸展到...(多長的距離)",
+                        "向後延伸到...(多長的距離)",
+                        "認識了...(多久的時間)"
+                    ],
+                    "name": "go back ...(距離、時間):"
+                },
+                {
+                    "pattern": "go back to ...(人事物):",
+                    "definitions": [
+                        "回去...(地方)",
+                        "回到...(以前的狀態)",
+                        "回到...(人)的身邊",
+                        "追溯到..."
+                    ],
+                    "name": "go back to ...(人事物):"
+                },
+                {
+                    "pattern": "go back to ...(動詞...):",
+                    "definitions": [
+                        "回去做..."
+                    ],
+                    "name": "go back to ...(動詞...):"
+                },
+                {
+                    "pattern": "go back to ...(動詞ing ...):",
+                    "definitions": [
+                        "回到做...(以前的狀態)"
+                    ],
+                    "name": "go back to ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go back on ...(事):",
+                    "definitions": [
+                        "未能履行...(承諾等)",
+                        "聲言...(說過的話等)不是真實的",
+                        "收回...(說過的話等)"
+                    ],
+                    "name": "go back on ...(事):"
+                },
+                {
+                    "pattern": "go ...(a: 物) on ...(b: 人事物):",
+                    "definitions": [
+                        "為了(b)賭(a)"
+                    ],
+                    "name": "go ...(a: 物) on ...(b: 人事物):"
+                },
+                {
+                    "pattern": "go like ...(人事物):",
+                    "definitions": [
+                        "做得像...",
+                        "變得像..."
+                    ],
+                    "name": "go like ...(人事物):"
+                },
+                {
+                    "pattern": "go like a bomb|go down a bomb:",
+                    "definitions": [
+                        "很成功"
+                    ],
+                    "name": "go like a bomb|go down a bomb:"
+                },
+                {
+                    "pattern": "go around in circles|(英式)go round in circles:",
+                    "definitions": [
+                        "繞圈子走",
+                        "兜圈子"
+                    ],
+                    "name": "go around in circles|(英式)go round in circles:"
+                },
+                {
+                    "pattern": "go around in circles|go around and around circles|(英式)go round in circles|(英式)go round and round in circles:",
+                    "definitions": [
+                        "(浪費時間地)原地兜圈子|在原地打轉",
+                        "(不斷努力卻)毫無進展",
+                        "白忙",
+                        "瞎忙"
+                    ],
+                    "name": "go around in circles|go around and around circles|(英式)go round in circles|(英式)go round and round in circles:"
+                },
+                {
+                    "pattern": "go under the hammer:",
+                    "definitions": [
+                        "被拍賣掉"
+                    ],
+                    "name": "go under the hammer:"
+                },
+                {
+                    "pattern": "go for broke:",
+                    "definitions": [
+                        "孤注一擲",
+                        "破釜沉舟",
+                        "冒破產的風險",
+                        "奮力一博",
+                        "全力以赴"
+                    ],
+                    "name": "go for broke:"
+                },
+                {
+                    "pattern": "go for the jugular|go straight for the jugular:",
+                    "definitions": [
+                        "直擊要害",
+                        "抨擊對方的致命弱點",
+                        "給予致命一擊"
+                    ],
+                    "name": "go for the jugular|go straight for the jugular:"
+                },
+                {
+                    "pattern": "go for the kill|go in for the kill:",
+                    "definitions": [
+                        "準備大開殺戒",
+                        "準備幹掉對方",
+                        "有備而來"
+                    ],
+                    "name": "go for the kill|go in for the kill:"
+                },
+                {
+                    "pattern": "go off on a tangent:",
+                    "definitions": [
+                        "突然離題",
+                        "突然扯到題外話",
+                        "突然改變行徑"
+                    ],
+                    "name": "go off on a tangent:"
+                },
+                {
+                    "pattern": "go off on ...(主詞)'s head:",
+                    "definitions": [
+                        "發瘋",
+                        "精神錯亂"
+                    ],
+                    "name": "go off on ...(主詞)'s head:"
+                },
+                {
+                    "pattern": "go out of ...(主詞)'s way to ...(動詞...):",
+                    "definitions": [
+                        "特地來做...",
+                        "不辭勞苦地來做..."
+                    ],
+                    "name": "go out of ...(主詞)'s way to ...(動詞...):"
+                },
+                {
+                    "pattern": "(成功等)go to ...(人)'s head:",
+                    "definitions": [
+                        "使...自負",
+                        "沖昏...的頭腦",
+                        "使...過於自信",
+                        "使...驕傲自滿"
+                    ],
+                    "name": "(成功等)go to ...(人)'s head:"
+                },
+                {
+                    "pattern": "(酒)go to ...(人)'s head:",
+                    "definitions": [
+                        "使...有醉意",
+                        "使...暈頭轉向"
+                    ],
+                    "name": "(酒)go to ...(人)'s head:"
+                },
+                {
+                    "pattern": "(球隊、球員)go to bat:",
+                    "definitions": [
+                        "當擊球的一方"
+                    ],
+                    "name": "(球隊、球員)go to bat:"
+                },
+                {
+                    "pattern": "go to bat for ...(人):",
+                    "definitions": [
+                        "為...說話",
+                        "替...辯護",
+                        "支持...",
+                        "對...伸出援手"
+                    ],
+                    "name": "go to bat for ...(人):"
+                },
+                {
+                    "pattern": "go to ...(人)'s rescue:",
+                    "definitions": [
+                        "去幫...解圍",
+                        "去救...",
+                        "去救援...",
+                        "去營救..."
+                    ],
+                    "name": "go to ...(人)'s rescue:"
+                },
+                {
+                    "pattern": "go to ...(人)'s aid:",
+                    "definitions": [
+                        "去幫助..."
+                    ],
+                    "name": "go to ...(人)'s aid:"
+                },
+                {
+                    "pattern": "go bananas:",
+                    "definitions": [
+                        "發瘋",
+                        "情緒失控",
+                        "神經錯亂",
+                        "發怒",
+                        "生氣"
+                    ],
+                    "name": "go bananas:"
+                },
+                {
+                    "pattern": "go ape:",
+                    "definitions": [
+                        "發狂",
+                        "興奮起來",
+                        "變得狂熱"
+                    ],
+                    "name": "go ape:"
+                },
+                {
+                    "pattern": "go nap:",
+                    "definitions": [
+                        "孤注一擲"
+                    ],
+                    "name": "go nap:"
+                },
+                {
+                    "pattern": "go nap on ...(事):",
+                    "definitions": [
+                        "在...上孤注一擲"
+                    ],
+                    "name": "go nap on ...(事):"
+                },
+                {
+                    "pattern": "go down the drain:",
+                    "definitions": [
+                        "盡付東流",
+                        "前功盡棄",
+                        "白白浪費",
+                        "每況愈下",
+                        "走下坡路",
+                        "白費心機"
+                    ],
+                    "name": "go down the drain:"
+                },
+                {
+                    "pattern": "go down the tube|go down the tubes:",
+                    "definitions": [
+                        "一落千丈",
+                        "失敗",
+                        "完蛋"
+                    ],
+                    "name": "go down the tube|go down the tubes:"
+                },
+                {
+                    "pattern": "(公司)go public:",
+                    "definitions": [
+                        "上市"
+                    ],
+                    "name": "(公司)go public:"
+                },
+                {
+                    "pattern": "go public with ...(秘密等):",
+                    "definitions": [
+                        "公開...",
+                        "把...公諸於世"
+                    ],
+                    "name": "go public with ...(秘密等):"
+                },
+                {
+                    "pattern": "(上市公司等)go private:",
+                    "definitions": [
+                        "私有化",
+                        "私營化"
+                    ],
+                    "name": "(上市公司等)go private:"
+                },
+                {
+                    "pattern": "go hand in hand:",
+                    "definitions": [
+                        "密切相關",
+                        "相輔相成"
+                    ],
+                    "name": "go hand in hand:"
+                },
+                {
+                    "pattern": "go hand in hand with ...(事物):",
+                    "definitions": [
+                        "與...密切相關",
+                        "與...相輔相成"
+                    ],
+                    "name": "go hand in hand with ...(事物):"
+                },
+                {
+                    "pattern": "go one better:",
+                    "definitions": [
+                        "更勝一籌",
+                        "勝過一籌",
+                        "略高一籌",
+                        "略勝一籌"
+                    ],
+                    "name": "go one better:"
+                },
+                {
+                    "pattern": "go cap in hand|go hat in hand:",
+                    "definitions": [
+                        "低頭",
+                        "低聲下氣",
+                        "搖尾乞憐",
+                        "畢恭畢敬"
+                    ],
+                    "name": "go cap in hand|go hat in hand:"
+                },
+                {
+                    "pattern": "go cap in hand for ...(物)|go hat in hand for ...(物):",
+                    "definitions": [
+                        "低頭要...",
+                        "低聲下氣要..."
+                    ],
+                    "name": "go cap in hand for ...(物)|go hat in hand for ...(物):"
+                },
+                {
+                    "pattern": "go cap in hand to ...(人)|go hat in hand to ...(人):",
+                    "definitions": [
+                        "低聲向...要錢",
+                        "誠懇地請求...原諒"
+                    ],
+                    "name": "go cap in hand to ...(人)|go hat in hand to ...(人):"
+                },
+                {
+                    "pattern": "go camping:",
+                    "definitions": [
+                        "去露營",
+                        "去野營"
+                    ],
+                    "name": "go camping:"
+                },
+                {
+                    "pattern": "go up in smoke:",
+                    "definitions": [
+                        "化為烏有",
+                        "化為灰燼",
+                        "被燒光",
+                        "被燒毀",
+                        "以失敗告終"
+                    ],
+                    "name": "go up in smoke:"
+                },
+                {
+                    "pattern": "go up in flames:",
+                    "definitions": [
+                        "毀於大火中",
+                        "燃起大火"
+                    ],
+                    "name": "go up in flames:"
+                },
+                {
+                    "pattern": "go up/down in flames:",
+                    "definitions": [
+                        "毀於一旦",
+                        "受到重創"
+                    ],
+                    "name": "go up/down in flames:"
+                },
+                {
+                    "pattern": "(飛機)go down in flames:",
+                    "definitions": [
+                        "墜入火海中"
+                    ],
+                    "name": "(飛機)go down in flames:"
+                },
+                {
+                    "pattern": "go pop:",
+                    "definitions": [
+                        "爆炸",
+                        "砰然作響",
+                        "撐破"
+                    ],
+                    "name": "go pop:"
+                },
+                {
+                    "pattern": "go steady with ...(伴侶等):",
+                    "definitions": [
+                        "和...保持穩定的關係"
+                    ],
+                    "name": "go steady with ...(伴侶等):"
+                },
+                {
+                    "pattern": "(事)go into high gear:",
+                    "definitions": [
+                        "進入了高潮",
+                        "變得非常活躍"
+                    ],
+                    "name": "(事)go into high gear:"
+                },
+                {
+                    "pattern": "(人)go into high gear:",
+                    "definitions": [
+                        "變得非常興奮"
+                    ],
+                    "name": "(人)go into high gear:"
+                },
+                {
+                    "pattern": "go to waste:",
+                    "definitions": [
+                        "被浪費掉"
+                    ],
+                    "name": "go to waste:"
+                },
+                {
+                    "pattern": "(人)go to sea:",
+                    "definitions": [
+                        "當海員",
+                        "當水手",
+                        "下海"
+                    ],
+                    "name": "(人)go to sea:"
+                },
+                {
+                    "pattern": "go to pot:",
+                    "definitions": [
+                        "失敗",
+                        "遭破壞",
+                        "衰落",
+                        "荒蕪",
+                        "蕭條",
+                        "搞砸"
+                    ],
+                    "name": "go to pot:"
+                },
+                {
+                    "pattern": "go to the mat:",
+                    "definitions": [
+                        "全力支持",
+                        "奮戰到底"
+                    ],
+                    "name": "go to the mat:"
+                },
+                {
+                    "pattern": "go to the mat to ...(動詞...):",
+                    "definitions": [
+                        "竭盡全力做..."
+                    ],
+                    "name": "go to the mat to ...(動詞...):"
+                },
+                {
+                    "pattern": "go to the mat for ...(人事物):",
+                    "definitions": [
+                        "全力支持...",
+                        "為...奮戰到底"
+                    ],
+                    "name": "go to the mat for ...(人事物):"
+                },
+                {
+                    "pattern": "go to the toilet:",
+                    "definitions": [
+                        "上廁所",
+                        "去小號",
+                        "去大號"
+                    ],
+                    "name": "go to the toilet:"
+                },
+                {
+                    "pattern": "go to temple:",
+                    "definitions": [
+                        "去廟裡拜拜"
+                    ],
+                    "name": "go to temple:"
+                },
+                {
+                    "pattern": "go to town:",
+                    "definitions": [
+                        "獲勝",
+                        "大獲全勝",
+                        "事業有成",
+                        "又快又有效率",
+                        "竭盡全力",
+                        "放縱享受",
+                        "縱情享受",
+                        "花大錢",
+                        "(字面上)進城|上城裡去"
+                    ],
+                    "name": "go to town:"
+                },
+                {
+                    "pattern": "go to town to ...(動詞...):",
+                    "definitions": [
+                        "進城做...",
+                        "上城裡去做..."
+                    ],
+                    "name": "go to town to ...(動詞...):"
+                },
+                {
+                    "pattern": "go to town on ...(東西):",
+                    "definitions": [
+                        "放縱享受...",
+                        "縱情享受..."
+                    ],
+                    "name": "go to town on ...(東西):"
+                },
+                {
+                    "pattern": "go to town on ...(事物)|go to town over ...(事物):",
+                    "definitions": [
+                        "在...上花大錢"
+                    ],
+                    "name": "go to town on ...(事物)|go to town over ...(事物):"
+                },
+                {
+                    "pattern": "go to town on ...(動詞ing ...):",
+                    "definitions": [
+                        "又快又有效率地做...",
+                        "竭盡全力做..."
+                    ],
+                    "name": "go to town on ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go to the trouble|go to all that trouble|go to the bother:",
+                    "definitions": [
+                        "費心",
+                        "費力",
+                        "費勁"
+                    ],
+                    "name": "go to the trouble|go to all that trouble|go to the bother:"
+                },
+                {
+                    "pattern": "go to the trouble of ...(動詞ing ...)|go to all that trouble of ...(動詞ing ...)|go to the bother of ...(動詞ing ...)|go to the trouble to ...(動詞 ...)|go to all that trouble to ...(動詞 ...)|go to the bother to ...(動詞 ...):",
+                    "definitions": [
+                        "費心做...",
+                        "費力做...",
+                        "費勁做...",
+                        "不避煩勞做...",
+                        "不辭辛苦做...",
+                        "不辭勞苦做...",
+                        "不怕費事做..."
+                    ],
+                    "name": "go to the trouble of ...(動詞ing ...)|go to all that trouble of ...(動詞ing ...)|go to the bother of ...(動詞ing ...)|go to the trouble to ...(動詞 ...)|go to all that trouble to ...(動詞 ...)|go to the bother to ...(動詞 ...):"
+                },
+                {
+                    "pattern": "(國家、組織、經濟、生意等)go to the dogs|(國家、組織、經濟、生意等)go to hell in a handbasket:",
+                    "definitions": [
+                        "大不如前",
+                        "江河日下",
+                        "每況愈下",
+                        "衰落",
+                        "衰敗",
+                        "一蹶不振"
+                    ],
+                    "name": "(國家、組織、經濟、生意等)go to the dogs|(國家、組織、經濟、生意等)go to hell in a handbasket:"
+                },
+                {
+                    "pattern": "go whole hog|go the whole hog:",
+                    "definitions": [
+                        "徹底做到底",
+                        "徹底幹到底"
+                    ],
+                    "name": "go whole hog|go the whole hog:"
+                },
+                {
+                    "pattern": "go too far:",
+                    "definitions": [
+                        "太極端",
+                        "做得太極端",
+                        "說得太極端",
+                        "太過分",
+                        "做得太過分",
+                        "說得太過分",
+                        "太過火",
+                        "做得太過火",
+                        "說得太過火",
+                        "走太遠"
+                    ],
+                    "name": "go too far:"
+                },
+                {
+                    "pattern": "go too far to ...(動詞...):",
+                    "definitions": [
+                        "太極端而無法做...",
+                        "做得太極端而無法做...",
+                        "說得太極端而無法做...",
+                        "太過分而無法做...",
+                        "做得太過分而無法做...",
+                        "說得太過分而無法做...",
+                        "太過火而無法做...",
+                        "做得太過火而無法做...",
+                        "說得太過火而無法做...",
+                        "走太遠而無法做..."
+                    ],
+                    "name": "go too far to ...(動詞...):"
+                },
+                {
+                    "pattern": "go so far|go this far:",
+                    "definitions": [
+                        "這麼極端",
+                        "做得這麼極端",
+                        "說得這麼極端",
+                        "這麼過分",
+                        "做得這麼過分",
+                        "說得這麼過分",
+                        "這麼過火",
+                        "做得這麼過火",
+                        "說得這麼過火",
+                        "走這麼遠"
+                    ],
+                    "name": "go so far|go this far:"
+                },
+                {
+                    "pattern": "go so far to ...(動詞...)|go this far to ...(動詞...):",
+                    "definitions": [
+                        "走這麼遠做..."
+                    ],
+                    "name": "go so far to ...(動詞...)|go this far to ...(動詞...):"
+                },
+                {
+                    "pattern": "go so far as to ...(動詞...)|go this far as to ...(動詞...)|go as far as to ...(動詞...):",
+                    "definitions": [
+                        "極端到做...",
+                        "甚至到做..."
+                    ],
+                    "name": "go so far as to ...(動詞...)|go this far as to ...(動詞...)|go as far as to ...(動詞...):"
+                },
+                {
+                    "pattern": "go so far as to say that ...(完整句)|go this far as to say that ...(完整句)|go as far as to say that ...(完整句):",
+                    "definitions": [
+                        "極端到說...",
+                        "甚至說..."
+                    ],
+                    "name": "go so far as to say that ...(完整句)|go this far as to say that ...(完整句)|go as far as to say that ...(完整句):"
+                },
+                {
+                    "pattern": "go that far:",
+                    "definitions": [
+                        "那麼極端",
+                        "做得那麼極端",
+                        "說得那麼極端",
+                        "那麼過分",
+                        "做得那麼過分",
+                        "說得那麼過分",
+                        "那麼過火",
+                        "做得那麼過火",
+                        "說得那麼過火",
+                        "走那麼遠"
+                    ],
+                    "name": "go that far:"
+                },
+                {
+                    "pattern": "go that far to ...(動詞...):",
+                    "definitions": [
+                        "走那麼遠做..."
+                    ],
+                    "name": "go that far to ...(動詞...):"
+                },
+                {
+                    "pattern": "go that far as to ...(動詞...):",
+                    "definitions": [
+                        "那麼極端到做..."
+                    ],
+                    "name": "go that far as to ...(動詞...):"
+                },
+                {
+                    "pattern": "go as far as ...(距離長度、地點等):",
+                    "definitions": [
+                        "最遠走到...",
+                        "走到...那麼遠"
+                    ],
+                    "name": "go as far as ...(距離長度、地點等):"
+                },
+                {
+                    "pattern": "go as far as ...(人事物)|go as far as ...(人事物) can/could:",
+                    "definitions": [
+                        "像...走得那麽遠",
+                        "做到像...這麼極端",
+                        "做到像...這樣的地步",
+                        "發展到...的程度",
+                        "發展到...的地步"
+                    ],
+                    "name": "go as far as ...(人事物)|go as far as ...(人事物) can/could:"
+                },
+                {
+                    "pattern": "go as far as ...(主詞: 人) can/could:",
+                    "definitions": [
+                        "盡最大努力",
+                        "盡最大努力走下去"
+                    ],
+                    "name": "go as far as ...(主詞: 人) can/could:"
+                },
+                {
+                    "pattern": "go as far as ...(主詞: 事物) can/could:",
+                    "definitions": [
+                        "盡其所能進行下去"
+                    ],
+                    "name": "go as far as ...(主詞: 事物) can/could:"
+                },
+                {
+                    "pattern": "go as far as ...(a: 人事物) can/could/would ...(b: 動詞)|go as far as ...(a: 人事物) ...(b: 現在式、過去式動詞):",
+                    "definitions": [
+                        "走到盡(a)所能做(b)的地方",
+                        "做到盡(a)所能做(b)的程度",
+                        "發展到盡(a)所能做(b)的程度",
+                        "發展到盡(a)所能做(b)的地步"
+                    ],
+                    "name": "go as far as ...(a: 人事物) can/could/would ...(b: 動詞)|go as far as ...(a: 人事物) ...(b: 現在式、過去式動詞):"
+                },
+                {
+                    "pattern": "go as far as ...(動詞ing ...):",
+                    "definitions": [
+                        "到做...的程度",
+                        "有到做...的程度",
+                        "到做...的地步",
+                        "有到做...的地步"
+                    ],
+                    "name": "go as far as ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "go for a ride:",
+                    "definitions": [
+                        "乘車兜風",
+                        "騎車兜風",
+                        "騎馬出遊"
+                    ],
+                    "name": "go for a ride:"
+                },
+                {
+                    "pattern": "go along for the ride:",
+                    "definitions": [
+                        "湊湊熱鬧",
+                        "湊熱鬧",
+                        "逢場作戲",
+                        "隨大溜"
+                    ],
+                    "name": "go along for the ride:"
+                },
+                {
+                    "pattern": "(事物)go by the board:",
+                    "definitions": [
+                        "被忽視",
+                        "吿吹",
+                        "被丟棄",
+                        "被拋棄"
+                    ],
+                    "name": "(事物)go by the board:"
+                },
+                {
+                    "pattern": "go on record:",
+                    "definitions": [
+                        "公開發表",
+                        "公開表明"
+                    ],
+                    "name": "go on record:"
+                },
+                {
+                    "pattern": "go on the stage:",
+                    "definitions": [
+                        "當演員"
+                    ],
+                    "name": "go on the stage:"
+                },
+                {
+                    "pattern": "go into service:",
+                    "definitions": [
+                        "被雇傭",
+                        "去當傭工"
+                    ],
+                    "name": "go into service:"
+                },
+                {
+                    "pattern": "go to bed with ...(人):",
+                    "definitions": [
+                        "與...上床",
+                        "與...發生性關係"
+                    ],
+                    "name": "go to bed with ...(人):"
+                },
+                {
+                    "pattern": "go forward:",
+                    "definitions": [
+                        "向前",
+                        "前進"
+                    ],
+                    "name": "go forward:"
+                },
+                {
+                    "pattern": "go to a lot of expense:",
+                    "definitions": [
+                        "花很多錢"
+                    ],
+                    "name": "go to a lot of expense:"
+                },
+                {
+                    "pattern": "go to the expense of ...(事物):",
+                    "definitions": [
+                        "花錢在...上面"
+                    ],
+                    "name": "go to the expense of ...(事物):"
+                },
+                {
+                    "pattern": "go to the expense of ...(動詞ing ...):",
+                    "definitions": [
+                        "花錢在做...上面"
+                    ],
+                    "name": "go to the expense of ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "(公司等)go to the wall:",
+                    "definitions": [
+                        "破產",
+                        "垮臺"
+                    ],
+                    "name": "(公司等)go to the wall:"
+                },
+                {
+                    "pattern": "(人)go to wall for ...(人):",
+                    "definitions": [
+                        "會竭盡所能幫...",
+                        "為...竭盡所能"
+                    ],
+                    "name": "(人)go to wall for ...(人):"
+                },
+                {
+                    "pattern": "(人)go up the wall:",
+                    "definitions": [
+                        "發狂",
+                        "大怒"
+                    ],
+                    "name": "(人)go up the wall:"
+                },
+                {
+                    "pattern": "(拍賣品)go on the block:",
+                    "definitions": [
+                        "被拍賣"
+                    ],
+                    "name": "(拍賣品)go on the block:"
+                },
+                {
+                    "pattern": "(人)go against the grain:",
+                    "definitions": [
+                        "逆著紋理走",
+                        "背道而馳",
+                        "逆風而行"
+                    ],
+                    "name": "(人)go against the grain:"
+                },
+                {
+                    "pattern": "(事)go against the grain:",
+                    "definitions": [
+                        "不正常",
+                        "違反常理",
+                        "格格不入"
+                    ],
+                    "name": "(事)go against the grain:"
+                },
+                {
+                    "pattern": "(人)go into a huddle:",
+                    "definitions": [
+                        "圍成一團密談",
+                        "圍成一團商討",
+                        "圍成一團舉行秘密會議",
+                        "圍成一團進行私下商議"
+                    ],
+                    "name": "(人)go into a huddle:"
+                },
+                {
+                    "pattern": "(人)go into a huddle with ...(人):",
+                    "definitions": [
+                        "與...圍成一團密談",
+                        "與...圍成一團商討",
+                        "與...圍成一團舉行秘密會議",
+                        "與...圍成一團進行私下商議"
+                    ],
+                    "name": "(人)go into a huddle with ...(人):"
+                },
+                {
+                    "pattern": "(話語等)go in one ear and out the other:",
+                    "definitions": [
+                        "左耳進右耳出",
+                        "當作耳邊風",
+                        "一耳進一耳出"
+                    ],
+                    "name": "(話語等)go in one ear and out the other:"
+                },
+                {
+                    "pattern": "go out the window|go out of the window:",
+                    "definitions": [
+                        "消失",
+                        "化為烏有"
+                    ],
+                    "name": "go out the window|go out of the window:"
+                },
+                {
+                    "pattern": "(食用植物等)go to seed:",
+                    "definitions": [
+                        "(未及時採摘而)開花結籽"
+                    ],
+                    "name": "(食用植物等)go to seed:"
+                },
+                {
+                    "pattern": "(人)go to seed:",
+                    "definitions": [
+                        "變得不修邊幅",
+                        "身體衰弱",
+                        "喪失活力"
+                    ],
+                    "name": "(人)go to seed:"
+                },
+                {
+                    "pattern": "(地方)go to seed:",
+                    "definitions": [
+                        "變得破敗",
+                        "荒蕪"
+                    ],
+                    "name": "(地方)go to seed:"
+                },
+                {
+                    "pattern": "(價錢等)go through the roof:",
+                    "definitions": [
+                        "飛漲",
+                        "激增"
+                    ],
+                    "name": "(價錢等)go through the roof:"
+                },
+                {
+                    "pattern": "(人)go through the roof|(人)go off the deep end|(人)go ballistic:",
+                    "definitions": [
+                        "怒氣衝天",
+                        "勃然大怒",
+                        "火冒三丈",
+                        "暴跳如雷"
+                    ],
+                    "name": "(人)go through the roof|(人)go off the deep end|(人)go ballistic:"
+                },
+                {
+                    "pattern": "(人)go bonkers|(人)go zonkers:",
+                    "definitions": [
+                        "發瘋"
+                    ],
+                    "name": "(人)go bonkers|(人)go zonkers:"
+                },
+                {
+                    "pattern": "(人)go dutch:",
+                    "definitions": [
+                        "各付各的",
+                        "各自付帳",
+                        "平攤費用"
+                    ],
+                    "name": "(人)go dutch:"
+                },
+                {
+                    "pattern": "go above and beyond|go above and beyond the call of duty|go above and beyond ...(主詞: 人)'s duty:",
+                    "definitions": [
+                        "做超越職責範圍的要求",
+                        "盡忠職守"
+                    ],
+                    "name": "go above and beyond|go above and beyond the call of duty|go above and beyond ...(主詞: 人)'s duty:"
+                },
+                {
+                    "pattern": "go above and beyond ...(事):",
+                    "definitions": [
+                        "做超越...範圍的要求"
+                    ],
+                    "name": "go above and beyond ...(事):"
+                },
+                {
+                    "pattern": "go to hell and back:",
+                    "definitions": [
+                        "到鬼門關前走了一回",
+                        "經歷劫難"
+                    ],
+                    "name": "go to hell and back:"
+                },
+                {
+                    "pattern": "go rabbiting:",
+                    "definitions": [
+                        "獵兔",
+                        "打兔子"
+                    ],
+                    "name": "go rabbiting:"
+                },
+                {
+                    "pattern": "go on vacation|(英式)go on holiday:",
+                    "definitions": [
+                        "去度假",
+                        "去渡假"
+                    ],
+                    "name": "go on vacation|(英式)go on holiday:"
+                },
+                {
+                    "pattern": "go on relief:",
+                    "definitions": [
+                        "靠救濟生活"
+                    ],
+                    "name": "go on relief:"
+                },
+                {
+                    "pattern": "go to ...(人)'s assistance:",
+                    "definitions": [
+                        "去援助..."
+                    ],
+                    "name": "go to ...(人)'s assistance:"
+                },
+                {
+                    "pattern": "go trekking:",
+                    "definitions": [
+                        "去健行",
+                        "(尤指在山上)徒步旅行"
+                    ],
+                    "name": "go trekking:"
+                },
+                {
+                    "pattern": "go easy:",
+                    "definitions": [
+                        "寬容些",
+                        "溫和些",
+                        "節省用",
+                        "節約使用",
+                        "節制用"
+                    ],
+                    "name": "go easy:"
+                },
+                {
+                    "pattern": "go easy on ...(人):",
+                    "definitions": [
+                        "對...寬容些",
+                        "對...溫和些"
+                    ],
+                    "name": "go easy on ...(人):"
+                },
+                {
+                    "pattern": "go easy on ...(物):",
+                    "definitions": [
+                        "別用太多...",
+                        "節省著用...",
+                        "節約使用...",
+                        "節制用..."
+                    ],
+                    "name": "go easy on ...(物):"
+                },
+                {
+                    "pattern": "go on a pilgrimage:",
+                    "definitions": [
+                        "去朝聖"
+                    ],
+                    "name": "go on a pilgrimage:"
+                },
+                {
+                    "pattern": "go on a pilgrimage to ...(地方):",
+                    "definitions": [
+                        "去...朝聖"
+                    ],
+                    "name": "go on a pilgrimage to ...(地方):"
+                },
+                {
+                    "pattern": "go into raptures:",
+                    "definitions": [
+                        "欣喜若狂",
+                        "歡天喜地",
+                        "興高采烈"
+                    ],
+                    "name": "go into raptures:"
+                },
+                {
+                    "pattern": "go into raptures about/over ...(人事物):",
+                    "definitions": [
+                        "對...欣喜若狂",
+                        "對...歡天喜地",
+                        "對...興高采烈"
+                    ],
+                    "name": "go into raptures about/over ...(人事物):"
+                },
+                {
+                    "pattern": "go into battle:",
+                    "definitions": [
+                        "投入戰鬥",
+                        "進入爭鬥"
+                    ],
+                    "name": "go into battle:"
+                },
+                {
+                    "pattern": "go into war:",
+                    "definitions": [
+                        "進入戰爭"
+                    ],
+                    "name": "go into war:"
+                },
+                {
+                    "pattern": "go to war:",
+                    "definitions": [
+                        "開戰"
+                    ],
+                    "name": "go to war:"
+                },
+                {
+                    "pattern": "go to war with/against ...(人):",
+                    "definitions": [
+                        "與...開戰"
+                    ],
+                    "name": "go to war with/against ...(人):"
+                },
+                {
+                    "pattern": "go into orbit:",
+                    "definitions": [
+                        "大幅攀升",
+                        "進入軌道",
+                        "走上正軌",
+                        "大獲成功",
+                        "獲勝",
+                        "勃然大怒",
+                        "暴跳如雷",
+                        "興奮",
+                        "激動",
+                        "失去自制能力"
+                    ],
+                    "name": "go into orbit:"
+                },
+                {
+                    "pattern": "go through hoops:",
+                    "definitions": [
+                        "赴湯蹈火",
+                        "赴湯蹈火也在所不辭",
+                        "經歷磨難",
+                        "克服重重難關",
+                        "越過重重關卡",
+                        "俯首帖耳",
+                        "百般討好"
+                    ],
+                    "name": "go through hoops:"
+                },
+                {
+                    "pattern": "go canoeing:",
+                    "definitions": [
+                        "划獨木舟"
+                    ],
+                    "name": "go canoeing:"
+                },
+                {
+                    "pattern": "go like clockwork:",
+                    "definitions": [
+                        "非常順利",
+                        "順利進行",
+                        "準時進行"
+                    ],
+                    "name": "go like clockwork:"
+                },
+                {
+                    "pattern": "(人)go to pieces:",
+                    "definitions": [
+                        "崩潰",
+                        "神經錯亂",
+                        "垮下來",
+                        "垮臺",
+                        "一團糟"
+                    ],
+                    "name": "(人)go to pieces:"
+                },
+                {
+                    "pattern": "go the warpath:",
+                    "definitions": [
+                        "準備作戰",
+                        "開始鬥爭",
+                        "正要動手"
+                    ],
+                    "name": "go the warpath:"
+                },
+                {
+                    "pattern": "go on the warpath against ...(人、國家等):",
+                    "definitions": [
+                        "準備與...作戰",
+                        "開始與...鬥爭",
+                        "正要對...動手"
+                    ],
+                    "name": "go on the warpath against ...(人、國家等):"
+                },
+                {
+                    "pattern": "(人)go crimson:",
+                    "definitions": [
+                        "(因生氣、難堪等)臉變得通紅"
+                    ],
+                    "name": "(人)go crimson:"
+                },
+                {
+                    "pattern": "(人)go crimson with ...(生氣、難堪等):",
+                    "definitions": [
+                        "因...而臉變得通紅"
+                    ],
+                    "name": "(人)go crimson with ...(生氣、難堪等):"
+                },
+                {
+                    "pattern": "(飛機)go into a tailspin:",
+                    "definitions": [
+                        "陷入失控狀態"
+                    ],
+                    "name": "(飛機)go into a tailspin:"
+                },
+                {
+                    "pattern": "(人)go into a tailspin:",
+                    "definitions": [
+                        "情緒失控",
+                        "恐慌",
+                        "崩潰"
+                    ],
+                    "name": "(人)go into a tailspin:"
+                },
+                {
+                    "pattern": "(人)go postal:",
+                    "definitions": [
+                        "因壓力而發瘋",
+                        "因壓力而行為失常",
+                        "因壓力而有暴力傾向"
+                    ],
+                    "name": "(人)go postal:"
+                },
+                {
+                    "pattern": "go down on ...(主詞: 人)'s knees:",
+                    "definitions": [
+                        "跪下來"
+                    ],
+                    "name": "go down on ...(主詞: 人)'s knees:"
+                },
+                {
+                    "pattern": "(俚語)(人)go down on ...(人):",
+                    "definitions": [
+                        "給...口交"
+                    ],
+                    "name": "(俚語)(人)go down on ...(人):"
+                },
+                {
+                    "pattern": "go at it hammer and tongs:",
+                    "definitions": [
+                        "全力以赴",
+                        "竭盡全力",
+                        "拼命"
+                    ],
+                    "name": "go at it hammer and tongs:"
+                },
+                {
+                    "pattern": "(生意等)go belly up:",
+                    "definitions": [
+                        "倒閉",
+                        "破產"
+                    ],
+                    "name": "(生意等)go belly up:"
+                },
+                {
+                    "pattern": "go viral:",
+                    "definitions": [
+                        "走紅",
+                        "瘋傳",
+                        "像病毒般傳播開來"
+                    ],
+                    "name": "go viral:"
+                },
+                {
+                    "pattern": "go viral on ...(媒體、網路、平台等):",
+                    "definitions": [
+                        "在...上走紅",
+                        "在...上瘋傳",
+                        "在...上像病毒般傳播開來"
+                    ],
+                    "name": "go viral on ...(媒體、網路、平台等):"
+                },
+                {
+                    "pattern": "go out of existence:",
+                    "definitions": [
+                        "絕跡",
+                        "滅亡",
+                        "不復存在"
+                    ],
+                    "name": "go out of existence:"
+                },
+                {
+                    "pattern": "(人、公司等)go out of business:",
+                    "definitions": [
+                        "關門大吉",
+                        "停業",
+                        "倒閉",
+                        "破產",
+                        "歇業"
+                    ],
+                    "name": "(人、公司等)go out of business:"
+                },
+                {
+                    "pattern": "go on the front burner:",
+                    "definitions": [
+                        "被列為優先處理",
+                        "處於重要位置",
+                        "需要立刻關注"
+                    ],
+                    "name": "go on the front burner:"
+                },
+                {
+                    "pattern": "go on the back burner:",
+                    "definitions": [
+                        "被暫時擱置一旁",
+                        "處於次要位置",
+                        "不需要立刻關注"
+                    ],
+                    "name": "go on the back burner:"
+                },
+                {
+                    "pattern": "go haywire:",
+                    "definitions": [
+                        "(人)發瘋",
+                        "(人事物)失控",
+                        "(機械物、設備等)故障|出毛病|出現問題",
+                        "(事物)變得混亂|變得雜亂無章"
+                    ],
+                    "name": "go haywire:"
+                },
+                {
+                    "pattern": "(人)go off the rails:",
+                    "definitions": [
+                        "失控",
+                        "神經錯亂",
+                        "舉止怪異",
+                        "行為不軌",
+                        "行為越軌",
+                        "越過道德底線"
+                    ],
+                    "name": "(人)go off the rails:"
+                },
+                {
+                    "pattern": "(事)go off the rails:",
+                    "definitions": [
+                        "限入一片混亂"
+                    ],
+                    "name": "(事)go off the rails:"
+                },
+                {
+                    "pattern": "go full circle:",
+                    "definitions": [
+                        "兜個大圈又回到原點",
+                        "經歷一番又回到原點",
+                        "經歷一番又回到原樣",
+                        "經歷一番又變回原樣"
+                    ],
+                    "name": "go full circle:"
+                },
+                {
+                    "pattern": "(人)go online:",
+                    "definitions": [
+                        "上網"
+                    ],
+                    "name": "(人)go online:"
+                },
+                {
+                    "pattern": "(產品、機械物、工廠等)go online:",
+                    "definitions": [
+                        "上線"
+                    ],
+                    "name": "(產品、機械物、工廠等)go online:"
+                },
+                {
+                    "pattern": "go offline:",
+                    "definitions": [
+                        "離線",
+                        "離開線上"
+                    ],
+                    "name": "go offline:"
+                },
+                {
+                    "pattern": "(人)go all out:",
+                    "definitions": [
+                        "全力以赴",
+                        "竭盡全力",
+                        "鼓足幹勁",
+                        "奮力一博"
+                    ],
+                    "name": "(人)go all out:"
+                },
+                {
+                    "pattern": "(人)go all out to ...(動詞...):",
+                    "definitions": [
+                        "全力以赴做...",
+                        "竭盡全力做...",
+                        "鼓足幹勁做..."
+                    ],
+                    "name": "(人)go all out to ...(動詞...):"
+                },
+                {
+                    "pattern": "(人)go all out for ...(人事物):",
+                    "definitions": [
+                        "為了...全力以赴",
+                        "為了...竭盡全力",
+                        "為了...鼓足幹勁",
+                        "為了...奮力一博"
+                    ],
+                    "name": "(人)go all out for ...(人事物):"
+                },
+                {
+                    "pattern": "(人)go all in:",
+                    "definitions": [
+                        "把所有籌碼都押上",
+                        "籌碼全下",
+                        "破釜沉舟"
+                    ],
+                    "name": "(人)go all in:"
+                },
+                {
+                    "pattern": "(人)go all in on ...(人事物):",
+                    "definitions": [
+                        "把所有籌碼都押在...上",
+                        "籌碼全下在...上"
+                    ],
+                    "name": "(人)go all in on ...(人事物):"
+                },
+                {
+                    "pattern": "(人)go all in to ...(動詞):",
+                    "definitions": [
+                        "破釜沉舟地做...",
+                        "孤注一擲地做..."
+                    ],
+                    "name": "(人)go all in to ...(動詞):"
+                },
+                {
+                    "pattern": "(人、物)go ...(人)'s way:",
+                    "definitions": [
+                        "與...同路",
+                        "與...同方向",
+                        "跟...同路",
+                        "跟...同方向",
+                        "和...同路",
+                        "和...同方向"
+                    ],
+                    "name": "(人、物)go ...(人)'s way:"
+                },
+                {
+                    "pattern": "(事、人)go ...(人)'s way|(事)go the way ...(人) wanted:",
+                    "definitions": [
+                        "如...所願",
+                        "順...的意",
+                        "如...的意"
+                    ],
+                    "name": "(事、人)go ...(人)'s way|(事)go the way ...(人) wanted:"
+                },
+                {
+                    "pattern": "(人)go ...(主詞)'s way|(人)go ...(主詞)'s own way:",
+                    "definitions": [
+                        "走自己的路",
+                        "用自己的方式",
+                        "一意孤行"
+                    ],
+                    "name": "(人)go ...(主詞)'s way|(人)go ...(主詞)'s own way:"
+                },
+                {
+                    "pattern": "(多人)go separate ways|(多人)go ...(主詞)'s separate ways:",
+                    "definitions": [
+                        "分道揚鑣",
+                        "拆夥",
+                        "各走各路",
+                        "各走各的"
+                    ],
+                    "name": "(多人)go separate ways|(多人)go ...(主詞)'s separate ways:"
+                },
+                {
+                    "pattern": "(作品等)go on show:",
+                    "definitions": [
+                        "展出"
+                    ],
+                    "name": "(作品等)go on show:"
+                },
+                {
+                    "pattern": "(商品等)go on sale:",
+                    "definitions": [
+                        "上市銷售",
+                        "上市",
+                        "開始發售",
+                        "開始銷售",
+                        "出售"
+                    ],
+                    "name": "(商品等)go on sale:"
+                },
+                {
+                    "pattern": "(商品等)go on presale:",
+                    "definitions": [
+                        "開始預售"
+                    ],
+                    "name": "(商品等)go on presale:"
+                },
+                {
+                    "pattern": "(人)go on tirade|(人)go on a tirade:",
+                    "definitions": [
+                        "長篇大論",
+                        "滔滔不絕"
+                    ],
+                    "name": "(人)go on tirade|(人)go on a tirade:"
+                },
+                {
+                    "pattern": "(人)go on tirade about ...(人事物)|(人)go on a tirade about ...(人事物):",
+                    "definitions": [
+                        "長篇大論地談論...",
+                        "滔滔不絕地談論..."
+                    ],
+                    "name": "(人)go on tirade about ...(人事物)|(人)go on a tirade about ...(人事物):"
+                },
+                {
+                    "pattern": "(人)go into a tirade:",
+                    "definitions": [
+                        "開始長篇大論",
+                        "開始滔滔不絕"
+                    ],
+                    "name": "(人)go into a tirade:"
+                },
+                {
+                    "pattern": "(人)go into a tirade about ...(人事物):",
+                    "definitions": [
+                        "開始長篇大論地談論...",
+                        "開始滔滔不絕地談論..."
+                    ],
+                    "name": "(人)go into a tirade about ...(人事物):"
+                },
+                {
+                    "pattern": "(人)go into business:",
+                    "definitions": [
+                        "從商",
+                        "經商",
+                        "做生意"
+                    ],
+                    "name": "(人)go into business:"
+                },
+                {
+                    "pattern": "(人)go into business as ...(專業職稱等):",
+                    "definitions": [
+                        "從商當...",
+                        "經商當...",
+                        "做生意當..."
+                    ],
+                    "name": "(人)go into business as ...(專業職稱等):"
+                },
+                {
+                    "pattern": "(人)go into business with ...(人):",
+                    "definitions": [
+                        "與...做生意"
+                    ],
+                    "name": "(人)go into business with ...(人):"
+                },
+                {
+                    "pattern": "go nowhere:",
+                    "definitions": [
+                        "一事無成",
+                        "一無所成",
+                        "沒有成功",
+                        "毫無進展",
+                        "無進展",
+                        "哪兒也去不",
+                        "無路可走"
+                    ],
+                    "name": "go nowhere:"
+                },
+                {
+                    "pattern": "(人)go off at half cock|(人)go off at half-cock|(人)go off half-cocked:",
+                    "definitions": [
+                        "操之過急",
+                        "倉促行事",
+                        "草率行事",
+                        "匆忙行事"
+                    ],
+                    "name": "(人)go off at half cock|(人)go off at half-cock|(人)go off half-cocked:"
+                },
+                {
+                    "pattern": "(事)go off at half cock|(事)go off at half-cock|(事)go off half-cocked:",
+                    "definitions": [
+                        "失敗"
+                    ],
+                    "name": "(事)go off at half cock|(事)go off at half-cock|(事)go off half-cocked:"
+                },
+                {
+                    "pattern": "(人)go on a power trip:",
+                    "definitions": [
+                        "陶醉在擁有權力的快感之中",
+                        "陶醉在掌權的快感之中",
+                        "妄尊自大"
+                    ],
+                    "name": "(人)go on a power trip:"
+                },
+                {
+                    "pattern": "(人)go on a binge:",
+                    "definitions": [
+                        "狂歡作樂",
+                        "狂歡",
+                        "大吃大喝"
+                    ],
+                    "name": "(人)go on a binge:"
+                },
+                {
+                    "pattern": "(人)go on an errand:",
+                    "definitions": [
+                        "辦差事",
+                        "出去辦差事"
+                    ],
+                    "name": "(人)go on an errand:"
+                },
+                {
+                    "pattern": "(人)go on some errands|(人)go on a couple errands:",
+                    "definitions": [
+                        "辦點事",
+                        "出去辦點事"
+                    ],
+                    "name": "(人)go on some errands|(人)go on a couple errands:"
+                },
+                {
+                    "pattern": "(人)go on a fool's errand:",
+                    "definitions": [
+                        "做白費力氣的事",
+                        "做徒勞無功的事",
+                        "做傻事",
+                        "做愚蠢的事"
+                    ],
+                    "name": "(人)go on a fool's errand:"
+                },
+                {
+                    "pattern": "(人)go on a spree:",
+                    "definitions": [
+                        "尋歡作樂",
+                        "狂歡"
+                    ],
+                    "name": "(人)go on a spree:"
+                },
+                {
+                    "pattern": "(人)go on a ...(特定行為限定用動名詞) spree:",
+                    "definitions": [
+                        "去瘋狂..."
+                    ],
+                    "name": "(人)go on a ...(特定行為限定用動名詞) spree:"
+                },
+                {
+                    "pattern": "(人)go on a shopping spree:",
+                    "definitions": [
+                        "去瘋狂購物"
+                    ],
+                    "name": "(人)go on a shopping spree:"
+                },
+                {
+                    "pattern": "(人)go on a spending spree:",
+                    "definitions": [
+                        "去瘋狂花錢"
+                    ],
+                    "name": "(人)go on a spending spree:"
+                },
+                {
+                    "pattern": "(人)go on a killing spree:",
+                    "definitions": [
+                        "去瘋狂殺人"
+                    ],
+                    "name": "(人)go on a killing spree:"
+                },
+                {
+                    "pattern": "(人)go on a crime spree:",
+                    "definitions": [
+                        "去瘋狂犯罪"
+                    ],
+                    "name": "(人)go on a crime spree:"
+                },
+                {
+                    "pattern": "(人)go out on a spree:",
+                    "definitions": [
+                        "出去尋歡作樂",
+                        "外出狂歡"
+                    ],
+                    "name": "(人)go out on a spree:"
+                },
+                {
+                    "pattern": "(人)go on a diet:",
+                    "definitions": [
+                        "開始節食中",
+                        "開始節食減肥",
+                        "開始飲食控制",
+                        "開始遵守飲食規定"
+                    ],
+                    "name": "(人)go on a diet:"
+                },
+                {
+                    "pattern": "(人)go on a fishing expedition:",
+                    "definitions": [
+                        "進行審前盤問",
+                        "進行審前偵查"
+                    ],
+                    "name": "(人)go on a fishing expedition:"
+                },
+                {
+                    "pattern": "(人)go on business|(人)go on a business trip:",
+                    "definitions": [
+                        "出差",
+                        "出差去"
+                    ],
+                    "name": "(人)go on business|(人)go on a business trip:"
+                },
+                {
+                    "pattern": "(人)go on business to ...(外地等)|(人)go on a business trip to ...(外地等):",
+                    "definitions": [
+                        "去...出差"
+                    ],
+                    "name": "(人)go on business to ...(外地等)|(人)go on a business trip to ...(外地等):"
+                },
+                {
+                    "pattern": "(人)go on a high note|(人)go out on a high note:",
+                    "definitions": [
+                        "圓滿離開"
+                    ],
+                    "name": "(人)go on a high note|(人)go out on a high note:"
+                },
+                {
+                    "pattern": "(人)go out on a limb:",
+                    "definitions": [
+                        "冒著風險",
+                        "冒著危險",
+                        "置身於孤立無援的境地",
+                        "置身於易受攻擊的境地"
+                    ],
+                    "name": "(人)go out on a limb:"
+                },
+                {
+                    "pattern": "(人)go out on a limb to ...(動詞...):",
+                    "definitions": [
+                        "冒著風險做...",
+                        "冒著危險做..."
+                    ],
+                    "name": "(人)go out on a limb to ...(動詞...):"
+                },
+                {
+                    "pattern": "(人)go out on a limb in ...(動詞ing ...)|(人)go out on a limb by ...(動詞ing ...):",
+                    "definitions": [
+                        "做...而置身於孤立無援的境地",
+                        "做...而置身於易受攻擊的境地"
+                    ],
+                    "name": "(人)go out on a limb in ...(動詞ing ...)|(人)go out on a limb by ...(動詞ing ...):"
+                },
+                {
+                    "pattern": "(人)go out on a limb with ...(想法、意見等):",
+                    "definitions": [
+                        "因...而置身於孤立無援的境地",
+                        "因...而置身於易受攻擊的境地"
+                    ],
+                    "name": "(人)go out on a limb with ...(想法、意見等):"
+                },
+                {
+                    "pattern": "(人)go from rags to riches:",
+                    "definitions": [
+                        "由窮致富",
+                        "由貧變富",
+                        "由衣衫襤褸到家財萬貫"
+                    ],
+                    "name": "(人)go from rags to riches:"
+                },
+                {
+                    "pattern": "(人)go astray:",
+                    "definitions": [
+                        "誤入歧途",
+                        "步入歧途",
+                        "走火入魔",
+                        "迷路"
+                    ],
+                    "name": "(人)go astray:"
+                },
+                {
+                    "pattern": "(目標、努力、計劃等事)go astray:",
+                    "definitions": [
+                        "偏離正軌",
+                        "走錯方向",
+                        "出錯"
+                    ],
+                    "name": "(目標、努力、計劃等事)go astray:"
+                },
+                {
+                    "pattern": "(物)go astray:",
+                    "definitions": [
+                        "弄丟了",
+                        "不見了",
+                        "走偏"
+                    ],
+                    "name": "(物)go astray:"
+                },
+                {
+                    "pattern": "(人等)go it alone:",
+                    "definitions": [
+                        "單幹",
+                        "獨自幹",
+                        "自己去做",
+                        "單槍匹馬",
+                        "單槍匹馬地幹",
+                        "獨自行動"
+                    ],
+                    "name": "(人等)go it alone:"
+                },
+                {
+                    "pattern": "(人)go native:",
+                    "definitions": [
+                        "入鄉隨俗"
+                    ],
+                    "name": "(人)go native:"
+                },
+                {
+                    "pattern": "(人等)go nuts:",
+                    "definitions": [
+                        "抓狂",
+                        "發瘋",
+                        "失去理智",
+                        "大發雷霆",
+                        "暴跳如雷"
+                    ],
+                    "name": "(人等)go nuts:"
+                },
+                {
+                    "pattern": "(人)go into the church:",
+                    "definitions": [
+                        "擔任神職",
+                        "當神父",
+                        "成為神父",
+                        "當牧師",
+                        "成為牧師",
+                        "(字面上)走進教堂"
+                    ],
+                    "name": "(人)go into the church:"
+                },
+                {
+                    "pattern": "(人等)go left:",
+                    "definitions": [
+                        "向左走",
+                        "往左走",
+                        "向左轉",
+                        "往左轉"
+                    ],
+                    "name": "(人等)go left:"
+                },
+                {
+                    "pattern": "(人等)go right:",
+                    "definitions": [
+                        "向右走",
+                        "往右走",
+                        "向右轉",
+                        "往右轉"
+                    ],
+                    "name": "(人等)go right:"
+                },
+                {
+                    "pattern": "(事)go right:",
+                    "definitions": [
+                        "進行順利",
+                        "一切順利",
+                        "發展順利",
+                        "稱心如意"
+                    ],
+                    "name": "(事)go right:"
+                },
+                {
+                    "pattern": "(人等)go right ahead:",
+                    "definitions": [
+                        "一直往前走",
+                        "請便"
+                    ],
+                    "name": "(人等)go right ahead:"
+                },
+                {
+                    "pattern": "(人等)go right ahead and ...(動詞...):",
+                    "definitions": [
+                        "直接做..."
+                    ],
+                    "name": "(人等)go right ahead and ...(動詞...):"
+                },
+                {
+                    "pattern": "(事)go wrong:",
+                    "definitions": [
+                        "出問題",
+                        "不對勁",
+                        "不如意",
+                        "失敗"
+                    ],
+                    "name": "(事)go wrong:"
+                },
+                {
+                    "pattern": "(人)go wrong:",
+                    "definitions": [
+                        "出錯",
+                        "犯錯誤",
+                        "弄錯"
+                    ],
+                    "name": "(人)go wrong:"
+                },
+                {
+                    "pattern": "go toe to toe|go toe-to-toe:",
+                    "definitions": [
+                        "正面交手",
+                        "旗鼓相當"
+                    ],
+                    "name": "go toe to toe|go toe-to-toe:"
+                },
+                {
+                    "pattern": "go toe to toe with ...(人等)|go toe-to-toe with ...(人等):",
+                    "definitions": [
+                        "與...正面交手",
+                        "與...旗鼓相當"
+                    ],
+                    "name": "go toe to toe with ...(人等)|go toe-to-toe with ...(人等):"
+                },
+                {
+                    "pattern": "(英式)(消息、謠言等)go the rounds:",
+                    "definitions": [
+                        "傳遍"
+                    ],
+                    "name": "(英式)(消息、謠言等)go the rounds:"
+                },
+                {
+                    "pattern": "(英式)go the rounds:",
+                    "definitions": [
+                        "四處訪問",
+                        "四處奔走"
+                    ],
+                    "name": "(英式)go the rounds:"
+                },
+                {
+                    "pattern": "(英式)go the rounds|(英式)go ...(主詞: 人)'s rounds:",
+                    "definitions": [
+                        "巡視",
+                        "巡邏"
+                    ],
+                    "name": "(英式)go the rounds|(英式)go ...(主詞: 人)'s rounds:"
+                },
+                {
+                    "pattern": "(英式)go full monty:",
+                    "definitions": [
+                        "當眾脫光衣服"
+                    ],
+                    "name": "(英式)go full monty:"
+                }
+            ],
+            "tags": [
+                "此動詞過去式為\"went\"|過去分詞為\"gone\"|現在分詞為\"going\"|第三者單數現在式為\"goes\""
+            ],
+            "synonyms": [
+                "advance",
+                "come",
+                "come along",
+                "do",
+                "fare",
+                "forge",
+                "get along",
+                "get on",
+                "go along",
+                "go off",
+                "march",
+                "pace",
+                "proceed",
+                "progress",
+                "bail",
+                "bail out",
+                "begone",
+                "bug off",
+                "bug out",
+                "buzz (off)",
+                "clear out",
+                "cut out",
+                "depart",
+                "dig out",
+                "exit",
+                "get",
+                "get off",
+                "go off",
+                "move",
+                "pack (up or off)",
+                "part",
+                "peel off",
+                "pike (out or off)",
+                "pull out",
+                "push off",
+                "push on",
+                "quit",
+                "run along",
+                "sally (forth)",
+                "shove (off)",
+                "step (along)",
+                "take off",
+                "vamoose",
+                "walk out",
+                "befit",
+                "do",
+                "serve",
+                "suit",
+                "accord",
+                "agree",
+                "answer",
+                "check",
+                "cohere",
+                "coincide",
+                "comport",
+                "conform",
+                "consist",
+                "correspond",
+                "dovetail",
+                "fit",
+                "harmonize",
+                "jibe",
+                "rhyme",
+                "rime",
+                "sort",
+                "square",
+                "tally",
+                "bear",
+                "extend",
+                "head",
+                "lead",
+                "lie",
+                "run",
+                "become",
+                "come",
+                "get",
+                "grow",
+                "run",
+                "turn",
+                "wax",
+                "buckle",
+                "cave (in)",
+                "collapse",
+                "crumple",
+                "founder",
+                "give",
+                "go out",
+                "implode",
+                "tumble",
+                "yield",
+                "belong",
+                "decay",
+                "droop",
+                "emaciate",
+                "fade",
+                "fail",
+                "flag",
+                "lag",
+                "languish",
+                "sag",
+                "sink",
+                "waste (away)",
+                "weaken",
+                "wilt",
+                "wither",
+                "course",
+                "cover",
+                "cross",
+                "cut (across)",
+                "follow",
+                "navigate",
+                "pass (over)",
+                "perambulate",
+                "peregrinate",
+                "proceed (along)",
+                "track",
+                "transit",
+                "travel",
+                "traverse",
+                "range",
+                "run",
+                "vary",
+                "bet",
+                "gamble",
+                "lay",
+                "play",
+                "put",
+                "stake",
+                "wager",
+                "break off",
+                "break up",
+                "cease",
+                "close",
+                "conclude",
+                "dead-end",
+                "determine",
+                "die",
+                "discontinue",
+                "elapse",
+                "end",
+                "expire",
+                "finish",
+                "halt",
+                "lapse",
+                "leave off",
+                "let up",
+                "pass",
+                "quit",
+                "stop",
+                "terminate",
+                "wind up",
+                "wink (out)",
+                "afford",
+                "swing",
+                "abide",
+                "absorb",
+                "accept",
+                "bear",
+                "brook",
+                "countenance",
+                "endure",
+                "hack",
+                "handle",
+                "meet",
+                "pocket",
+                "stand",
+                "stick out",
+                "stomach",
+                "support",
+                "sustain",
+                "sweat out",
+                "take",
+                "tolerate",
+                "check out",
+                "conk (out)",
+                "croak",
+                "demise",
+                "depart",
+                "die",
+                "drop",
+                "end",
+                "exit",
+                "expire",
+                "fall",
+                "part",
+                "pass (on)",
+                "pass away",
+                "perish",
+                "succumb",
+                "click",
+                "come off",
+                "deliver",
+                "go over",
+                "pan out",
+                "succeed",
+                "work out"
+            ]
+        },
+        "名詞": {
+            "simple": [
+                {
+                    "condition": "複數為\"goes\"",
+                    "examples": [
+                        {
+                            "definitions": [
+                                "輪到的機會",
+                                "嘗試"
+                            ],
+                            "pattern": "go",
+                            "name": "go"
+                        },
+                        {
+                            "pattern": "a go at ...(事物):",
+                            "definitions": [
+                                "對...的嘗試"
+                            ],
+                            "name": "a go at ...(事物):"
+                        }
+                    ]
+                },
+                {
+                    "definitions": [
+                        "精力, 精神",
+                        "去, 進行"
+                    ],
+                    "pattern": "go",
+                    "name": "限定不可數名詞:"
+                },
+                {
+                    "definitions": [
+                        "成功",
+                        "意外的事態"
+                    ],
+                    "pattern": "go",
+                    "name": "限定單數可數名詞:"
+                },
+                {
+                    "definitions": [
+                        "時髦的東西"
+                    ],
+                    "pattern": "the go",
+                    "name": "限定單數the go:"
+                }
+            ],
+            "synonyms": [
+                "craze",
+                "enthusiasm",
+                "fad",
+                "fashion",
+                "last word",
+                "latest",
+                "mode",
+                "rage",
+                "sensation",
+                "style",
+                "trend",
+                "vogue",
+                "beans",
+                "bounce",
+                "brio",
+                "dash",
+                "drive",
+                "dynamism",
+                "energy",
+                "esprit",
+                "gas",
+                "get-up-and-go",
+                "ginger",
+                "gusto",
+                "hardihood",
+                "life",
+                "moxie",
+                "oomph",
+                "pep",
+                "punch",
+                "sap",
+                "snap",
+                "starch",
+                "verve",
+                "vigor",
+                "vim",
+                "vinegar",
+                "vitality",
+                "zing",
+                "zip",
+                "attempt",
+                "bid",
+                "crack",
+                "endeavor",
+                "essay",
+                "fling",
+                "offer",
+                "pass",
+                "shot",
+                "stab",
+                "trial",
+                "try",
+                "whack",
+                "whirl",
+                "action",
+                "aggressiveness",
+                "ambition",
+                "drive",
+                "enterprise",
+                "hustle",
+                "initiative"
+            ],
+            "phrases": [
+                {
+                    "pattern": "here we go:",
+                    "definitions": [
+                        "來吧",
+                        "開始吧",
+                        "該我們了",
+                        "好了"
+                    ],
+                    "name": "here we go:"
+                },
+                {
+                    "pattern": "here we go again:",
+                    "definitions": [
+                        "(不好的事物)又來了"
+                    ],
+                    "name": "here we go again:"
+                },
+                {
+                    "pattern": "here you go:",
+                    "definitions": [
+                        "給你的"
+                    ],
+                    "name": "here you go:"
+                },
+                {
+                    "pattern": "how do/does ...(人) go about it:",
+                    "definitions": [
+                        "...如何著手這事?",
+                        "...要如何著手這事?"
+                    ],
+                    "name": "how do/does ...(人) go about it:"
+                },
+                {
+                    "pattern": "how is/are ...(人) going about it:",
+                    "definitions": [
+                        "...正如何著手這事?",
+                        "...打算如何著手這事?"
+                    ],
+                    "name": "how is/are ...(人) going about it:"
+                },
+                {
+                    "pattern": "how would ...(人) go about it:",
+                    "definitions": [
+                        "...會如何著手這事?"
+                    ],
+                    "name": "how would ...(人) go about it:"
+                },
+                {
+                    "pattern": "how did ...(人) go about it:",
+                    "definitions": [
+                        "...那時如何著手這事?"
+                    ],
+                    "name": "how did ...(人) go about it:"
+                },
+                {
+                    "pattern": "how was/were ...(人) going about it:",
+                    "definitions": [
+                        "...當時如何著手這事?",
+                        "...當下如何著手這事?"
+                    ],
+                    "name": "how was/were ...(人) going about it:"
+                },
+                {
+                    "condition": "可數名詞:",
+                    "examples": [
+                        {
+                            "pattern": "a go-round|a go-around|(複數)go-rounds|(複數)go-arounds:",
+                            "definitions": [
+                                "(飛機降落不下來時的)復飛"
+                            ],
+                            "name": "a go-round|a go-around|(複數)go-rounds|(複數)go-arounds:"
+                        },
+                        {
+                            "pattern": "a get-go|get-goes:",
+                            "definitions": [
+                                "開始",
+                                "開端"
+                            ],
+                            "name": "a get-go|get-goes:"
+                        }
+                    ]
+                },
+                {
+                    "condition": "限定不可數名詞:",
+                    "examples": [
+                        {
+                            "pattern": "get-up-and-go:",
+                            "definitions": [
+                                "闖勁",
+                                "魄力",
+                                "進取心"
+                            ],
+                            "name": "get-up-and-go:"
+                        }
+                    ]
+                }
+            ]
+        },
+        "形容詞": {
+            "phrases": [
+                {
+                    "pattern": "(人)on the go:",
+                    "definitions": [
+                        "處於忙碌活躍的"
+                    ],
+                    "name": "(人)on the go:"
+                },
+                {
+                    "pattern": "to go:",
+                    "definitions": [
+                        "(食物)外帶的",
+                        "(限置於名詞之後作修飾)剩下的|未完成的"
+                    ],
+                    "name": "to go:"
+                },
+                {
+                    "pattern": "(必接名詞)go-to:",
+                    "definitions": [
+                        "最佳的",
+                        "可靠的",
+                        "(人)必找的|尋求協助的|徵詢意見的",
+                        "(地方)必去的"
+                    ],
+                    "name": "(必接名詞)go-to:"
+                },
+                {
+                    "pattern": "(人)go-getting:",
+                    "definitions": [
+                        "野心勃勃的",
+                        "手段強硬的"
+                    ],
+                    "name": "(人)go-getting:"
+                },
+                {
+                    "pattern": "(人)get-up-and-go:",
+                    "definitions": [
+                        "幹勁十足的",
+                        "有進取心的"
+                    ],
+                    "name": "(人)get-up-and-go:"
+                },
+                {
+                    "pattern": "no go|a no go:",
+                    "definitions": [
+                        "不行的",
+                        "不合格的",
+                        "行不通的",
+                        "沒成功的",
+                        "不通過的",
+                        "通不過的",
+                        "失敗的",
+                        "不可能的",
+                        "沒有用的",
+                        "辦不到的"
+                    ],
+                    "name": "no go|a no go:"
+                },
+                {
+                    "pattern": "stop-and-go(必接名詞):",
+                    "definitions": [
+                        "停停走走的",
+                        "走走停停的",
+                        "時走時停的"
+                    ],
+                    "name": "stop-and-go(必接名詞):"
+                },
+                {
+                    "pattern": "(英式)stop-go(必接名詞):",
+                    "definitions": [
+                        "時而發展時而停滯的"
+                    ],
+                    "name": "(英式)stop-go(必接名詞):"
+                }
+            ],
+            "synonyms": [
+                "fit",
+                "prepared",
+                "ready",
+                "set"
+            ]
+        },
+        "副詞": {
+            "phrases": [
+                {
+                    "pattern": "from the get go|from the get-go|from the git-go:",
+                    "definitions": [
+                        "從一開始"
+                    ],
+                    "name": "from the get go|from the get-go|from the git-go:"
+                }
+            ],
+            "synonyms": []
+        },
+        "感嘆詞": {
+            "phrases": [
+                {
+                    "pattern": "go on:",
+                    "definitions": [
+                        "請繼續!",
+                        "請繼續説!",
+                        "(用以鼓勵)請做!",
+                        "(因短暫停頓後請對方)繼續說!",
+                        "這太瘋狂了!",
+                        "這太荒謬!"
+                    ],
+                    "name": "go on:"
+                },
+                {
+                    "pattern": "go ahead:",
+                    "definitions": [
+                        "請做!",
+                        "請説!"
+                    ],
+                    "name": "go ahead:"
+                },
+                {
+                    "pattern": "go right ahead:",
+                    "definitions": [
+                        "請便!",
+                        "請用吧!",
+                        "去吧!"
+                    ],
+                    "name": "go right ahead:"
+                },
+                {
+                    "pattern": "go on with you:",
+                    "definitions": [
+                        "你走吧!"
+                    ],
+                    "name": "go on with you:"
+                },
+                {
+                    "pattern": "go fly a kite|go fly your kite:",
+                    "definitions": [
+                        "走開!",
+                        "滾開!"
+                    ],
+                    "name": "go fly a kite|go fly your kite:"
+                }
+            ],
+            "synonyms": []
+        }
+    }
+}

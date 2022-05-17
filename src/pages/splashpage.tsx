@@ -1,42 +1,38 @@
 import React from "react";
-import axios from "axios";
-
 import { StyleSheet, View, Image, Dimensions, Text } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import theme from "./../utilities/theme.style";
+import { Colors, Typography } from "../styles";
+
 import Images from "./../assets/images";
-import { setUserLogin } from "./../actions/user";
 import { setDailyWord } from "./../actions/word";
 import words from "./../assets/words/words.json";
 
 export const DEVICE_WIDTH = Dimensions.get("window").width;
 export const DEVICE_HEIGHT = Dimensions.get("window").height;
 const splashPage = ({ navigation }: { navigation: any }) => {
+  
   const dispatch: Dispatch<any> = useDispatch();
   React.useEffect(() => {
-    const authentication = async () => {
+    const fetchDailyWord = async () => {
       try {
-        // const isLoggedIn = await AsyncStorage.getItem("isLoggedIn");
         dispatch(setDailyWord(words[Math.floor(Math.random() * words.length)]));
-        // dispatch(setUserLogin(!!isLoggedIn));
         setTimeout(() => {
           navigation.navigate("homePage", {
             withAnimation: true,
           });
         }, 3000);
       } catch (err) {
-        // error reading value
         console.log("err", err);
       }
     };
-    authentication();
+    fetchDailyWord();
   }, []);
+
   return (
     <View style={styles.splashContainer}>
       <Image style={styles.splashImage} source={Images.icons.logo_icon} />
-      <Text style={{ fontSize: theme.FONT_SIZE_SMALL, marginTop: 220 }}>
+      <Text style={{  }}>
         版本資訊：5.8.7
       </Text>
     </View>
@@ -44,9 +40,9 @@ const splashPage = ({ navigation }: { navigation: any }) => {
 };
 const styles = StyleSheet.create({
   splashContainer: {
-    backgroundColor: "#E4CAB3",
     width: "100%",
     height: "100%",
+    backgroundColor: Colors.button_secondary_disable,
     position: "absolute",
     bottom: 0,
     zIndex: 10,
@@ -58,5 +54,11 @@ const styles = StyleSheet.create({
     height: DEVICE_WIDTH - 70,
     resizeMode: "contain",
   },
+  splashText: {
+    ...Typography.sm,
+    position: "absolute",
+    bottom: 85,
+    zIndex: 11,
+  }
 });
 export default splashPage;

@@ -6,63 +6,56 @@ import {
   Image,
   View,
 } from "react-native";
-import theme from "../../utilities/theme.style";
-export type Props = {
-  title: any;
-  onPress: any;
-  customStyle: any;
-  type: string;
-  image: any;
-  imageSize: any;
-  fontStyle?: any;
-};
+import { Colors } from "../../styles";
+import IButton from "../../types/components/button";
+
 export const getButtonStyle = (type: string, status: any) => {
   switch (type) {
     case "1":
       if (status) {
         return {
-          backgroundColor: theme.SECONDARY_COLOR_PRESS,
-          borderColor: theme.SECONDARY_COLOR_PRESS,
+          backgroundColor: Colors.button_secondary_press,
+          borderColor: Colors.button_secondary_press,
         };
       } else {
         return {
-          backgroundColor: theme.SECONDARY_COLOR_DEFAULT,
-          borderColor: theme.SECONDARY_COLOR_DEFAULT,
+          backgroundColor: Colors.secondary,
+          borderColor: Colors.secondary,
         };
       }
     case "2":
       if (status) {
         return {
-          backgroundColor: theme.PRIMARY_COLOR_PRESS,
-          borderColor: theme.PRIMARY_COLOR_PRESS,
+          backgroundColor: Colors.button_primary_press,
+          borderColor: Colors.button_primary_press,
         };
       } else {
         return {
-          backgroundColor: theme.PRIMARY_COLOR_DEFAULT,
-          borderColor: theme.PRIMARY_COLOR_DEFAULT,
+          backgroundColor: Colors.primary,
+          borderColor: Colors.primary,
         };
       }
     case "facebook":
       if (status) {
         return {
-          backgroundColor: theme.FACEBOOK_COLOR_PRESS,
-          borderColor: theme.FACEBOOK_COLOR_PRESS,
+          backgroundColor: Colors.facebook_color_press,
+          borderColor: Colors.facebook_color_press,
         };
       } else {
         return {
-          backgroundColor: theme.FACEBOOK_COLOR,
-          borderColor: theme.FACEBOOK_COLOR,
+          backgroundColor: Colors.facebook_color,
+          borderColor: Colors.facebook_color,
         };
       }
     case "text":
       return null
     default:
       return {
-        backgroundColor: "transparent",
+        backgroundColor: Colors.transparent,
       };
   }
 };
-const Button: React.FC<Props> = ({
+const Button: React.FC<IButton> = ({
   title,
   onPress,
   customStyle,
@@ -81,15 +74,12 @@ const Button: React.FC<Props> = ({
       accessibilityHint={title}
       onPress={onPress}
       onPressIn={() => setStatus({ hover: true })}
-      onPressOut={() => {
-        setStatus({ hover: false });
-      }}
+      onPressOut={() => setStatus({ hover: false })}
     >
       <View
         style={[getButtonStyle(type, status.hover), customStyle, styles.button]}
       >
-        {typeof image !== "string" ? (
-          <Image
+        {(image && imageSize) && <Image
             style={{
               width: imageSize.width,
               height: imageSize.height,
@@ -97,11 +87,8 @@ const Button: React.FC<Props> = ({
               resizeMode: "contain",
             }}
             source={image}
-          />
-        ) : null}
-        {title.length !== 0 ? (
-          <Text style={[styles.buttonText, fontStyle]}>{title}</Text>
-        ) : null}
+          />}
+        { !!title && <Text style={[styles.buttonText, fontStyle]}>{title}</Text> }
       </View>
     </TouchableWithoutFeedback>
   );
@@ -112,19 +99,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: {
-    color: theme.COLOR_WHITE,
+    color: Colors.white,
   },
   isDisable: {
-    backgroundColor: theme.PRIMARY_COLOR_DEFAULT,
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
   },
   isHover: {
-    backgroundColor: theme.SECONDARY_COLOR_PRESS,
-    borderColor: theme.SECONDARY_COLOR_PRESS,
+    backgroundColor: Colors.button_secondary_press,
+    borderColor: Colors.button_secondary_press,
   },
   isDefault: {
-    backgroundColor: theme.SECONDARY_COLOR_DEFAULT,
-    borderColor: theme.SECONDARY_COLOR_DEFAULT,
+    backgroundColor: Colors.secondary,
+    borderColor: Colors.secondary,
   },
 });
 export default Button;

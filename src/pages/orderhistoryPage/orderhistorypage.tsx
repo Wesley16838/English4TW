@@ -1,24 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from "expo-linear-gradient";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import ProfileImage from "../../components/ProfileImage/ProfileImage";
-import Button from "../../components/Button/Button";
-import theme from "./../../utilities/theme.style";
-import images from "../../assets/images";
 
+import Button from "../../components/Button/Button";
+import { Colors, Typography } from "../../styles";
+import images from "../../assets/images";
 import {
   StyleSheet,
   Text,
   View,
-  TouchableWithoutFeedback,
-  Image,
-  TouchableOpacity,
-  Switch,
   FlatList,
+  TextStyle,
 } from "react-native";
 import { DEVICE_WIDTH } from "../splashpage";
-import { IOrder } from "./../../types/orders";
+import { IOrder } from "../../types/pages/orders";
+import LinearGradientLayout from "../../components/LinearGradientLayout";
+
 const OrderItem: React.FC<IOrder> = ({ cases, date, price, status, index }) => {
   return (
     <View style={[styles.cardContainer, { marginTop: index === 1 ? 26 : 20 }]}>
@@ -45,10 +41,7 @@ const orderhistoryPage = ({
   };
 
   return (
-    <LinearGradient
-      colors={[theme.BACKGROUND_COLOR_1, theme.BACKGROUND_COLOR_2]}
-      style={styles.container}
-    >
+    <LinearGradientLayout>
       <SafeAreaView
         style={{
           height: "100%",
@@ -75,13 +68,7 @@ const orderhistoryPage = ({
           </View>
 
           <Text
-            style={{
-              flex: 1,
-              textAlign: "center",
-              fontSize: theme.FONT_SIZE_MEDIUM,
-              lineHeight: 22,
-              fontWeight: "bold",
-            }}
+            style={ Typography.pageTitle as TextStyle }
           >
             訂單記錄
           </Text>
@@ -144,16 +131,10 @@ const orderhistoryPage = ({
           keyExtractor={(item, index) => index.toString()}
         />
       </SafeAreaView>
-    </LinearGradient>
+    </LinearGradientLayout>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   sectionRow: {
     flexDirection: "row",
     height: 60,
@@ -161,7 +142,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     width: DEVICE_WIDTH,
-    borderTopColor: "#96CACA",
+    borderTopColor: Colors.primary_light,
     borderTopWidth: 1,
   },
   sectionText: {},
@@ -180,9 +161,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 18,
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
+    borderColor: Colors.primary,
     borderWidth: 1,
-    backgroundColor: theme.COLOR_WHITE,
+    backgroundColor: Colors.white,
   },
   cardRow: {
     width: "100%",
@@ -200,13 +181,11 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   name: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
+    ...Typography.base_primary,
     lineHeight: 17,
-    color: theme.PRIMARY_COLOR_DEFAULT,
   },
   date: {
-    fontSize: theme.FONT_SIZE_MEDIUM,
-    color: theme.SECONDARY_COLOR_DEFAULT,
+    ...Typography.base_secondary
   },
   content: {
     fontSize: 16,

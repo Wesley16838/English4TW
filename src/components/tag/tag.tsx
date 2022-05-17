@@ -1,23 +1,18 @@
 import React from "react";
 import {
   StyleSheet,
-  Image,
-  Pressable,
   Text,
-  TouchableOpacity,
   View,
   TouchableWithoutFeedback,
 } from "react-native";
-import theme from "../../utilities/theme.style";
-export type Props = {
-  title: string;
-  OnClick: any;
-  customStyle: any;
-  disable?: boolean;
-};
-const Tag: React.FC<Props> = ({ title, OnClick, customStyle, disable }) => {
-  const [press, setPress] = React.useState(false);
-  const [pressIn, setPressIn] = React.useState(false);
+import { Colors } from "../../styles";
+import ITag from "../../types/components/tag";
+/*
+[Tag] is touchable component
+disable means tag cannot be pressed if it's true. Ex:筆記內容頁
+TodoList: pass callback function from parent 
+*/
+const Tag: React.FC<ITag> = ({ title, OnClick, customStyle, disable }) => {
   const [status, setStatus] = React.useState({
     hover: false,
     press: false,
@@ -39,20 +34,20 @@ const Tag: React.FC<Props> = ({ title, OnClick, customStyle, disable }) => {
       <View
         style={[
           customStyle,
-          status.hover
-            ? styles.isHover
-            : status.press
-            ? styles.isPress
-            : styles.isDefault,
+          status.hover ? 
+            styles.isHover : 
+            status.press ? 
+              styles.isPress : 
+              styles.isDefault,
         ]}
       >
         <Text
           style={[
-            status.hover
-              ? styles.isHoverText
-              : status.press
-              ? styles.isPressText
-              : styles.isDefaultText,
+            status.hover ? 
+              styles.whiteText: 
+              status.press ? 
+                styles.whiteText : 
+                styles.isDefaultText
           ]}
         >
           {title}
@@ -63,31 +58,28 @@ const Tag: React.FC<Props> = ({ title, OnClick, customStyle, disable }) => {
 };
 const styles = StyleSheet.create({
   isPress: {
-    backgroundColor: theme.PRIMARY_COLOR_DEFAULT,
-    borderColor: theme.PRIMARY_COLOR_DEFAULT,
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
     borderWidth: 1,
     borderRadius: 20,
   },
   isHover: {
-    backgroundColor: theme.PRIMARY_COLOR_PRESS,
-    borderColor: theme.PRIMARY_COLOR_PRESS,
+    backgroundColor: Colors.button_primary_press,
+    borderColor: Colors.button_primary_press,
     borderWidth: 1,
     borderRadius: 20,
   },
   isDefault: {
-    backgroundColor: theme.COLOR_WHITE,
-    borderColor: theme.SECONDARY_COLOR_DEFAULT,
+    backgroundColor: Colors.white,
+    borderColor: Colors.secondary,
     borderWidth: 1,
     borderRadius: 20,
   },
   isDefaultText: {
-    color: theme.SECONDARY_COLOR_DEFAULT,
+    color: Colors.secondary,
   },
-  isPressText: {
-    color: theme.COLOR_WHITE,
-  },
-  isHoverText: {
-    color: theme.COLOR_WHITE,
+  whiteText: {
+    color: Colors.white,
   },
 });
 export default Tag;
